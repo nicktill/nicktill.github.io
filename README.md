@@ -1,2 +1,0 @@
-# NickTill.github.io
-Resume

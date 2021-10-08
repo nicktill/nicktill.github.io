@@ -1,3 +1,6 @@
+@import url('https://fonts.google.com/specimen/Sen');
+@import url('https://fonts.google.com/specimen/Bebas+Neue#standard-styles');
+
 * {
   margin: 0;
   padding: 0;
@@ -10,9 +13,9 @@ html, body {
 }
 
 body {
-    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab,#dbb252 );
     background-size: 400% 400%;
-    animation: gradient 15s ease infinite;
+    animation: gradient 10s ease infinite;
 }
 
 @keyframes gradient {
@@ -26,14 +29,46 @@ body {
         background-position: 0% 50%;
     }
 }
-
 header{
   color: white;
   text-align: center;
   margin-top: 10%;
   font-family: "Sen";
-
 }
 
+.buttons{
+  color: white;
+  font-family: "Sen";
+  font: bold;
+}
+.wrapper {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
+.typing-demo {
+  width: 20ch;
+  animation: typing 3s steps(22), blink .5s step-end infinite alternate;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid;
+  font-family: monospace;
+  font-size: 2em;
+  color: white;
+  margin-bottom: 55%;
+  font-size: 15px;
+}
 
+@keyframes typing {
+  from {
+    width: 0
+  }
+}
+    
+@keyframes blink {
+  50% {
+    border-color: transparent
+  }
+}

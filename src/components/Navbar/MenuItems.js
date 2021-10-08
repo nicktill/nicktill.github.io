@@ -2,25 +2,25 @@ import react from 'react';
 
 export const MenuItems = [
     {
-        title: "Home",
+        title: "home",
         url: '#',
         cName: 'nav-links',
     },
 
     {
-        title: "LinkedIn",
+        title: "linkedin",
         url: '#',
         cName: 'nav-links',
     },
 
     {
-        title: "GitHub",
+        title: "github",
         url: '#',
         cName: 'nav-links',
     },
 
     {
-        title: "Resume",
+        title: "resume",
         url: '#',
         cName: 'nav-links',
     }

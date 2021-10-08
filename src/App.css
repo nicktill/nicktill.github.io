@@ -1,5 +1,4 @@
 @import url('https://fonts.google.com/specimen/Sen');
-@import url('https://fonts.google.com/specimen/Bebas+Neue#standard-styles');
 
 * {
   margin: 0;
@@ -36,11 +35,6 @@ header{
   font-family: "Sen";
 }
 
-.buttons{
-  color: white;
-  font-family: "Sen";
-  font: bold;
-}
 .wrapper {
   height: 100vh;
   display: flex;
@@ -71,4 +65,9 @@ header{
   50% {
     border-color: transparent
   }
+}
+
+.links{
+  color: white;
+  
 }

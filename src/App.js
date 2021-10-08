@@ -12,7 +12,7 @@ function App() {
       </header>
       <div class="wrapperText wrapper">
         <div class="typing-demo">
-          website coming soon
+          website coming soon...
         </div>
       </div>
     </div>

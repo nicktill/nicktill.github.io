@@ -35,7 +35,7 @@ header{
   font-family: "Sen";
 }
 .typing-demo {
-  width: 20ch;
+  width: 22ch;
   animation: typing 3s steps(22), blink .5s step-end infinite alternate;
   white-space: nowrap;
   overflow: hidden;
@@ -43,13 +43,16 @@ header{
   font-family: monospace;
   font-size: 2em;
   color: white;
-  margin-bottom: 55%;
+  margin-bottom: 80%;
   font-size: 15px;
 }
 
 @keyframes typing {
   from {
     width: 0
+  }
+  from{
+    width: 22
   }
 }
     
@@ -81,6 +84,7 @@ font-family: Inter,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubunt
   margin-left:auto;
   margin-right:auto;
   width:960px;
+  
 }
 
 .wrapperText {
@@ -88,4 +92,5 @@ font-family: Inter,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubunt
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-bottom: 50px; 
 }

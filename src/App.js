@@ -8,7 +8,7 @@ function App() {
       <NavBar />
       <header class="wrapper">
         <h1>nicholas tillmann</h1>
-        <h2>personal website</h2>
+        <h4>personal website</h4>
       </header>
       <div class="wrapperText wrapper">
         <div class="typing-demo">

@@ -49,3 +49,8 @@ ul {
   li a:hover {
     opacity: 50%; 
   }
+
+.fa-times, .fa-bars{
+  color: white;
+  align-items: left;
+}

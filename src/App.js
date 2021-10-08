@@ -1,13 +1,13 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
       <header>
-        <h1>Nick's Todo List</h1>
+        <h1>nicholas-tillmann</h1>
+        <h2>personal website</h2>
       </header>
-
     </div>
   );
 }

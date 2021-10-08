@@ -34,14 +34,6 @@ header{
   margin-top: 10%;
   font-family: "Sen";
 }
-
-.wrapper {
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 .typing-demo {
   width: 20ch;
   animation: typing 3s steps(22), blink .5s step-end infinite alternate;
@@ -83,4 +75,17 @@ font-family: Inter,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubunt
   appearance: none;
   border: none;
   letter-spacing: 1px;
+}
+
+.wrapper {
+  margin-left:auto;
+  margin-right:auto;
+  width:960px;
+}
+
+.wrapperText {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

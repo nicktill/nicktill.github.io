@@ -1,5 +1,5 @@
 {
-  "homepage": "http://NickTill.github.io",
+  "homepage": "https://nicktill.github.io",
   "name": "my-app",
   "version": "0.1.0",
   "private": true,
@@ -17,7 +17,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "deploy": "npm run build&&gh-pages -d build"
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -b master -d build"
   },
   "eslintConfig": {
     "extends": [

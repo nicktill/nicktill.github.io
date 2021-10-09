@@ -35,8 +35,8 @@ header{
   font-family: "Sen";
 }
 .typing-demo {
-  width: 28ch;
-  animation: typing 3s steps(28), blink .5s step-end infinite alternate;
+  width: 20ch;
+  animation: typing 3s steps(20), blink .5s step-end infinite alternate;
   white-space: nowrap;
   overflow: hidden;
   border-right: 3px solid;
@@ -45,7 +45,7 @@ header{
   color: white;
   font-size: 15px;
   align-items: center;
-  margin-left: 37.75%;
+  margin-left: 41%;
 }
 
 @keyframes typing {

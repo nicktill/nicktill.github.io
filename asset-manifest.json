@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/Nicktill.github.io/static/css/main.7544f8e3.chunk.css",
-    "main.js": "/Nicktill.github.io/static/js/main.f84fcfb1.chunk.js",
-    "main.js.map": "/Nicktill.github.io/static/js/main.f84fcfb1.chunk.js.map",
-    "runtime-main.js": "/Nicktill.github.io/static/js/runtime-main.8e97ff40.js",
-    "runtime-main.js.map": "/Nicktill.github.io/static/js/runtime-main.8e97ff40.js.map",
-    "static/js/2.82cd4665.chunk.js": "/Nicktill.github.io/static/js/2.82cd4665.chunk.js",
-    "static/js/2.82cd4665.chunk.js.map": "/Nicktill.github.io/static/js/2.82cd4665.chunk.js.map",
-    "static/js/3.8bd91e5b.chunk.js": "/Nicktill.github.io/static/js/3.8bd91e5b.chunk.js",
-    "static/js/3.8bd91e5b.chunk.js.map": "/Nicktill.github.io/static/js/3.8bd91e5b.chunk.js.map",
-    "index.html": "/Nicktill.github.io/index.html",
-    "precache-manifest.14e344afeabe29b41323c611ae936d2d.js": "/Nicktill.github.io/precache-manifest.14e344afeabe29b41323c611ae936d2d.js",
-    "service-worker.js": "/Nicktill.github.io/service-worker.js",
-    "static/css/main.7544f8e3.chunk.css.map": "/Nicktill.github.io/static/css/main.7544f8e3.chunk.css.map",
-    "static/js/2.82cd4665.chunk.js.LICENSE.txt": "/Nicktill.github.io/static/js/2.82cd4665.chunk.js.LICENSE.txt"
+    "main.css": "/static/css/main.7544f8e3.chunk.css",
+    "main.js": "/static/js/main.f84fcfb1.chunk.js",
+    "main.js.map": "/static/js/main.f84fcfb1.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.55e8f290.js",
+    "runtime-main.js.map": "/static/js/runtime-main.55e8f290.js.map",
+    "static/js/2.82cd4665.chunk.js": "/static/js/2.82cd4665.chunk.js",
+    "static/js/2.82cd4665.chunk.js.map": "/static/js/2.82cd4665.chunk.js.map",
+    "static/js/3.8bd91e5b.chunk.js": "/static/js/3.8bd91e5b.chunk.js",
+    "static/js/3.8bd91e5b.chunk.js.map": "/static/js/3.8bd91e5b.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.db1f20065e8bfef71a152091cf682295.js": "/precache-manifest.db1f20065e8bfef71a152091cf682295.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/main.7544f8e3.chunk.css.map": "/static/css/main.7544f8e3.chunk.css.map",
+    "static/js/2.82cd4665.chunk.js.LICENSE.txt": "/static/js/2.82cd4665.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.8e97ff40.js",
+    "static/js/runtime-main.55e8f290.js",
     "static/js/2.82cd4665.chunk.js",
     "static/css/main.7544f8e3.chunk.css",
     "static/js/main.f84fcfb1.chunk.js"

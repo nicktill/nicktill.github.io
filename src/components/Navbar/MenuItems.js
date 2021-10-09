@@ -1,12 +1,6 @@
 import react from 'react';
 export const MenuItems = [
     {
-        title: "home",
-        url: '#',
-        cName: 'nav-links',
-    },
-
-    {
         title: "linkedin",
         url: 'https://www.linkedin.com/in/nicholas-tillmann-4647b7187/',
         cName: 'nav-links',
@@ -20,7 +14,7 @@ export const MenuItems = [
 
     {
         title: "resume",
-        url: 'src\components\Navbar\resume.pdf',
+        url: 'resume.pdf',
         cName: 'nav-links',
     }
 ]

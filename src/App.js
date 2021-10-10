@@ -1,10 +1,21 @@
 import React from 'react';
 import './App.css';
 import NavBar from "./components/Navbar/Navbar"
+import AnimatedCursor from "react-animated-cursor"
+
 
 function App() {
   return (
     <div className="App">
+      <AnimatedCursor
+        innerSize={8}
+        outerSize={24}
+        color='255,255,255'
+        outerAlpha={0}
+        innerScale={0.7}
+        outerScale={5}
+        trailingSpeed={0}
+      />
       <NavBar />
       <header class="wrapper">
         <h1 class="opacity">nicholas tillmann</h1>

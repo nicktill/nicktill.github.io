@@ -51,3 +51,21 @@ ul {
   color: white;
   align-items: left;
 }
+
+a{
+    position: relative;
+    display: inline-block;
+    padding: 25px 30px;
+    margin: 40px 0;
+    color: #03e9f4;
+    text-decoration: none;
+    transition: .75s;
+    letter-spacing: 4px;
+    overflow: hidden;
+}
+a:hover{
+    background: transparent;
+    color: #03e9f4;
+     -webkit-box-reflect:below 1px linear-gradient(transparent,black);
+}
+

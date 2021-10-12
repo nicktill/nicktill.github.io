@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import NavBar from "./components/Navbar/Navbar"
 import AnimatedCursor from "react-animated-cursor"
+// import Jobcard from "./components/Jobcard/Jobcard"
 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
         outerScale={5}
         trailingSpeed={0}
       />
+      {/* <Jobcard /> */}
       <NavBar />
       <header class="wrapper">
         <h1 class="opacity">nicholas tillmann</h1>

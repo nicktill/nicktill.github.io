@@ -7,7 +7,7 @@ class Jobcard extends Component {
         return (
 
             <div class="positioning content">
-                <h1 class="work"> Work Experience</h1>
+                <h1 class="work"> work experience</h1>
                 <div class="card" >
                     <img class="leidos" src="public/Leidos-Logo.wine.png" />
                     <h1 class="SWE">Software Engineer Intern</h1>

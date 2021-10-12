@@ -15,10 +15,9 @@ class Jobcard extends Component {
                     <h3 class="location">Reston, VA</h3>
                     <h3 class="dates">June, 2022 - December, 2022</h3>
                     <ul class="information">
-                        <li>- Worked primarily with Vue, Vuetify, Javascript, CSS, HTML, APIs</li>
-                        <li>- Experience with: Docker, JIRA, Conflunce, Git, SonarQube, Postman</li>
                         <li>- Reacts aCTKnowledge team working on mobile app and web portal for the United States National Counterterrorism Center.</li>
                         <li>- Attended monthly client proposals to gauge feedback about the application and best practices to improve the UI/UX</li>
+                        <li>- Worked primarily with Vue, Vuetify, Javascript, CSS, HTML, Docker, JIRA, Conflunce, Git, SonarQube, Postman</li>
                     </ul>
                 </div>
             </div>

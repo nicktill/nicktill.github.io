@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;900&display=swap');
+@import url('https://www.fonts.com/font/monotype/camphor');
+
 
 .positioning{
     text-align: center;
@@ -6,7 +8,7 @@
 }
 .information{
   color:white;
-  font-family: "Sen";
+  font-family: "camphor";
   font-size: 10px;
   height: 180px;
   width: 400px;
@@ -15,7 +17,6 @@
   padding-top: 10px;
   padding-bottom: 10px;
   text-align: center;
-  
 }
 .SWE{
   font-size: 14px;
@@ -26,17 +27,17 @@
 .company{
   text-align: center;
   font-size: 14px;
-  color: rgba(0, 0, 0, 0.6);
+  color: white;
 }
 .dates{
     font-size: 8px;
-    color: rgba(0, 0, 0, 0.6);
+    color: white;
     text-align: center;
 }
 
 .location{
   font-size: 10px;
-  color: rgba(0, 0, 0, 0.6);
+  color: white;
   text-align: center;
 }
 
@@ -47,7 +48,7 @@
   text-align: justify;
   color: black;
   padding: 40px;
-  font-family: 'Sen';
+  font-family: 'camphor';
 }
 
 
@@ -63,7 +64,7 @@
 
 .work{
   text-align: center;
-  font-family: 'Sen';
+  font-family: 'camphor';
   font-size: 20px;
   color: white;
   padding: 15px;
@@ -79,3 +80,7 @@ div:hover{
   left: 30px;
 }
 
+
+@media only screen and (min-width: 768px){
+ 
+}

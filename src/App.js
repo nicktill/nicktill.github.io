@@ -20,11 +20,11 @@ function App() {
       {/* <Jobcard /> */}
       <NavBar />
       <header class="wrapper">
-        <h1 class="opacity">nicholas tillmann</h1>
-        <h5 class="opacity-two">SWE Intern @Leidos | CS @Pitt</h5>
+        <h1>nicholas tillmann</h1>
+        <h5>SWE Intern @Leidos | CS @Pitt</h5>
       </header>
-      <div class="wrapperText wrapper">
-        <div class="typing-demo opacity-two">
+      <div class="wrapper">
+        <div class="typing-demo">
           new features soon...
         </div>
       </div>

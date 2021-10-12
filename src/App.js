@@ -19,8 +19,6 @@ function App() {
       />
       {/* <Jobcard /> */}
       <NavBar />
-
-
       <header>
         <div class="positionContent">
           <h1 class="coolAnimation small">nicktill</h1>

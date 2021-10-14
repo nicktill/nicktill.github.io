@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './Jobcard.css'
 
-class Jobcard extends Component {
+class JobcardTwo extends Component {
 
     render() {
         return (

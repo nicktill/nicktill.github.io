@@ -1,85 +1,62 @@
-@import url('https://fonts.google.com/specimen/Ubuntu');
+@import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
 
-
-.positioning{
-    text-align: center;
-    display: block;
-    padding: 50%;
-    margin-left: 31.5%;
-}
-.information{
-  color:white;
-  font-family: "Ubuntu";
-  font-size: 10px;
-  height: 180px;
-  width: 400px;
-  padding-left: 25px;
-  padding-right: 25px;
-  padding-top: 10px;
-  padding-bottom: 10px;
+.wrapper{
+  position:absolute;
+  top: 25%;
   text-align: center;
+  font-size: 12px;
+  font-family: Lato;
 }
-.SWE{
-  font-size: 14px;
+
+.infoJobCard{
+  font-family: Lato;
   color: white;
-  text-align: center;
-  padding-top: 10px;
-}
-.company{
-  text-align: center;
-  font-size: 14px;
-  color: white;
-}
-.dates{
-    font-size: 8px;
-    color: white;
-    text-align: center;
-}
-
-.location{
-  font-size: 10px;
-  color: white;
-  text-align: center;
-}
-
-.content {
-  position: absolute;
-  top: 50%;
-  transform: translatey(-50%);
-  text-align: justify;
-  color: black;
-  padding: 40px;
-  font-family: 'Ubuntu';
-}
-
-
-.card {
-  background-color: rgba(255, 255, 255, 0.05);
-  border-radius: 15px;
-  box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.1);
-  height: 180px;
-  overflow: hidden;
+  text-align: left;
   position: relative;
-  align-items: center;
-  display: block;
-  width: 400px;
+  left: 45%;
+  padding: 12px;
 }
 
-.work{
-  text-align: center;
-  font-family: 'Ubuntu';
-  font-size: 20px;
-  color: white;
-  padding: 15px;
-}
-
-.leidos {
-  top: 30px;
+.logo{
+  width: 60px;
+  height: 60px;
+  background-color: white;
+  border-radius: 20px;
   position: absolute;
-  left: 30px;
+  left: 90px;
+  bottom: 70px;
+  z-index: -1;
 }
 
+.jobInfo{
+  display: block;
+  color: white;
+  font-family: Lato;
+  padding: 15px;
+  position: relative;
+  bottom: 40px;
+  left: 20px;
+}
 
-@media only screen and (min-width: 768px){
- 
+.positionLocation{
+  text-align: left;
+  position: absolute;
+  left: 90px;
+  bottom: 50px;
+  color: white;
+  font-family: Lato;
+}
+
+.form_container {
+	padding: 4em; 
+  background: rgba(0, 0, 0, 0.25);
+	width: 500px;
+	height: 150px;
+	-webkit-box-shadow: rgba(50, 50, 93, 0.75) 0px 50px 100px -20px,
+		rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+	box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+		rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+	border-radius: 20px;
+  position: relative;
+  margin-left: 15%;
 }

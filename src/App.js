@@ -13,6 +13,7 @@ function App() {
         outerSize={24}
         color='255,255,255'
         outerAlpha={0}
+
         innerScale={0.7}
         outerScale={5}
         trailingSpeed={0}
@@ -24,10 +25,12 @@ function App() {
           <h1 class="coolAnimation small">nicktill</h1>
           <h3>nicholas tillmann</h3>
           <div positionContentInfo></div>
-          <h4>SWE Intern @Leidos | CS @Pitt</h4>
+          <h4>Incoming SWE Intern @IBM</h4>
+          <h4>CS @Pitt</h4>
           <div class="typing-demo">
             new features soon...
           </div>
+
         </div>
       </header>
     </div >

@@ -7,15 +7,18 @@
   font-weight: normal;
 }
 
+@media screen and (max-width: 480px) {
+  body{
+    background-color: red;
+  }
+}
+
 .positionContent{
   position: relative;
   bottom: 150px;
   margin-top: 12.5%;
 }
 
-.positionContentInfo{
-  margin-bottom: 50px;
-}
 
 .coolAnimation {
   transition: all 0.5s;

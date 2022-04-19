@@ -5,6 +5,20 @@ import AnimatedCursor from "react-animated-cursor"
 // import Jobcard from "./components/Jobcard/Jobcard"
 // import morphCard from './components/morphCard/morphCard';
 
+
+let emailHandler = 'ntillmann1439@gmail.com';
+
+const copyEmail = () => {
+  // // add code to copy email
+  // var link = "ntillmann1439@gmail.com"
+  //   + "?cc=myCCaddress@example.com"
+  //   + "&subject=" + encodeURIComponent("")
+  //   + "&body=" + encodeURIComponent(document.getElementById('').value)
+  //   ;
+
+  // window.location.href = link;
+}
+
 function App() {
   return (
     <div className="App">
@@ -26,8 +40,8 @@ function App() {
           <h3>nicholas tillmann</h3>
           <h4>Incoming SWE Intern @IBM</h4>
           <h4>CS @Pitt</h4>
-          <div class="typing-demo">
-            new features soon...
+          <div onClick={copyEmail} class="typing-demo">
+            {emailHandler}
           </div>
         </div>
       </header>

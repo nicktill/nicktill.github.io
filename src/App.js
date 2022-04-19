@@ -6,7 +6,7 @@ import AnimatedCursor from "react-animated-cursor"
 // import morphCard from './components/morphCard/morphCard';
 
 
-let emailHandler = 'ntillmann1439@gmail.com';
+let emailHandler = 'new features soon...';
 
 const copyEmail = () => {
   // // add code to copy email

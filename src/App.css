@@ -88,7 +88,7 @@ header {
 }
 
 .typing-demo {
-  width: 23.5ch;
+  width: 21ch;
   animation: typing 3s steps(20), blink .5s step-end infinite alternate;
   white-space: nowrap;
   overflow: hidden;
@@ -96,7 +96,7 @@ header {
   font-family: monospace;
   font-size: 3em;
   color: white;
-  font-size: 13px;
+  font-size: 16px;
   display: inline-block;
   align-items: center;
 }

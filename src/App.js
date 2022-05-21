@@ -38,7 +38,7 @@ function App() {
         <div class="positionContent">
           <h1 class="coolAnimation small">nicktill</h1>
           <h3>nicholas tillmann</h3>
-          <h4>Incoming SWE Intern @IBM</h4>
+          <h4>SWE Intern @IBM</h4>
           <h4>CS @Pitt</h4>
           <div onClick={copyEmail} class="typing-demo">
             {emailHandler}

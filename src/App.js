@@ -18,7 +18,6 @@ const copyEmail = () => {
 
   // window.location.href = link;
 }
-
 function App() {
   return (
     <div className="App">

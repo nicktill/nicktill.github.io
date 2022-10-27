@@ -1,16 +1,10 @@
 @import url('https://fonts.google.com/specimen/Sen');
 
 @font-face {
-  src: url("https://www.axis-praxis.org/fonts/webfonts/MetaVariableDemo-Set.woff2") format("woff2");
+  src: url("https://www.axis-praxis.org/fonts/webfonts/MetaVariableDemo-Set.woff2")format("woff2");
   font-family: "Meta";
   font-style: normal;
   font-weight: normal;
-}
-
-@media screen and (max-width: 480px) {
-  body {
-    background-color: red;
-  }
 }
 
 .positionContent {
@@ -18,7 +12,6 @@
   bottom: 150px;
   margin-top: 12.5%;
 }
-
 
 .coolAnimation {
   transition: all 0.5s;
@@ -122,4 +115,7 @@ header {
 
 }
 
-@media only screen and (min-width: 768px) {}
+@media only screen and (min-width: 768px) {
+  
+  
+}

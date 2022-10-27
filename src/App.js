@@ -20,13 +20,12 @@ const copyEmail = () => {
 }
 function App() {
   return (
-    <div className="App">
+    <div>
       <AnimatedCursor
         innerSize={8}
         outerSize={24}
         color='255,255,255'
         outerAlpha={0}
-
         innerScale={0.7}
         outerScale={5}
         trailingSpeed={0}
@@ -36,7 +35,7 @@ function App() {
         <div class="positionContent">
           <h1 class="coolAnimation small">nicktill</h1>
           <h3>nicholas tillmann</h3>
-          <h4>Software Engineer Intern @IBM</h4>
+          <h4>Prev SWE Intern @IBM & @Leidos</h4>
           <h4>CS @Pitt</h4>
         </div>
       </header>

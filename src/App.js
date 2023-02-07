@@ -5,7 +5,6 @@ import AnimatedCursor from "react-animated-cursor"
 // import Jobcard from "./components/Jobcard/Jobcard"
 // import morphCard from './components/morphCard/morphCard';
 
-
 let emailHandler = 'new features soon...';
 
 const copyEmail = () => {
@@ -35,7 +34,6 @@ function App() {
         <div class="positionContent">
           <h1 class="coolAnimation small">nicktill</h1>
           <h3>nicholas tillmann</h3>
-          <h4>Prev SWE Intern @IBM & @Leidos</h4>
           <h4>CS @Pitt</h4>
         </div>
       </header>

@@ -1,28 +1,33 @@
-@import url('https://fonts.google.com/specimen/Sen');
+@import url("https://fonts.google.com/specimen/Sen");
+
+@media (max-width: 720px) {
+  h1 {
+    display: none;
+  }
+  h3,
+  h4 {
+    text-align: center;
+  }
+}
 
 @font-face {
-  src: url("https://www.axis-praxis.org/fonts/webfonts/MetaVariableDemo-Set.woff2")format("woff2");
+  src: url("https://www.axis-praxis.org/fonts/webfonts/MetaVariableDemo-Set.woff2")
+    format("woff2");
   font-family: "Meta";
   font-style: normal;
   font-weight: normal;
 }
 
-.positionContent {
-  position: relative;
-  bottom: 150px;
-  margin-top: 12.5%;
-}
-
 .coolAnimation {
   transition: all 0.5s;
   -webkit-text-stroke: 4px #d6f4f4;
-  font-variation-settings: "wght"900, "ital"1;
+  font-variation-settings: "wght" 900, "ital" 1;
   font-size: 10rem;
   text-align: center;
   text-transform: uppercase;
   color: transparent;
   font-family: "Meta", sans-serif;
-  size-adjust: .5;
+  size-adjust: 0.5;
 }
 
 .small {
@@ -38,7 +43,7 @@
 }
 
 .coolAnimation:hover {
-  font-variation-settings: "wght"100, "ital"0;
+  font-variation-settings: "wght" 100, "ital" 0;
   text-shadow: none;
 }
 
@@ -55,7 +60,14 @@ body {
 }
 
 body {
-  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab, #dbb252);
+  background: linear-gradient(
+    -45deg,
+    #ee7752,
+    #e73c7e,
+    #23a6d5,
+    #23d5ab,
+    #dbb252
+  );
   background-size: 400% 400%;
   animation: gradient 10s ease infinite;
 }
@@ -82,7 +94,7 @@ header {
 
 .typing-demo {
   width: 21ch;
-  animation: typing 3s steps(20), blink .5s step-end infinite alternate;
+  animation: typing 3s steps(20), blink 0.5s step-end infinite alternate;
   white-space: nowrap;
   overflow: hidden;
   border-right: 3px solid;
@@ -96,26 +108,23 @@ header {
 
 @keyframes typing {
   from {
-    width: 0
+    width: 0;
   }
 
   from {
-    width: 22
+    width: 22;
   }
 }
 
 @keyframes blink {
   50% {
-    border-color: transparent
+    border-color: transparent;
   }
 }
 
 .links {
   color: white;
-
 }
 
 @media only screen and (min-width: 768px) {
-  
-  
 }

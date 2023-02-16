@@ -1,8 +1,8 @@
 @import url("https://fonts.google.com/specimen/Sen");
 
 @media (max-width: 720px) {
-  h1 {
-    display: none;
+  .coolAnimation {
+    font-size: 2.5rem; /* set a smaller font size for small screens */
   }
   h3,
   h4 {
@@ -20,14 +20,15 @@
 
 .coolAnimation {
   transition: all 0.5s;
-  -webkit-text-stroke: 4px #d6f4f4;
+  -webkit-text-stroke: 2px #d6f4f4;
   font-variation-settings: "wght" 900, "ital" 1;
-  font-size: 10rem;
+  font-size: 5rem;
   text-align: center;
   text-transform: uppercase;
   color: transparent;
   font-family: "Meta", sans-serif;
-  size-adjust: 0.5;
+  max-width: 100%; /* add this property */
+  padding: 2rem;
 }
 
 .small {

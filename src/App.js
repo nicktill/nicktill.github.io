@@ -20,7 +20,7 @@ function App() {
       <NavBar />
       <header>
         <div class="positionContent">
-          <h1 class="coolAnimation small">nicktill</h1>
+          <h1 class="coolAnimation ">nicktill</h1>
           <h3>nicholas tillmann</h3>
           <h4>CS @Pitt</h4>
         </div>

@@ -6,27 +6,7 @@ import AnimatedCursor from "react-animated-cursor";
 // import morphCard from './components/morphCard/morphCard';
 
 function App() {
-  return (
-    <div>
-      <AnimatedCursor
-        innerSize={8}
-        outerSize={24}
-        color="255,255,255"
-        outerAlpha={0}
-        innerScale={0.7}
-        outerScale={5}
-        trailingSpeed={0}
-      />
-      <NavBar />
-      <header>
-        <div class="positionContent">
-          <h1 class="coolAnimation ">nicktill</h1>
-          <h3>nicholas tillmann</h3>
-          <h4>CS @Pitt</h4>
-        </div>
-      </header>
-    </div>
-  );
+  return <h1>Hello</h1>;
 }
 
 export default App;

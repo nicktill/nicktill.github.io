@@ -1,131 +1,209 @@
-@import url("https://fonts.google.com/specimen/Sen");
-
-@media (max-width: 720px) {
-  .coolAnimation {
-    font-size: 2.5rem; /* set a smaller font size for small screens */
-  }
-  h3,
-  h4 {
-    text-align: center;
-  }
-}
-
+/* adding fonts */
 @font-face {
-  src: url("https://www.axis-praxis.org/fonts/webfonts/MetaVariableDemo-Set.woff2")
-    format("woff2");
-  font-family: "Meta";
-  font-style: normal;
-  font-weight: normal;
+  font-family: Centra;
+  src: url("./assets/font/CentraNo2-Bold.ttf");
+  font-weight: 700;
+}
+@font-face {
+  font-family: Centra;
+  src: url("./assets/font/CentraNo2-Medium.ttf");
+  font-weight: 500;
+}
+@font-face {
+  font-family: Centra;
+  src: url("./assets/font/CentraNo2-Book.ttf");
+  font-weight: 400;
 }
 
-.coolAnimation {
-  transition: all 0.5s;
-  -webkit-text-stroke: 2px #d6f4f4;
-  font-variation-settings: "wght" 900, "ital" 1;
-  font-size: 5rem;
-  text-align: center;
-  text-transform: uppercase;
-  color: transparent;
-  font-family: "Meta", sans-serif;
-  max-width: 100%; /* add this property */
-  padding: 2rem;
-}
-
-.small {
-  transform: scale(0.5, 0.5);
-  -ms-transform: scale(0.5, 0.5);
-  /* IE 9 */
-  -webkit-transform: scale(0.5, 0.5);
-  /* Safari and Chrome */
-  -o-transform: scale(0.5, 0.5);
-  /* Opera */
-  -moz-transform: scale(0.5, 0.5);
-  /* Firefox */
-}
-
-.coolAnimation:hover {
-  font-variation-settings: "wght" 100, "ital" 0;
-  text-shadow: none;
-}
-
+/* default css html stylings */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  color: white;
 }
 
-html,
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 75px;
+}
+
 body {
+  font-weight: 400;
+  overflow-x: hidden;
+  position: relative;
+  background-color: #121212 !important;
+  color: #fff !important;
+  font-family: "Centra", sans-serif !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
+  line-height: normal;
+}
+
+p,
+a,
+li,
+button,
+ul {
+  margin: 0;
+  padding: 0;
+  line-height: normal;
+  text-decoration: none;
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+img {
   width: 100%;
-  height: 100%;
+  height: auto;
 }
 
-body {
-  background: linear-gradient(
-    -45deg,
-    #ee7752,
-    #e73c7e,
-    #23a6d5,
-    #23d5ab,
-    #dbb252
-  );
-  background-size: 400% 400%;
-  animation: gradient 10s ease infinite;
+button {
+  border: 0;
+  background-color: transparent;
 }
 
-@keyframes gradient {
-  0% {
-    background-position: 0% 50%;
-  }
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+}
 
-  50% {
-    background-position: 100% 50%;
-  }
-
-  100% {
-    background-position: 0% 50%;
+@media (min-width: 1700px) {
+  main .container {
+    max-width: 100%;
+    padding: 0 150px;
   }
 }
 
-header {
-  color: white;
-  text-align: center;
-  font-family: "Sen";
+p.success {
+  color: green;
 }
 
-.typing-demo {
-  width: 21ch;
-  animation: typing 3s steps(20), blink 0.5s step-end infinite alternate;
-  white-space: nowrap;
-  overflow: hidden;
-  border-right: 3px solid;
-  font-family: monospace;
-  font-size: 3em;
-  color: white;
-  font-size: 16px;
-  display: inline-block;
+p.danger {
+  color: red;
+}
+/************ Navbar Css ************/
+nav.navbar {
+  padding: 18px 0;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 9999;
+  transition: 0.32s ease-in-out;
+}
+nav.navbar.scrolled {
+  padding: 0px 0;
+  background-color: #121212;
+}
+nav.navbar a.navbar-brand {
+  width: 9%;
+}
+nav.navbar .navbar-nav .nav-link.navbar-link {
+  font-weight: 400;
+  color: #fff !important;
+  letter-spacing: 0.8px;
+  padding: 0 25px;
+  font-size: 18px;
+  opacity: 0.75;
+}
+nav.navbar .navbar-nav a.nav-link.navbar-link:hover,
+nav.navbar .navbar-nav a.nav-link.navbar-link.active {
+  opacity: 1;
+}
+span.navbar-text {
+  display: flex;
   align-items: center;
 }
-
-@keyframes typing {
-  from {
-    width: 0;
-  }
-
-  from {
-    width: 22;
-  }
+.social-icon {
+  display: inline-block;
+  color: #fff;
+}
+.social-icon a {
+  width: 75px;
+  height: 75px;
+  /* background: rgba(217, 217, 217, 0.1); */
+  display: inline-flex;
+  border-radius: 50%;
+  margin-right: 6px;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
 }
 
-@keyframes blink {
-  50% {
-    border-color: transparent;
-  }
+.navbar-text button {
+  font-weight: 700;
+  color: #fff;
+  border: 1px solid #fff;
+  border-radius: 50px;
+  padding: 18px 34px;
+  font-size: 18px;
+  margin-left: 18px;
+  position: relative;
+  background-color: transparent;
+  transition: 0.3s ease-in-out;
 }
 
-.links {
-  color: white;
+.navbar-text button:hover {
+  transform: scale(1.06);
 }
-
-@media only screen and (min-width: 768px) {
+nav.navbar .navbar-toggler:active,
+nav.navbar .navbar-toggler:focus {
+  outline: none;
+  box-shadow: none;
+}
+nav.navbar .navbar-toggler-icon {
+  width: 24px;
+  height: 17px;
+  background-image: none;
+  position: relative;
+  border-bottom: 2px solid #fff;
+  transition: all 300ms linear;
+  top: -2px;
+}
+nav.navbar .navbar-toggler-icon:focus {
+  border-bottom: 2px solid #fff;
+}
+nav.navbar .navbar-toggler-icon:after,
+nav.navbar .navbar-toggler-icon:before {
+  width: 24px;
+  position: absolute;
+  height: 2px;
+  background-color: #fff;
+  top: 0;
+  left: 0;
+  content: "";
+  z-index: 2;
+  transition: all 300ms linear;
+}
+nav.navbar .navbar-toggler-icon:after {
+  top: 8px;
+}
+nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon:after {
+  transform: rotate(45deg);
+  background-color: #fff;
+  height: 2px;
+}
+nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon:before {
+  transform: translateY(8px) rotate(-45deg);
+  background-color: #fff;
+  height: 2px;
+}
+nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
+  border-color: transparent;
 }

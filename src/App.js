@@ -1,12 +1,14 @@
 import React from "react";
 import "./App.css";
-import NavBar from "./components/Navbar/Navbar";
-import AnimatedCursor from "react-animated-cursor";
-// import Jobcard from "./components/Jobcard/Jobcard"
-// import morphCard from './components/morphCard/morphCard';
+import NavBar from "./components/NavBar";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
-  return <h1>Hello</h1>;
+  return (
+    <div className="App">
+      <NavBar />
+    </div>
+  );
 }
 
 export default App;

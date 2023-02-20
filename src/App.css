@@ -113,7 +113,7 @@ nav.navbar {
 }
 nav.navbar.scrolled {
   padding: 0px 0;
-  background-color: #121212;
+  /* background-color: #121212; */
 }
 nav.navbar a.navbar-brand {
   width: 9%;
@@ -222,21 +222,41 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   width: 30%;
 }
 
-.title-animation {
-  animation-name: title-animation;
-  animation-duration: 1.5s;
-  animation-fill-mode: forwards;
+.projects-container {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: block;
+  text-align: center;
 }
 
-@keyframes title-animation {
-  0% {
-    opacity: 0;
-    transform: translateY(50%);
-  }
+.projects-container {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+}
+
+.arrow-container {
+  position: relative;
+}
+
+.arrow {
+  font-size: 3rem;
+  color: #fff;
+}
+
+.arrow-blink {
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
   50% {
-    opacity: 1;
-  }
-  100% {
-    transform: translateY(-50%);
+    opacity: 0;
   }
 }

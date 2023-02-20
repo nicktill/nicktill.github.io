@@ -27,7 +27,6 @@ export const NavBar = () => {
     <Navbar expand="md" className={scrolled ? "scrolled" : ""}>
       <Container>
         <Navbar.Brand href="/">
-          {/* <img src={"/nicktil"} alt="Logo" /> */}
           <h1>/nicktill</h1>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav">
@@ -43,15 +42,6 @@ export const NavBar = () => {
               onClick={() => onUpdateActiveLink("home")}
             >
               Home
-            </Nav.Link>
-            <Nav.Link
-              href="#skills"
-              className={
-                activeLink === "skills" ? "active navbar-link" : "navbar-link"
-              }
-              onClick={() => onUpdateActiveLink("skills")}
-            >
-              Skills
             </Nav.Link>
             <Nav.Link
               href="#projects"

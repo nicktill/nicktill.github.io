@@ -53,11 +53,16 @@ const Info = () => {
 
   return (
     <div className="info-container">
-      <h1>Hey! I'm Nicholas Tillmann</h1>
-      <h2>[{title}]...</h2>
-      <p>
-        I love to use my skills to craft beautiful and intuitive interfaces that
-        make users' lives easier and more enjoyable.
+      <h1>
+        Hey! I'm <span className="name">Nicholas Tillmann</span>
+      </h1>
+      <h2>
+        [<span className="title">{title}</span>
+        ]...
+      </h2>
+      <p className="description">
+        Creating beautiful and intuitive interfaces that make users' lives
+        easier and more enjoyable.
       </p>
     </div>
   );

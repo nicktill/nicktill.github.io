@@ -35,6 +35,10 @@ body {
   background-color: #121212 !important;
   color: #fff !important;
   font-family: "Centra", sans-serif !important;
+  background-image: url("./assets/img/banner-bg.png");
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
 }
 
 h1,
@@ -206,4 +210,33 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon:before {
 }
 nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   border-color: transparent;
+}
+
+/* for information component */
+.info-container {
+  display: block;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20% 0 0 20%; /* 20% from the top, 20% from the left */
+  width: 30%;
+}
+
+.title-animation {
+  animation-name: title-animation;
+  animation-duration: 1.5s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes title-animation {
+  0% {
+    opacity: 0;
+    transform: translateY(50%);
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-50%);
+  }
 }

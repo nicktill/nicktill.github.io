@@ -71,9 +71,9 @@ export const NavBar = () => {
                 {/* <p>Git</p> */}
               </a>
             </div>
-            <button className="vvd" href="#contact">
-              Let's Chat
-            </button>
+            <a href="mailto:ntillmann1439@gmail.com?subject=Reacing Out">
+              <button className="vvd">Let's Chat</button>
+            </a>
           </span>
         </Navbar.Collapse>
       </Container>

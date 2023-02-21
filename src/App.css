@@ -285,3 +285,61 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 .linkedin:hover .github:hover .resume:hover {
   transform: scale(1.2);
 }
+
+/* For screens smaller than 768px */
+@media (max-width: 767px) {
+  /* Adjust the padding of the navbar and set the width to 100% */
+  nav.navbar {
+    padding: 10px 0;
+    margin-bottom: 30px;
+  }
+  /* Center the navbar links and reduce the font size */
+  nav.navbar .navbar-nav {
+    margin-right: 0;
+    text-align: center;
+  }
+  nav.navbar .navbar-nav .nav-link.navbar-link {
+    font-size: 16px;
+  }
+  /* Adjust the size and spacing of the social icons */
+  .social-icon a {
+    width: 50px;
+    height: 50px;
+    margin-right: 4px;
+  }
+  /* Adjust the margin of the info container */
+  .info-container {
+    margin: 10% 0 0 10%;
+    width: 80%;
+  }
+  /* Adjust the margin of the projects container */
+  .projects-container {
+    height: 60px;
+  }
+}
+
+/* For screens between 768px and 992px */
+@media (min-width: 768px) and (max-width: 991px) {
+  /* Reduce the font size of the navbar links */
+  nav.navbar .navbar-nav .nav-link.navbar-link {
+    font-size: 16px;
+  }
+}
+
+/* For screens larger than 992px */
+@media (min-width: 992px) {
+  /* Reset the navbar padding and margins */
+  nav.navbar {
+    padding: 18px 0;
+    margin-bottom: 0;
+  }
+  nav.navbar .navbar-nav {
+    margin-right: 450px;
+  }
+  /* Reset the size and spacing of the social icons */
+  .social-icon a {
+    width: 75px;
+    height: 75px;
+    margin-right: 6px;
+  }
+}

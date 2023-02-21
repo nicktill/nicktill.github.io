@@ -68,7 +68,7 @@ export const Banner = () => {
                   >
                     <span className="tagline">Welcome to my Portfolio!</span>
                     <h1>
-                      {`Hi! I'm Nick`} <br />
+                      {`Hi! I'm Nick,`} <br />
                       <span
                         className="txt-rotate"
                         dataPeriod="1000"
@@ -81,7 +81,7 @@ export const Banner = () => {
                     </h1>
                     <p>
                       I love creating beautiful and intuitive interfaces that
-                      make users' lives easier and enjoyable.
+                      make users' lives easier
                     </p>
                   </div>
                 )}

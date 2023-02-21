@@ -55,15 +55,15 @@ const Info = () => {
     <div className="info-container">
       <h1 className="welcome">Welcome to My Portfolio!</h1>
       <h1>
-        Hey! I'm <span className="name">Nick Tillmann</span>
+        Hi! I'm <span className="name">Nick Tillmann</span>
       </h1>
       <h2>
         [<span className="title">{title}</span>
         ]...
       </h2>
       <p className="description">
-        Creating beautiful and intuitive interfaces that make users' lives
-        easier and more enjoyable.
+        I love creating beautiful and intuitive interfaces that make users'
+        lives easier and enjoyable.
       </p>
     </div>
   );

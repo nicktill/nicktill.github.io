@@ -325,6 +325,9 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   .arrow {
     margin-bottom: 15px;
   }
+  h1.info-container {
+    font-size: 10px;
+  }
 }
 
 /* For screens between 768px and 992px */

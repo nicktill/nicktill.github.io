@@ -71,7 +71,7 @@ export const NavBar = () => {
                 {/* <p>Git</p> */}
               </a>
             </div>
-            <a href="mailto:ntillmann1439@gmail.com?subject=Reacing Out">
+            <a href="mailto:ntillmann1439@gmail.com?subject=Reaching Out!">
               <button className="vvd">Let's Chat</button>
             </a>
           </span>

@@ -338,10 +338,6 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
     -webkit-text-fill-color: transparent;
     animation: gradient 15s linear infinite;
   }
-
-  .no-show-mobile {
-    display: none;
-  }
 }
 
 /* For screens between 768px and 992px */
@@ -474,4 +470,11 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   100% {
     background-position: 100% 50%;
   }
+}
+
+.header-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
 }

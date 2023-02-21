@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import headerImg from "../assets/img/header-astro.png";
+import headerImgBackground from "../assets/img/planet2.png";
 import "animate.css";
 import TrackVisibility from "react-on-screen";
 import React from "react";
@@ -95,6 +96,11 @@ export const Banner = () => {
                     }
                   >
                     <img src={headerImg} alt="Header Img" />
+                    <img
+                      className="header-background"
+                      src={headerImgBackground}
+                      alt="Header Img"
+                    />
                   </div>
                 )}
               </TrackVisibility>

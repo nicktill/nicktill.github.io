@@ -338,6 +338,9 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
     -webkit-text-fill-color: transparent;
     animation: gradient 15s linear infinite;
   }
+  .header-background {
+    display: none;
+  }
 }
 
 /* For screens between 768px and 992px */

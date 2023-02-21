@@ -55,13 +55,17 @@ export const NavBar = () => {
           </Nav>
           <span className="navbar-text">
             <div className="social-icon">
-              <a href="https://nicktill.github.io/resume.pdf">Resume</a>
+              <a href="https://nicktill.github.io/resume.pdf">
+                <FaFilePdf color="white" />
+              </a>
               <a href="https://linkedin.com/in/nicholastillmann">
                 <FaLinkedin color="white" />
+                {/* <p>LinkedIn</p> */}
               </a>
               <a href="https://github.com/nicktill">
                 {/* make this larger */}
                 <FaGithub color="white" />
+                {/* <p>Git</p> */}
               </a>
             </div>
             <button className="vvd">

@@ -5,6 +5,7 @@ const Projects = () => {
   return (
     <div className="projects-container">
       <div className="arrow-container">
+        <p>Projects Coming Soon</p>
         <FaChevronDown className="arrow arrow-blink" />
       </div>
     </div>

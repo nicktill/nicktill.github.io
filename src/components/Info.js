@@ -53,6 +53,7 @@ const Info = () => {
 
   return (
     <div className="info-container">
+      <h1 className="welcome">Welcome to My Portfolio!</h1>
       <h1>
         Hey! I'm <span className="name">Nicholas Tillmann</span>
       </h1>

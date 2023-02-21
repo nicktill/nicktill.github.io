@@ -228,33 +228,13 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   width: 30%;
 }
 
-.projects-container {
-  position: fixed;
+.arrow-container .arrow {
+  position: absolute;
   bottom: 0;
-  left: 0;
-  width: 100%;
-  display: block;
-  text-align: center;
-}
-
-.projects-container {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100px;
-}
-
-.arrow-container {
-  position: relative;
-}
-
-.arrow {
+  left: 50%;
+  transform: translate(-50%, 50%);
   font-size: 3rem;
-  color: #fff;
+  margin-bottom: 2rem;
 }
 
 .arrow-blink {
@@ -360,6 +340,8 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   background-position: center;
   background-size: cover;
   min-height: 100vh;
+  /* no repeat */
+  background-repeat: no-repeat;
 }
 
 .banner:hover {
@@ -458,9 +440,63 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   }
 }
 
-.header-background {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1;
+.projects-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.project-card {
+  background-color: white;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.project-card img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
+.project-card h3 {
+  color: black;
+  margin: 1rem;
+}
+
+.project-card p {
+  margin: 1rem;
+  font-size: 1.1rem;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  margin: 1rem;
+}
+
+.buttons a {
+  background-color: #4caf50;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+}
+
+.buttons a:hover {
+  background-color: #388e3c;
+}
+
+.projects-soon {
+  /* center horizonally in the center, and vertically at the bototm of screen */
+  z-index: 1;
 }

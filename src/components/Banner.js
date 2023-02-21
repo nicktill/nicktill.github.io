@@ -96,11 +96,6 @@ export const Banner = () => {
                     }
                   >
                     <img src={headerImg} alt="Header Img" />
-                    <img
-                      className="header-background"
-                      src={headerImgBackground}
-                      alt="Header Img"
-                    />
                   </div>
                 )}
               </TrackVisibility>

@@ -55,21 +55,24 @@ export const NavBar = () => {
           </Nav>
           <span className="navbar-text">
             <div className="social-icon">
-              <a href="https://nicktill.github.io/resume.pdf">
-                <FaFilePdf color="white" />
+              <a href="https://nicktill.github.io/resume.pdf" target="_blank">
+                <FaFilePdf className="resume" color="white" />
               </a>
-              <a href="https://linkedin.com/in/nicholastillmann">
-                <FaLinkedin color="white" />
+              <a
+                target="_blank"
+                href="https://linkedin.com/in/nicholastillmann"
+              >
+                <FaLinkedin className="linkedin" color="white" />
                 {/* <p>LinkedIn</p> */}
               </a>
-              <a href="https://github.com/nicktill">
+              <a target="_blank" href="https://github.com/nicktill">
                 {/* make this larger */}
-                <FaGithub color="white" />
+                <FaGithub className="github" color="white" />
                 {/* <p>Git</p> */}
               </a>
             </div>
-            <button className="vvd">
-              <span>Let's Chat!</span>
+            <button className="vvd" href="#contact">
+              Let's Chat
             </button>
           </span>
         </Navbar.Collapse>

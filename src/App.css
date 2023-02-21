@@ -290,8 +290,8 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 @media (max-width: 767px) {
   /* Adjust the padding of the navbar and set the width to 100% */
   nav.navbar {
-    padding: 10px 0;
-    margin-bottom: 30px;
+    padding: 20px 0;
+    margin-bottom: 50px;
   }
   /* Center the navbar links and reduce the font size */
   nav.navbar .navbar-nav {
@@ -300,21 +300,30 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   }
   nav.navbar .navbar-nav .nav-link.navbar-link {
     font-size: 16px;
+    margin-right: 35px;
+    display: none;
   }
   /* Adjust the size and spacing of the social icons */
   .social-icon a {
     width: 50px;
     height: 50px;
-    margin-right: 4px;
+    margin-left: 12px;
   }
-  /* Adjust the margin of the info container */
-  .info-container {
-    margin: 10% 0 0 10%;
-    width: 80%;
-  }
+
   /* Adjust the margin of the projects container */
   .projects-container {
     height: 60px;
+  }
+  /* for information component */
+  .info-container {
+    margin: 50% 0 0 10%; /* 20% from the top, 20% from the left */
+    font-size: 12px;
+    align-items: center;
+    padding: 20px;
+    width: 80%;
+  }
+  .arrow {
+    margin-bottom: 15px;
   }
 }
 
@@ -331,7 +340,7 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   /* Reset the navbar padding and margins */
   nav.navbar {
     padding: 18px 0;
-    margin-bottom: 0;
+    margin-bottom: 25px;
   }
   nav.navbar .navbar-nav {
     margin-right: 450px;

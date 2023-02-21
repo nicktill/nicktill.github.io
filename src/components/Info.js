@@ -55,7 +55,7 @@ const Info = () => {
     <div className="info-container">
       <h1 className="welcome">Welcome to My Portfolio!</h1>
       <h1>
-        Hey! I'm <span className="name">Nicholas Tillmann</span>
+        Hey! I'm <span className="name">Nick Tillmann</span>
       </h1>
       <h2>
         [<span className="title">{title}</span>

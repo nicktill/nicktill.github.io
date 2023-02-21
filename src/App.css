@@ -322,6 +322,25 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   }
   h1.info-container {
     font-size: 10px;
+    background: linear-gradient(
+      to right,
+      #845ec2,
+      #d65db1,
+      #ff6f91,
+      #845ec2,
+      #2c73d2,
+      #0081cf,
+      #0089ba,
+      #008e9b,
+      #008f7a
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradient 15s linear infinite;
+  }
+
+  .no-show-mobile {
+    display: none;
   }
 }
 

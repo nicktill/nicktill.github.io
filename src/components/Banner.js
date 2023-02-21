@@ -6,11 +6,7 @@ import TrackVisibility from "react-on-screen";
 import React from "react";
 
 export const Banner = () => {
-  const titles = [
-    "Software Engineer",
-    "Front End Developer",
-    "UX/UI Developer",
-  ];
+  const titles = ["Software Engineer", "Front End Developer", "UI/UX Designer"];
   const [titleIndex, setTitleIndex] = useState(0);
   const [title, setTitle] = useState("");
   const [typing, setTyping] = useState(true);
@@ -77,7 +73,9 @@ export const Banner = () => {
                         dataPeriod="1000"
                         data-rotate='[ "Web Developer", "Web Designer", "UI/UX Designer" ]'
                       >
-                        <span className="wrap gradient">{title}</span>
+                        <span className="wrap gradient no-show-mobile">
+                          {title}
+                        </span>
                       </span>
                     </h1>
                     <p>

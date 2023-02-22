@@ -17,14 +17,13 @@ This is a sample project using [Next.js](https://nextjs.org/), a React framework
 
 First, clone this repository:
 
-
 ```npm install```
-# or
+or
 ```yarn install```
 
-# then
+then
 ```npm run dev```
-# or
+or
 ```yarn dev```
 
 Open http://localhost:3000 with your browser to see the result.

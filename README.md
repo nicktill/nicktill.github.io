@@ -4,10 +4,10 @@
 <img width="1717" alt="preview" src="https://user-images.githubusercontent.com/57879193/220522765-26e96caa-28d9-49cf-8665-5fb271c06610.png">
 
 # Technologies Used
--Next.js - A React framework for building server-side rendered and static web applications.
--React.js - A JavaScript library for building user interfaces.
--Styled Components - A CSS-in-JS library for styling React components.
--React Icons - A collection of popular icons for React.
+Next.js - A React framework for building server-side rendered and static web applications<br/>
+React.js - A JavaScript library for building user interfaces.<br/>
+Styled Components - A CSS-in-JS library for styling React components.<br/>
+React Icons - A collection of popular icons for React.<br/>
 
 # Getting Started with Next.js
 

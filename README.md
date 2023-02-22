@@ -1,6 +1,5 @@
-## Nicholas Tilmann Portfolio Webisite
-Next.js/React.js application for my personal portfolio. It showcases my skills, experience, and [work in progress] projects I have worked on.
-# [Live Site Here](nicktill.github.io)
+## Portfolio
+[Live Site Here](nicktill.github.io)
 
 <img width="1717" alt="preview" src="https://user-images.githubusercontent.com/57879193/220522765-26e96caa-28d9-49cf-8665-5fb271c06610.png">
 

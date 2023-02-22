@@ -22,7 +22,7 @@ First, clone this repository:
 # or
 ```yarn install```
 
-#then
+# then
 ```npm run dev```
 # or
 ```yarn dev```

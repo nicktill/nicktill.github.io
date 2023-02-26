@@ -1,6 +1,5 @@
 ## Portfolio
 [Live Site Here](https://nicktill.github.io)
-[![wakatime](https://wakatime.com/badge/github/nicktill/nicktill.github.io.svg)](https://wakatime.com/badge/github/nicktill/nicktill.github.io)
 
 <img width="1717" alt="preview" src="https://user-images.githubusercontent.com/57879193/220522765-26e96caa-28d9-49cf-8665-5fb271c06610.png">
 

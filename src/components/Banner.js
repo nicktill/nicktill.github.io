@@ -80,8 +80,8 @@ export const Banner = () => {
                       </span>
                     </h1>
                     <p>
-                      I love creating beautiful and intuitive interfaces that
-                      make users' lives easier
+                      I create beautiful and intuitive interfaces that make
+                      users' lives easier
                     </p>
                   </div>
                 )}

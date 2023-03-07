@@ -68,7 +68,7 @@ export const Banner = () => {
                   >
                     <span className="tagline">Welcome to my Portfolio!</span>
                     <h1>
-                      {`Hi! I'm Nick`} <br />
+                      {`Hi! I'm Nick,`} <br />
                       <span
                         className="txt-rotate"
                         dataPeriod="1000"
@@ -81,24 +81,27 @@ export const Banner = () => {
                     </h1>
                     <p>
                       I love creating beautiful and intuitive interfaces that
-                      make users' lives easier and enjoyable.
+                      make users' lives easier
                     </p>
                   </div>
                 )}
               </TrackVisibility>
             </Col>
             <Col xs={12} md={6} xl={5}>
-              <TrackVisibility>
-                {({ isVisible }) => (
-                  <div
-                    className={
-                      isVisible ? "animate__animated animate__zoomIn" : ""
-                    }
-                  >
-                    <img src={headerImg} alt="Header Img" />
-                  </div>
-                )}
-              </TrackVisibility>
+              {/* <TrackVisibility> */}
+              {/* {({ isVisible }) => ( */}
+              <div
+              // className={isVisible ? "animate__animated animate__zoomIn" : ""}
+              >
+                <img src={headerImg} alt="Header Img" />
+                {/* <img
+                      className="header-background"
+                      src={headerImgBackground}
+                      alt="Header Img"
+                    /> */}
+              </div>
+              {/* )} */}
+              {/* </TrackVisibility> */}
             </Col>
           </Row>
         </Container>

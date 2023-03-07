@@ -335,7 +335,7 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 .banner {
   margin-top: 0;
   padding: 260px 0 100px 0;
-  background-image: url("./assets/img/banner-bg.png");
+  /* background-image: url("./assets/img/banner-bg.png"); */
   background-color: black;
   background-position: center;
   background-size: cover;
@@ -445,6 +445,7 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: black;
 }
 
 .projects-grid {

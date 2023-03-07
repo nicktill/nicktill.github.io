@@ -61,12 +61,8 @@ export const Banner = () => {
             <Col xs={12} md={6} xl={7}>
               <TrackVisibility>
                 {({ isVisible }) => (
-                  <div
-                    className={
-                      isVisible ? "animate__animated animate__fadeIn" : ""
-                    }
-                  >
-                    <span className="tagline">Welcome to my Portfolio!</span>
+                  <div className="animate__animated animate__fadeInDown ">
+                    <span className="tagline  ">Welcome to my Portfolio!</span>
                     <h1>
                       {`Hi! I'm Nick,`} <br />
                       <span
@@ -88,20 +84,13 @@ export const Banner = () => {
               </TrackVisibility>
             </Col>
             <Col xs={12} md={6} xl={5}>
-              {/* <TrackVisibility> */}
-              {/* {({ isVisible }) => ( */}
-              <div
-              // className={isVisible ? "animate__animated animate__zoomIn" : ""}
-              >
-                <img src={headerImg} alt="Header Img" />
-                {/* <img
-                      className="header-background"
-                      src={headerImgBackground}
-                      alt="Header Img"
-                    /> */}
-              </div>
-              {/* )} */}
-              {/* </TrackVisibility> */}
+              <TrackVisibility>
+                {({ isVisible }) => (
+                  <div className={"animate__animated animate__fadeInRight"}>
+                    <img src={headerImg} alt="Header Img" />
+                  </div>
+                )}
+              </TrackVisibility>
             </Col>
           </Row>
         </Container>

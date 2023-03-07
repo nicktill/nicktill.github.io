@@ -284,6 +284,12 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 /* For screens smaller than 768px */
 @media (max-width: 767px) {
   /* Adjust the padding of the navbar and set the width to 100% */
+  nav.navbar .navbar-toggler {
+    display: none;
+  }
+  .banner {
+    text-align: center;
+  }
   nav.navbar {
     padding: 20px 0;
     margin-bottom: 50px;
@@ -322,6 +328,9 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   }
 
   .header-background {
+    display: none;
+  }
+  .mobileflag {
     display: none;
   }
 }

@@ -7,7 +7,13 @@ import TrackVisibility from "react-on-screen";
 import React from "react";
 
 export const Banner = () => {
-  const titles = ["Software Engineer", "Front End Developer", "UI/UX Designer"];
+  const titles = [
+    "Software Engineer",
+    "Front-End Developer",
+    "UI/UX Designer",
+    "Back-End Developer",
+    "Mobile Developer",
+  ];
   const [titleIndex, setTitleIndex] = useState(0);
   const [title, setTitle] = useState("");
   const [typing, setTyping] = useState(true);
@@ -64,11 +70,7 @@ export const Banner = () => {
                     <span className="tagline  ">Welcome to my Portfolio!</span>
                     <h1>
                       {`Hi! I'm Nick,`} <br />
-                      <span
-                        className="txt-rotate"
-                        dataPeriod="1000"
-                        data-rotate='[ "Web Developer", "Web Designer", "UI/UX Designer" ]'
-                      >
+                      <span className="txt-rotate">
                         <span className="wrap gradient no-show-mobile">
                           {title}
                         </span>
@@ -85,7 +87,11 @@ export const Banner = () => {
             <Col xs={12} md={6} xl={5}>
               <TrackVisibility>
                 {({ isVisible }) => (
-                  <div className={"animate__animated animate__fadeInRight"}>
+                  <div
+                    className={
+                      "mobileflag animate__animated animate__fadeInRight"
+                    }
+                  >
                     <img src={headerImg} alt="Header Img" />
                   </div>
                 )}

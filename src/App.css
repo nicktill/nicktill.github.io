@@ -284,8 +284,15 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 /* For screens smaller than 768px */
 @media (max-width: 767px) {
   /* Adjust the padding of the navbar and set the width to 100% */
-  nav.navbar .navbar-toggler {
-    display: none;
+  span.navbar-text {
+    align-items: center;
+    justify-content: space-between;
+  }
+  .social-icon {
+    align-items: center;
+  }
+  .arrow-container {
+    transform: scale(50%);
   }
   .banner {
     text-align: center;
@@ -293,6 +300,8 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   nav.navbar {
     padding: 20px 0;
     margin-bottom: 50px;
+    text-align: center;
+    display: flex;
   }
   /* Center the navbar links and reduce the font size */
   nav.navbar .navbar-nav {
@@ -310,7 +319,6 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
     height: 50px;
     margin-left: 12px;
   }
-
   /* Adjust the margin of the projects container */
   .projects-container {
     height: 60px;
@@ -330,7 +338,7 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   .header-background {
     display: none;
   }
-  .mobileflag {
+  .no-show-mobile {
     display: none;
   }
 }

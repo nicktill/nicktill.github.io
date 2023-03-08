@@ -63,12 +63,9 @@ export const NavBar = () => {
                 href="https://linkedin.com/in/nicholastillmann"
               >
                 <FaLinkedin className="linkedin" color="white" />
-                {/* <p>LinkedIn</p> */}
               </a>
               <a target="_blank" href="https://github.com/nicktill">
-                {/* make this larger */}
                 <FaGithub className="github" color="white" />
-                {/* <p>Git</p> */}
               </a>
             </div>
             <a href="mailto:ntillmann1439@gmail.com?subject=Reaching Out!">

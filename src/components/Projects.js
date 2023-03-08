@@ -1,11 +1,21 @@
-import { useState, useEffect } from "react";
-import { FaChevronDown } from "react-icons/fa";
+import { useState } from "react";
+import { FaChevronDown, FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import React from "react";
-import data from "../components/ProjectsData";
+import data from "./ProjectsData";
+import "animate.css";
 
 const Projects = () => {
-  const [showProjects, setShowProjects] = useState(true);
-  // Add an event listener to check whether the user has scrolled down to show the projects
+  const [selectedProjectIndex, setSelectedProjectIndex] = useState(0);
+
+  const handlePrevClick = () => {
+    setSelectedProjectIndex(
+      (selectedProjectIndex - 1 + data.length) % data.length
+    );
+  };
+
+  const handleNextClick = () => {
+    setSelectedProjectIndex((selectedProjectIndex + 1) % data.length);
+  };
 
   return (
     <div id="projects" className="projects-container">
@@ -14,17 +24,30 @@ const Projects = () => {
           <FaChevronDown className="arrow arrow-blink arrow-container" />
         </div>
         <div className="projects-grid">
-          {data.map((project) => (
-            <div key={project.id} className="project-card">
-              <h3>{project.title}</h3>
-              <img src={project.image} alt={project.title} />
-              <p>{project.description}</p>
+          <div className="project-carousel">
+            <div className="project-carousel-image">
+              <img
+                src={data[selectedProjectIndex].image}
+                alt={data[selectedProjectIndex].title}
+              />
+            </div>
+            <div className="project-carousel-info animate__animated animate__fadeInRight">
+              <h3>{data[selectedProjectIndex].title}</h3>
+              <p>{data[selectedProjectIndex].description}</p>
               <div className="buttons">
-                <a href={project.githubUrl}>View Github</a>
-                <a href={project.projectUrl}>View Site</a>
+                <a href={data[selectedProjectIndex].githubUrl}>View Github</a>
+                <a href={data[selectedProjectIndex].projectUrl}>View Site</a>
               </div>
             </div>
-          ))}
+            <div className="project-carousel-buttons">
+              <button onClick={handlePrevClick}>
+                <FaChevronLeft />
+              </button>
+              <button onClick={handleNextClick}>
+                <FaChevronRight />
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </div>

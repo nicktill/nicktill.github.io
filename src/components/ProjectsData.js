@@ -10,7 +10,7 @@ const data = [
     id: 1,
     title: "GradeMyAid",
     image: GradeMyAid,
-    description: "Financial Aid Grade Scorer",
+    description: "Financial Aid (FAFSA) Calculator",
     projectUrl: "https://cs1530-finance-group.vercel.app/",
     githubUrl: "https://github.com/nicktill/cs1530-finance-group",
   },
@@ -45,14 +45,6 @@ const data = [
     description: "Description of Project 1",
     projectUrl: "https://cookbookofficial.com",
     githubUrl: "https://github.com/nicktill/cookbook",
-  },
-  {
-    id: 6,
-    title: "Cost Of Living Calculator",
-    image: CostOfLiving,
-    description: "Description of Project 1",
-    projectUrl: "https://cost-of-living-dusky.vercel.app/",
-    githubUrl: "https://github.com/nicktill/cost-of-living",
   },
 ];
 

@@ -472,38 +472,48 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   padding: 2rem;
 }
 
-.project-card {
-  background-color: white;
+.project-carousel {
+  background-color: black;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-  border-radius: 5px;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+}
+
+.project-carousel-image {
+  height: 300px;
   overflow: hidden;
 }
 
-.project-card img {
+.project-carousel-image img {
   width: 100%;
-  height: 150px;
+  height: 100%;
   object-fit: cover;
 }
 
-.project-card h3 {
-  color: black;
-  margin: 1rem;
+.project-carousel-info {
+  padding: 1.5rem;
+  color: white;
 }
 
-.project-card p {
-  margin: 1rem;
-  font-size: 1.1rem;
+.project-carousel-info h3 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.project-carousel-info p {
+  margin-bottom: 1rem;
 }
 
 .buttons {
   display: flex;
   justify-content: space-between;
-  margin: 1rem;
 }
 
 .buttons a {
-  background-color: #4caf50;
+  background-color: transparent;
   color: white;
+  border: 2px solid white;
   padding: 0.5rem 1rem;
   border-radius: 5px;
   text-decoration: none;
@@ -511,10 +521,35 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 }
 
 .buttons a:hover {
-  background-color: #388e3c;
+  background-color: white;
+  color: black;
 }
 
-.projects-soon {
-  /* center horizonally in the center, and vertically at the bototm of screen */
-  z-index: 1;
+.project-carousel-buttons {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0 1.5rem;
+}
+
+.project-carousel-buttons button {
+  background-color: transparent;
+  color: white;
+  border: none;
+  outline: none;
+  font-size: 2rem;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.project-carousel-buttons button:hover {
+  transform: scale(1.1);
+}
+
+.animate__animated {
+  animation-duration: 1s;
+  animation-fill-mode: both;
 }

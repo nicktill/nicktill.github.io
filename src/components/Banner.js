@@ -14,10 +14,13 @@ export const Banner = () => {
     "Back-End Developer",
     "Mobile Developer",
   ];
+
+  // State variables to keep track of the title index, title text, and typing state
   const [titleIndex, setTitleIndex] = useState(0);
   const [title, setTitle] = useState("");
   const [typing, setTyping] = useState(true);
 
+  // useEffect hook that updates the title text in a timed loop
   useEffect(() => {
     const intervalId = setInterval(() => {
       setTyping(false); // Set the typing state to false to start the deleting effect
@@ -25,14 +28,16 @@ export const Banner = () => {
         setTitle(""); // Clear the title text
         setTyping(true); // Set the typing state to true to start the typing effect
         setTitleIndex((titleIndex) => (titleIndex + 1) % titles.length); // Increment the title index
-      }, 1500);
-    }, 3000);
+      }, 1500); // Wait for 1.5 seconds before starting the next cycle
+    }, 3000); // Repeat the cycle every 3 seconds
 
+    // Cleanup function that clears the interval when the component unmounts or when the titles array changes
     return () => {
       clearInterval(intervalId);
     };
   }, [titles]);
 
+  // useEffect hook that types and deletes the title text
   useEffect(() => {
     let timeoutId;
     if (typing) {
@@ -42,22 +47,25 @@ export const Banner = () => {
         setTitle((title) => title + word[i]);
         i++;
         if (i >= word.length) {
-          clearInterval(timeoutId);
+          clearInterval(timeoutId); // Stop the interval when the word has been fully typed
         }
-      }, 100);
+      }, 100); // Type one character every 100 milliseconds
     } else {
       let i = title.length - 1;
       timeoutId = setInterval(() => {
         setTitle((title) => title.substring(0, i));
         i--;
         if (i < 0) {
-          clearInterval(timeoutId);
+          clearInterval(timeoutId); // Stop the interval when the word has been fully deleted
         }
-      }, 100);
+      }, 100); // Delete one character every 100 milliseconds
     }
 
+    // Cleanup function that clears the interval when the titleIndex or typing state changes
     return () => clearInterval(timeoutId);
   }, [titleIndex, typing]);
+
+  // Render the banner section with two columns of content
   return (
     <>
       <section className="banner" id="home">
@@ -79,7 +87,7 @@ export const Banner = () => {
                     <p>
                       I love creating beautiful and intuitive interfaces that
                       make users' lives easier
-                    </p>
+                    </p>{" "}
                   </div>
                 )}
               </TrackVisibility>

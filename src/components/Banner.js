@@ -95,15 +95,11 @@ export const Banner = () => {
             <Col xs={12} md={6} xl={5}>
               <TrackVisibility>
                 {({ isVisible }) => (
-<<<<<<< HEAD
-                  <div className={"animate__animated animate__fadeInRight"}>
-=======
                   <div
                     className={
                       "mobileflag animate__animated animate__fadeInRight"
                     }
                   >
->>>>>>> 3426aaaf2a32b30eba25814e8c9b6b160d892423
                     <img src={headerImg} alt="Header Img" />
                   </div>
                 )}

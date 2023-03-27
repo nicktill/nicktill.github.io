@@ -2,7 +2,6 @@ import React from "react";
 import "./App.css";
 import NavBar from "./components/NavBar";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Info from "./components/Info";
 import Projects from "./components/Projects";
 import Banner from "./components/Banner";
 

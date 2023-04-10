@@ -1,6 +1,6 @@
 import GradeMyAid from "../assets/img/GradeMyAid.png";
 import CryptoTracker from "../assets/img/CryptoTracker.png";
-import Translator from "../assets/img/translator.png";
+import YTRecap from "../assets/img/ytrecap.png";
 import Cookbook from "../assets/img/cookbook.png";
 import MiniTwit from "../assets/img/minitwit.png";
 import CostOfLiving from "../assets/img/costofliving.png";
@@ -24,28 +24,13 @@ const data = [
   },
   {
     id: 3,
-    title: "Translator",
-    image: Translator,
-    description: "Translator App",
-    projectUrl: "https://translator-app-nicktill.vercel.app/",
-    githubUrl: "https://github.com/nicktill/translator-app",
+    title: "YTRecap",
+    image: YTRecap,
+    description: "Summarize any length YT video in just a few seconds",
+    projectUrl: "https://github.com/nicktill/ytrecap",
+    githubUrl: "https://github.com/nicktill/ytrecap",
   },
-  {
-    id: 4,
-    title: "Mini-Twit",
-    image: MiniTwit,
-    description: "Description of Project 1",
-    projectUrl: "https://mini-twit.vercel.app/",
-    githubUrl: "https://github.com/nicktill/mini-twit",
-  },
-  {
-    id: 5,
-    title: "Cookbook",
-    image: Cookbook,
-    description: "Description of Project 1",
-    projectUrl: "https://cookbookofficial.com",
-    githubUrl: "https://github.com/nicktill/cookbook",
-  },
+  ,
 ];
 
 export default data;

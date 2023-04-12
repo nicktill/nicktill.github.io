@@ -18,7 +18,7 @@ const data = [
     title: "GradeMyAid",
     image: GradeMyAid,
     description: "Financial Aid (FAFSA) Calculator",
-    projectUrl: "https://cs1530-finance-group.vercel.app/",
+    projectUrl: "https://grademyaid.com",
     githubUrl: "https://github.com/nicktill/cs1530-finance-group",
   },
 
@@ -34,7 +34,7 @@ const data = [
     id: 4,
     title: "Translator",
     image: Translator,
-    description: "Translator Web App",
+    description: "Translator Web App (50+ Languages Supported w/ Dictations)",
     projectUrl: "https://translator-app-nicktill.vercel.app/",
     githubUrl: "https://github.com/nicktill/translator-app",
   },

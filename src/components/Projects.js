@@ -31,6 +31,9 @@ const Projects = ({ onShowBannerText }) => {
     setAnimationClass("animate__fadeOut");
     setTimeout(() => {
       if (selectedProjectIndex === data.length - 1) {
+        setShowProjectsModal(false);
+        setShowProjects(false);
+        onShowBannerText(true);
         setSelectedProjectIndex(0);
       } else {
         setSelectedProjectIndex((selectedProjectIndex + 1) % data.length);
@@ -96,12 +99,14 @@ const Projects = ({ onShowBannerText }) => {
                     <a
                       href={data[selectedProjectIndex].githubUrl}
                       className="button"
+                      target="_blank"
                     >
                       View Github
                     </a>
                     <a
                       href={data[selectedProjectIndex].projectUrl}
                       className="button"
+                      target="_blank"
                     >
                       View Site
                     </a>
@@ -120,6 +125,21 @@ const Projects = ({ onShowBannerText }) => {
       )}
 
       <style jsx>{`
+        @media screen and (max-width: 768px) {
+          .left-arrow {
+            left: 1rem;
+          }
+
+          .right-arrow {
+            right: 2rem;
+            margin-right: 1rem;
+          }
+        }
+
+        .buttonWrapper {
+          display: flex;
+          flex-direction: row;
+        }
         .arrow-btn {
           position: absolute;
           top: 80%;

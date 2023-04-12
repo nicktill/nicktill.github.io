@@ -24,11 +24,11 @@ const Projects = ({ onShowBannerText }) => {
         setSelectedProjectIndex((selectedProjectIndex - 1) % data.length);
       }
       setAnimationClass("animate__fadeIn");
-    }, 300);
+    }, 1000);
   };
 
   const handleNextClick = () => {
-    setAnimationClass("animate__fadeOut");
+    setAnimationClass("animate__backOutLeft");
     setTimeout(() => {
       if (selectedProjectIndex === data.length - 1) {
         setShowProjectsModal(false);
@@ -38,8 +38,8 @@ const Projects = ({ onShowBannerText }) => {
       } else {
         setSelectedProjectIndex((selectedProjectIndex + 1) % data.length);
       }
-      setAnimationClass("animate__fadeIn");
-    }, 300);
+      setAnimationClass("animate__backInRight");
+    }, 1000);
   };
 
   const handleShowProjects = () => {
@@ -87,7 +87,9 @@ const Projects = ({ onShowBannerText }) => {
                     alt={data[selectedProjectIndex].title}
                   />
                 </div>
-                <div className="project-carousel-info">
+                <div
+                  className={`project-carousel-info animate__animated ${animationClass}`}
+                >
                   <h3 className="text-center">
                     {data[selectedProjectIndex].title}
                   </h3>
@@ -126,7 +128,9 @@ const Projects = ({ onShowBannerText }) => {
           .showProjectsBtn {
             margin: 0 auto;
           }
-
+          .close-modal-btn {
+            display: none;
+          }
           .left-arrow {
             left: 1rem;
           }

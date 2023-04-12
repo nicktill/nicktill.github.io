@@ -5,6 +5,7 @@ import headerImgBackground from "../assets/img/planet2.png";
 import "animate.css";
 import TrackVisibility from "react-on-screen";
 import React from "react";
+import Projects from "./Projects";
 
 export const Banner = () => {
   const titles = [
@@ -15,29 +16,26 @@ export const Banner = () => {
     "Mobile Developer",
   ];
 
-  // State variables to keep track of the title index, title text, and typing state
   const [titleIndex, setTitleIndex] = useState(0);
   const [title, setTitle] = useState("");
   const [typing, setTyping] = useState(true);
+  const [showBannerText, setShowBannerText] = useState(true);
 
-  // useEffect hook that updates the title text in a timed loop
   useEffect(() => {
     const intervalId = setInterval(() => {
-      setTyping(false); // Set the typing state to false to start the deleting effect
+      setTyping(false);
       setTimeout(() => {
-        setTitle(""); // Clear the title text
-        setTyping(true); // Set the typing state to true to start the typing effect
-        setTitleIndex((titleIndex) => (titleIndex + 1) % titles.length); // Increment the title index
-      }, 1500); // Wait for 1.5 seconds before starting the next cycle
-    }, 3000); // Repeat the cycle every 3 seconds
+        setTitle("");
+        setTyping(true);
+        setTitleIndex((titleIndex) => (titleIndex + 1) % titles.length);
+      }, 1500);
+    }, 3000);
 
-    // Cleanup function that clears the interval when the component unmounts or when the titles array changes
     return () => {
       clearInterval(intervalId);
     };
   }, [titles]);
 
-  // useEffect hook that types and deletes the title text
   useEffect(() => {
     let timeoutId;
     if (typing) {
@@ -47,25 +45,27 @@ export const Banner = () => {
         setTitle((title) => title + word[i]);
         i++;
         if (i >= word.length) {
-          clearInterval(timeoutId); // Stop the interval when the word has been fully typed
+          clearInterval(timeoutId);
         }
-      }, 100); // Type one character every 100 milliseconds
+      }, 100);
     } else {
       let i = title.length - 1;
       timeoutId = setInterval(() => {
         setTitle((title) => title.substring(0, i));
         i--;
         if (i < 0) {
-          clearInterval(timeoutId); // Stop the interval when the word has been fully deleted
+          clearInterval(timeoutId);
         }
-      }, 100); // Delete one character every 100 milliseconds
+      }, 100);
     }
 
-    // Cleanup function that clears the interval when the titleIndex or typing state changes
     return () => clearInterval(timeoutId);
   }, [titleIndex, typing]);
 
-  // Render the banner section with two columns of content
+  const handleShowProjects = () => {
+    setShowBannerText(false);
+  };
+
   return (
     <>
       <section className="banner" id="home">
@@ -75,19 +75,26 @@ export const Banner = () => {
               <TrackVisibility>
                 {({ isVisible }) => (
                   <div className="animate__animated animate__fadeInDown ">
-                    <span className="tagline  ">Welcome to my Portfolio!</span>
-                    <h1>
-                      {`Hi! I'm Nick,`} <br />
-                      <span className="txt-rotate">
-                        <span className="wrap gradient no-show-mobile">
-                          {title}
+                    {showBannerText && (
+                      <>
+                        <span className="tagline  ">
+                          Welcome to my Portfolio!
                         </span>
-                      </span>
-                    </h1>
-                    <p>
-                      I love creating beautiful and intuitive interfaces that
-                      make users' lives easier
-                    </p>{" "}
+                        <h1>
+                          {`Hi! I'm Nick,`} <br />
+                          <span className="txt-rotate">
+                            <span className="wrap gradient no-show-mobile">
+                              {title}
+                            </span>
+                          </span>
+                        </h1>
+                        <p>
+                          I love creating beautiful and intuitive interfaces
+                          that make users' lives easier
+                        </p>{" "}
+                      </>
+                    )}
+                    <Projects onShowBannerText={setShowBannerText} />
                   </div>
                 )}
               </TrackVisibility>
@@ -100,7 +107,16 @@ export const Banner = () => {
                       "mobileflag animate__animated animate__fadeInRight"
                     }
                   >
-                    <img src={headerImg} alt="Header Img" />
+                    <img
+                      className="headerImg"
+                      src={headerImg}
+                      alt="Header Img"
+                    />
+                    <img
+                      className="headerImgBackground"
+                      src={headerImgBackground}
+                      alt="Header Img Background"
+                    />
                   </div>
                 )}
               </TrackVisibility>

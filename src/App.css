@@ -21,6 +21,7 @@
   padding: 0;
   box-sizing: border-box;
   color: white;
+  z-index: 1;
 }
 
 html {
@@ -228,33 +229,13 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   width: 30%;
 }
 
-.projects-container {
-  position: fixed;
+.arrow-container .arrow {
+  position: absolute;
   bottom: 0;
-  left: 0;
-  width: 100%;
-  display: block;
-  text-align: center;
-}
-
-.projects-container {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100px;
-}
-
-.arrow-container {
-  position: relative;
-}
-
-.arrow {
+  left: 50%;
+  transform: translate(-50%, 50%);
   font-size: 3rem;
-  color: #fff;
+  margin-bottom: 2rem;
 }
 
 .arrow-blink {
@@ -284,6 +265,10 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 /* For screens smaller than 768px */
 @media (max-width: 767px) {
   /* Adjust the padding of the navbar and set the width to 100% */
+  .headerImg,
+  .headerImgBackground {
+    display: none;
+  }
   span.navbar-text {
     align-items: center;
     justify-content: space-between;
@@ -377,6 +362,8 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   background-position: center;
   background-size: cover;
   min-height: 100vh;
+  /* no repeat */
+  background-repeat: no-repeat;
 }
 
 .banner:hover {
@@ -430,8 +417,16 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 .banner button:hover svg {
   margin-left: 25px;
 }
-.banner img {
+.headerImg {
   animation: updown 3s linear infinite;
+  z-index: 0;
+}
+.headerImgBackground {
+  animation: updown 3s linear infinite;
+  position: absolute;
+  right: 0%;
+  top: 0%;
+  z-index: -1;
 }
 @keyframes updown {
   0% {
@@ -475,9 +470,12 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   }
 }
 
-.header-background {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1;
+.hideProjectsBtn {
+  background-color: #f2f2f2;
+  color: #2b2b2b;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: 700;
+  border: none;
 }

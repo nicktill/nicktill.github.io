@@ -42,16 +42,13 @@ const Projects = ({ onShowBannerText }) => {
     }, 300);
   };
 
-  const handleShowProjects = (event) => {
-    event.stopPropagation();
-    event.preventDefault();
+  const handleShowProjects = () => {
     setShowProjects(true);
     setShowProjectsModal(true);
     onShowBannerText(false);
   };
 
-  const handleCloseProjectsModal = (event) => {
-    event.preventDefault();
+  const handleCloseProjectsModal = () => {
     setShowProjectsModal(false);
     setShowProjects(false);
     onShowBannerText(true);
@@ -126,6 +123,10 @@ const Projects = ({ onShowBannerText }) => {
 
       <style jsx>{`
         @media screen and (max-width: 768px) {
+          .showProjectsBtn {
+            margin: 0 auto;
+          }
+
           .left-arrow {
             left: 1rem;
           }
@@ -219,13 +220,13 @@ const Projects = ({ onShowBannerText }) => {
         }
         .buttons a {
           background-color: transparent;
-          color: white;
+          color: #83a9ec;
           padding: 0.5rem 1rem;
           border-radius: 5px;
           text-decoration: none;
           transition: all 0.2s ease-in-out;
           margin: 0 1rem;
-          border: 1px solid white;
+          border: 1px solid #83a9ec;
         }
         .buttons a:hover {
           background-color: white;

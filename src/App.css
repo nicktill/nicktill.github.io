@@ -265,6 +265,10 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 /* For screens smaller than 768px */
 @media (max-width: 767px) {
   /* Adjust the padding of the navbar and set the width to 100% */
+  .headerImg,
+  .headerImgBackground {
+    display: none;
+  }
   span.navbar-text {
     align-items: center;
     justify-content: space-between;

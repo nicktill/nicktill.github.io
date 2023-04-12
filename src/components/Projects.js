@@ -81,11 +81,17 @@ const Projects = ({ onShowBannerText }) => {
                   <FaChevronRight />
                 </button>
                 <div className="project-carousel-image">
-                  <img
-                    className={`project-carousel-img animate__animated ${animationClass}`}
-                    src={data[selectedProjectIndex].image}
-                    alt={data[selectedProjectIndex].title}
-                  />
+                  <a
+                    href={data[selectedProjectIndex].projectUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <img
+                      className={`project-carousel-img animate__animated ${animationClass}`}
+                      src={data[selectedProjectIndex].image}
+                      alt={data[selectedProjectIndex].title}
+                    />
+                  </a>
                 </div>
                 <div
                   className={`project-carousel-info animate__animated ${animationClass}`}

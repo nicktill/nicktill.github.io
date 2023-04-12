@@ -16,14 +16,14 @@ const Projects = ({ onShowBannerText }) => {
   const [animationClass, setAnimationClass] = useState("animate__jackInTheBox");
 
   const handlePrevClick = () => {
-    setAnimationClass("animate__fadeOut");
+    setAnimationClass("animate__backOutLeft");
     setTimeout(() => {
       if (selectedProjectIndex === 0) {
         setSelectedProjectIndex(data.length - 1);
       } else {
         setSelectedProjectIndex((selectedProjectIndex - 1) % data.length);
       }
-      setAnimationClass("animate__fadeIn");
+      setAnimationClass("animate__backInRight");
     }, 1000);
   };
 
@@ -125,6 +125,10 @@ const Projects = ({ onShowBannerText }) => {
 
       <style jsx>{`
         @media screen and (max-width: 768px) {
+          .projects-container {
+            padding: 0 1rem;
+            padding-bottom: 3rem;
+          }
           .noShowMobile {
             display: none;
           }

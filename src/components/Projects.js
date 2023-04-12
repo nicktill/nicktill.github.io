@@ -13,25 +13,35 @@ const Projects = ({ onShowBannerText }) => {
   const [selectedProjectIndex, setSelectedProjectIndex] = useState(0);
   const [showProjects, setShowProjects] = useState(false);
   const [showProjectsModal, setShowProjectsModal] = useState(false);
+  const [animationClass, setAnimationClass] = useState("animate__jackInTheBox");
 
   const handlePrevClick = () => {
-    if (selectedProjectIndex === 0) {
-      setSelectedProjectIndex(data.length - 1);
-    } else {
-      setSelectedProjectIndex((selectedProjectIndex - 1) % data.length);
-    }
+    setAnimationClass("animate__fadeOut");
+    setTimeout(() => {
+      if (selectedProjectIndex === 0) {
+        setSelectedProjectIndex(data.length - 1);
+      } else {
+        setSelectedProjectIndex((selectedProjectIndex - 1) % data.length);
+      }
+      setAnimationClass("animate__fadeIn");
+    }, 300);
   };
 
   const handleNextClick = () => {
-    if (selectedProjectIndex === data.length - 1) {
-      setSelectedProjectIndex(0);
-    } else {
-      setSelectedProjectIndex((selectedProjectIndex + 1) % data.length);
-    }
+    setAnimationClass("animate__fadeOut");
+    setTimeout(() => {
+      if (selectedProjectIndex === data.length - 1) {
+        setSelectedProjectIndex(0);
+      } else {
+        setSelectedProjectIndex((selectedProjectIndex + 1) % data.length);
+      }
+      setAnimationClass("animate__fadeIn");
+    }, 300);
   };
+
   const handleShowProjects = (event) => {
-    event.stopPropagation(); // Add this line
-    event.preventDefault(); // Add this line
+    event.stopPropagation();
+    event.preventDefault();
     setShowProjects(true);
     setShowProjectsModal(true);
     onShowBannerText(false);
@@ -52,7 +62,7 @@ const Projects = ({ onShowBannerText }) => {
             className="close-modal-btn"
             onClick={handleCloseProjectsModal}
           >
-            <FaTimes /> {/* Replace "Close" with the FaTimes icon */}
+            <FaTimes />
           </button>
           <div className="projects-container">
             <div className="projects-soon"></div>
@@ -72,12 +82,12 @@ const Projects = ({ onShowBannerText }) => {
                 </button>
                 <div className="project-carousel-image">
                   <img
-                    className="project-carousel-img animate__animated animate__jackInTheBox"
+                    className={`project-carousel-img animate__animated ${animationClass}`}
                     src={data[selectedProjectIndex].image}
                     alt={data[selectedProjectIndex].title}
                   />
                 </div>
-                <div className="project-carousel-info animate__animated animate__fadeInRight">
+                <div className="project-carousel-info">
                   <h3 className="text-center">
                     {data[selectedProjectIndex].title}
                   </h3>
@@ -104,7 +114,6 @@ const Projects = ({ onShowBannerText }) => {
       )}
 
       {!showProjects && (
-        // stop refresh on button click
         <button className="showProjectsBtn" onClick={handleShowProjects}>
           Show Projects
         </button>
@@ -113,7 +122,8 @@ const Projects = ({ onShowBannerText }) => {
       <style jsx>{`
         .arrow-btn {
           position: absolute;
-          top: 50%;
+          top: 80%;
+          transform: translateY(-50%);
         }
 
         .left-arrow {
@@ -122,10 +132,6 @@ const Projects = ({ onShowBannerText }) => {
 
         .right-arrow {
           right: -1.5rem;
-        }
-
-        .arrow-btn:hover {
-          transform: translateY(-50%) scale(1.2);
         }
 
         .overlay {
@@ -153,7 +159,7 @@ const Projects = ({ onShowBannerText }) => {
           transition: all 0.2s ease-in-out;
         }
         .close-modal-btn:hover {
-          transform: scale(1.2);
+          color: #ff0000;
         }
         .projects-container {
           width: 600px;
@@ -164,10 +170,8 @@ const Projects = ({ onShowBannerText }) => {
           max-width: 600px;
           margin: 0 auto;
         }
-        .project-carousel-buttons {
-          position: absolute;
-          display: flex;
-          justify-content: space-between;
+        .project-carousel {
+          position: relative;
         }
         .project-carousel-image img {
           width: 100%;
@@ -208,37 +212,24 @@ const Projects = ({ onShowBannerText }) => {
           color: black;
         }
         .showProjectsBtn {
-          --b: 3px;
-          --s: 0.45em;
-          --color: #2b2b2b;
           opacity: 50%;
-          padding: calc(0.5em + var(--s)) calc(0.9em + var(--s));
-          color: var(--color);
-          --_p: var(--s);
-          background: conic-gradient(
-              from 90deg at var(--b) var(--b),
-              #0000 90deg,
-              var(--color) 0
-            )
-            var(--_p) var(--_p) / calc(100% - var(--b) - 2 * var(--_p))
-            calc(100% - var(--b) - 2 * var(--_p));
-          transition: 0.3s linear, color 0s, background-color 0s;
-          outline: var(--b) solid #0000;
-          outline-offset: 0.6em;
+          padding: 0.5em 0.9em;
+          background-color: transparent;
+          color: #2b2b2b;
+          border: none;
           font-size: 16px;
-          border: 0;
+          cursor: pointer;
           user-select: none;
-          -webkit-user-select: none;
           touch-action: manipulation;
+          transition: all 0.3s ease-in-out;
         }
         .showProjectsBtn:hover,
         .showProjectsBtn:focus-visible {
-          --_p: 0px;
-          outline-color: var(--color);
+          outline: 3px solid #2b2b2b;
           outline-offset: 0.05em;
         }
         .showProjectsBtn:active {
-          background: var(--color);
+          background-color: #2b2b2b;
           color: #fff;
         }
       `}</style>

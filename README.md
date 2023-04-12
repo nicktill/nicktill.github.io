@@ -7,15 +7,20 @@
 ### Projects Section 
 <img width="1722" alt="Screen Shot 2023-04-12 at 2 19 01 AM" src="https://user-images.githubusercontent.com/57879193/231368217-c41652d5-5423-4e24-a1e4-036ce877a0de.png">
 
-## Technologies Used
+###Mobile Friendly
+<img width="381" alt="Screen Shot 2023-04-12 at 2 21 49 AM" src="https://user-images.githubusercontent.com/57879193/231368739-27331fac-af92-430e-9dc6-5e9e779bd230.png">
+
+###Mobile Projects Section
+<img width="383" alt="Screen Shot 2023-04-12 at 2 28 11 AM" src="https://user-images.githubusercontent.com/57879193/231369985-c81fe3bc-ebff-4146-9204-a9568359b418.png">
+
+
+### Technologies Used
 Next.js - A React framework for building server-side rendered and static web applications<br/>
 React.js - A JavaScript library for building user interfaces.<br/>
 Styled Components - A CSS-in-JS library for styling React components.<br/>
 React Icons - A collection of popular icons for React.<br/>
 
 # Getting Started with Next.js
-
-This is a sample project using [Next.js](https://nextjs.org/), a React framework for building server-side rendered and static web applications.
 
 ## Getting Started
 

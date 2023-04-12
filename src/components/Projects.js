@@ -62,7 +62,7 @@ const Projects = ({ onShowBannerText }) => {
             className="close-modal-btn"
             onClick={handleCloseProjectsModal}
           >
-            <FaTimes />
+            <FaTimes className="noShowMobile" />
           </button>
           <div className="projects-container">
             <div className="projects-soon"></div>
@@ -125,13 +125,13 @@ const Projects = ({ onShowBannerText }) => {
 
       <style jsx>{`
         @media screen and (max-width: 768px) {
+          .noShowMobile {
+            display: none;
+          }
           .showProjectsBtn {
             margin: 0 auto;
           }
-          .close-modal-btn {
-            display: none;
-          }
-          .left-arrow {
+          . .left-arrow {
             left: 1rem;
           }
 

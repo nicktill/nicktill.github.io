@@ -1,9 +1,13 @@
-## Portfolio
-[Live Site Here](https://nicktill.github.io)
+## Portfolio [https://nicktill.github.io]
 
-<img width="1717" alt="preview" src="https://user-images.githubusercontent.com/57879193/220522765-26e96caa-28d9-49cf-8665-5fb271c06610.png">
 
-# Technologies Used
+### Landing Page 
+<img width="1724" alt="Screen Shot 2023-04-12 at 2 19 24 AM" src="https://user-images.githubusercontent.com/57879193/231368270-dc035a83-97e2-4b3b-8629-db9835e64a64.png">
+
+### Projects Section 
+<img width="1722" alt="Screen Shot 2023-04-12 at 2 19 01 AM" src="https://user-images.githubusercontent.com/57879193/231368217-c41652d5-5423-4e24-a1e4-036ce877a0de.png">
+
+## Technologies Used
 Next.js - A React framework for building server-side rendered and static web applications<br/>
 React.js - A JavaScript library for building user interfaces.<br/>
 Styled Components - A CSS-in-JS library for styling React components.<br/>

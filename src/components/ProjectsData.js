@@ -46,7 +46,7 @@ const data = [
     title: "Portfolio Website",
     image: Portfolio,
     description:
-      "Personal Portfolio Website (aka this site) that took far too much CSS... but I'm proud of it! 👾",
+      "Personal Portfolio Website (aka this site) that took far too much CSS... but I'm proud of it 👨‍🚀 \n Thanks for scrolling through my projects! 👾",
     projectUrl: "https://nicktill.github.io",
     githubUrl: "https://github.com/nicktill/nicktill.github.io",
   },

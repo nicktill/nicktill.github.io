@@ -7,10 +7,10 @@
 ### Projects Section 
 <img width="1722" alt="Screen Shot 2023-04-12 at 2 19 01 AM" src="https://user-images.githubusercontent.com/57879193/231368217-c41652d5-5423-4e24-a1e4-036ce877a0de.png">
 
-###Mobile Friendly
+### Mobile Friendly
 <img width="381" alt="Screen Shot 2023-04-12 at 2 21 49 AM" src="https://user-images.githubusercontent.com/57879193/231368739-27331fac-af92-430e-9dc6-5e9e779bd230.png">
 
-###Mobile Projects Section
+### Mobile Projects Section
 <img width="383" alt="Screen Shot 2023-04-12 at 2 28 11 AM" src="https://user-images.githubusercontent.com/57879193/231369985-c81fe3bc-ebff-4146-9204-a9568359b418.png">
 
 

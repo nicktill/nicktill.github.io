@@ -127,7 +127,7 @@ const Projects = ({ onShowBannerText }) => {
         @media screen and (max-width: 768px) {
           .projects-container {
             padding: 0 1rem;
-            padding-bottom: 3rem;
+            padding-bottom: 10rem;
           }
           .noShowMobile {
             display: none;

@@ -36,7 +36,7 @@ export const NavBar = () => {
           <Nav className="ms-auto"></Nav>
           <span className="navbar-text">
             <div className="social-icon">
-              <a href="https://nicktill.github.io/resume.pdf" target="_blank">
+              <a href="/resume.pdf" target="_blank">
                 <FaFilePdf className="resume" color="white" />
               </a>
               <a

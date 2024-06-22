@@ -41,15 +41,15 @@ const data = [
     projectUrl: "https://translator-app-nicktill.vercel.app/",
     githubUrl: "https://github.com/nicktill/translator-app",
   },
-  {
-    id: 5,
-    title: "Portfolio Website",
-    image: Portfolio,
-    description:
-      "Personal Portfolio Website (aka this site) that took far too much CSS... but I'm proud of it 👨‍🚀 \n Thanks for scrolling through my projects! 👾",
-    projectUrl: "https://nicktill.github.io",
-    githubUrl: "https://github.com/nicktill/nicktill.github.io",
-  },
+  // {
+  //   id: 5,
+  //   title: "Portfolio Website",
+  //   image: Portfolio,
+  //   description:
+  //     "Personal Portfolio Website (aka this site) that took far too much CSS... but I'm proud of it 👨‍🚀 \n Thanks for scrolling through my projects! 👾",
+  //   projectUrl: "https://nicktill.github.io",
+  //   githubUrl: "https://github.com/nicktill/nicktill.github.io",
+  // },
 ];
 
 export default data;

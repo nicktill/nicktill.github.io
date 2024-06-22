@@ -446,16 +446,15 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 .gradient {
   background: linear-gradient(
     to right,
-    #2e3b3f,
-    /* Dark greenish-blue from the trees */ #4a5a5f,
-    /* Slightly lighter greenish-blue */ #6e7d82,
-    /* Medium greenish-blue with more light */ #899999,
-    /* Light foggy color */ #a5b4b7,
-    /* Lighter fog color */ #c0cdcf,
-    /* Even lighter fog */ #dce6e8,
-    /* Very light fog */ #f0f7f9 /* Almost white fog */
+    /* Deep blue */ rgba(79, 118, 185, 0.9),
+    /* Blue transitioning to green */ rgba(86, 137, 180, 0.9),
+    /* Blue-green */ rgba(93, 156, 175, 0.85),
+    /* Balanced blue-green */ rgba(100, 175, 170, 0.85),
+    /* Green-blue */ rgba(107, 194, 165, 0.8),
+    /* Light green-blue */ rgba(110, 208, 159, 0.8),
+    /* Pale green with blue hint */ rgba(115, 215, 165, 0.75),
+    /* Very light misty green */ rgba(120, 222, 170, 0.75)
   );
-
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: gradient 15s linear infinite;

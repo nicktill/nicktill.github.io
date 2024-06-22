@@ -107,7 +107,7 @@ export const Banner = () => {
                       "mobileflag animate__animated animate__fadeInRight"
                     }
                   >
-                    <img
+                    {/* <img
                       className="headerImg"
                       src={headerImg}
                       alt="Header Img"
@@ -116,7 +116,7 @@ export const Banner = () => {
                       className="headerImgBackground"
                       src={headerImgBackground}
                       alt="Header Img Background"
-                    />
+                    /> */}
                   </div>
                 )}
               </TrackVisibility>

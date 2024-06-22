@@ -357,8 +357,8 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 .banner {
   margin-top: 0;
   padding: 260px 0 100px 0;
-  background-image: url("./assets/img/banner-bg.png");
-  background-color: black;
+  background-image: url("./assets/img/banner-2.jpg");
+  /* background-color: black; */
   background-position: center;
   background-size: cover;
   min-height: 100vh;
@@ -376,8 +376,8 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   padding: 8px 10px;
   background: linear-gradient(
     90.21deg,
-    rgba(170, 54, 124, 0.5) -5.91%,
-    rgba(74, 47, 189, 0.5) 111.58%
+    rgba(79, 118, 185, 0.5) -5.91%,
+    rgba(110, 208, 159, 0.5) 111.58%
   );
   border: 1px solid rgba(255, 255, 255, 0.5);
   font-size: 20px;
@@ -446,16 +446,16 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 .gradient {
   background: linear-gradient(
     to right,
-    #845ec2,
-    #d65db1,
-    #ff6f91,
-    #845ec2,
-    #2c73d2,
-    #0081cf,
-    #0089ba,
-    #008e9b,
-    #008f7a
+    #2e3b3f,
+    /* Dark greenish-blue from the trees */ #4a5a5f,
+    /* Slightly lighter greenish-blue */ #6e7d82,
+    /* Medium greenish-blue with more light */ #899999,
+    /* Light foggy color */ #a5b4b7,
+    /* Lighter fog color */ #c0cdcf,
+    /* Even lighter fog */ #dce6e8,
+    /* Very light fog */ #f0f7f9 /* Almost white fog */
   );
+
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: gradient 15s linear infinite;

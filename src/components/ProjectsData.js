@@ -2,7 +2,7 @@ import GradeMyAid from "../assets/img/GradeMyAid.png";
 import CryptoTracker from "../assets/img/CryptoTracker.png";
 import YTRecap from "../assets/img/ytlight.png";
 import Translator from "../assets/img/translator.png";
-import Portfolio from "../assets/img/portfolio.png";
+import StockPulse from "../assets/img/StockPulse.png";
 
 const data = [
   {
@@ -16,6 +16,15 @@ const data = [
   },
   {
     id: 2,
+    title: "StockPulse",
+    image: StockPulse,
+    description:
+      "StockPulse📈🚀 (WIP) empowers retail investors by leveraging AI-powered browsing capabilities to gather and analyze real-time financial data and sentiment from across the web. It processes and analyzes this information using advanced AI models, delivering well-researched stock recommendations and investment insights to help investors make informed decisions.",
+    projectUrl: "https://github.com/nicktill/stock-pulse",
+    githubUrl: "https://github.com/nicktill/stock-pulse",
+  },
+  {
+    id: 3,
     title: "GradeMyAid",
     image: GradeMyAid,
     description:
@@ -24,7 +33,7 @@ const data = [
     githubUrl: "https://github.com/nicktill/cs1530-finance-group",
   },
   {
-    id: 3,
+    id: 4,
     title: "CryptoTracker",
     image: CryptoTracker,
     description:
@@ -33,7 +42,7 @@ const data = [
     githubUrl: "https://github.com/nicktill/crypto-tracker",
   },
   {
-    id: 4,
+    id: 5,
     title: "Translator",
     image: Translator,
     description:
@@ -41,15 +50,8 @@ const data = [
     projectUrl: "https://translator-app-nicktill.vercel.app/",
     githubUrl: "https://github.com/nicktill/translator-app",
   },
-  {
-    id: 5,
-    title: "Portfolio Website",
-    image: Portfolio,
-    description:
-      "Personal Portfolio Website (aka this site) that took far too much CSS... but I'm proud of it 👨‍🚀 \n Thanks for scrolling through my projects! 👾",
-    projectUrl: "https://nicktill.github.io",
-    githubUrl: "https://github.com/nicktill/nicktill.github.io",
-  },
+  
 ];
 
 export default data;
+

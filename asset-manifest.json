@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/static/css/main.7594992c.css",
-    "main.js": "/static/js/main.eccfa25e.js",
+    "main.js": "/static/js/main.f67ccd17.js",
     "static/js/453.fe03a297.chunk.js": "/static/js/453.fe03a297.chunk.js",
     "static/media/header-astro.png": "/static/media/header-astro.c957a39df35c14a70eb6.png",
     "static/media/planet2.png": "/static/media/planet2.164a42e82cb600b1103b.png",
-    "static/media/portfolio.png": "/static/media/portfolio.f8bd0d7777318d331c38.png",
     "static/media/ytlight.png": "/static/media/ytlight.1bcbdb499ea0f0a933ff.png",
     "static/media/translator.png": "/static/media/translator.660fbf5032a2fd82df4b.png",
+    "static/media/StockPulse.png": "/static/media/StockPulse.f1adc5656f7db717fcfa.png",
     "static/media/CryptoTracker.png": "/static/media/CryptoTracker.2e5d119b76b14344222b.png",
     "static/media/GradeMyAid.png": "/static/media/GradeMyAid.afa4c4dee10851b8763a.png",
     "static/media/banner-bg.png": "/static/media/banner-bg.cc1273af450504afe755.png",
@@ -16,11 +16,11 @@
     "static/media/CentraNo2-Book.ttf": "/static/media/CentraNo2-Book.2b143fa4b734a3584043.ttf",
     "index.html": "/index.html",
     "main.7594992c.css.map": "/static/css/main.7594992c.css.map",
-    "main.eccfa25e.js.map": "/static/js/main.eccfa25e.js.map",
+    "main.f67ccd17.js.map": "/static/js/main.f67ccd17.js.map",
     "453.fe03a297.chunk.js.map": "/static/js/453.fe03a297.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.7594992c.css",
-    "static/js/main.eccfa25e.js"
+    "static/js/main.f67ccd17.js"
   ]
 }

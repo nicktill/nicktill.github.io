@@ -1,4 +1,4 @@
-## Portfolio [https://nicktill.github.io]
+## [nicktill.com](https://nicktill.com/)
 
 
 ### Landing Page 

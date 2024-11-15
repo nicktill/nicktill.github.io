@@ -90,8 +90,8 @@ export const Banner = () => {
                         </h1>
                         <p>
                           I love creating intuitive interfaces and software that
-                          make users lives easier'
-                        </p>{" "}
+                          make users lives easier
+                        </p>
                       </>
                     )}
                     <Projects onShowBannerText={setShowBannerText} />

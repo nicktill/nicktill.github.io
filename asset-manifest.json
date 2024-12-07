@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.7594992c.css",
-    "main.js": "/static/js/main.f67ccd17.js",
+    "main.js": "/static/js/main.c809ec87.js",
     "static/js/453.fe03a297.chunk.js": "/static/js/453.fe03a297.chunk.js",
     "static/media/header-astro.png": "/static/media/header-astro.c957a39df35c14a70eb6.png",
     "static/media/planet2.png": "/static/media/planet2.164a42e82cb600b1103b.png",
@@ -16,11 +16,11 @@
     "static/media/CentraNo2-Book.ttf": "/static/media/CentraNo2-Book.2b143fa4b734a3584043.ttf",
     "index.html": "/index.html",
     "main.7594992c.css.map": "/static/css/main.7594992c.css.map",
-    "main.f67ccd17.js.map": "/static/js/main.f67ccd17.js.map",
+    "main.c809ec87.js.map": "/static/js/main.c809ec87.js.map",
     "453.fe03a297.chunk.js.map": "/static/js/453.fe03a297.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.7594992c.css",
-    "static/js/main.f67ccd17.js"
+    "static/js/main.c809ec87.js"
   ]
 }

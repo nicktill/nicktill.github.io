@@ -1,24 +1,25 @@
 {
-  "main.css": "/static/css/main.b89ca845.chunk.css",
-  "main.js": "/static/js/main.73c8202c.chunk.js",
-  "main.js.map": "/static/js/main.73c8202c.chunk.js.map",
-  "static/js/1.6c2f0c66.chunk.js": "/static/js/1.6c2f0c66.chunk.js",
-  "static/js/1.6c2f0c66.chunk.js.map": "/static/js/1.6c2f0c66.chunk.js.map",
-  "static/css/2.3507665e.chunk.css": "/static/css/2.3507665e.chunk.css",
-  "static/js/2.bbce8990.chunk.js": "/static/js/2.bbce8990.chunk.js",
-  "static/js/2.bbce8990.chunk.js.map": "/static/js/2.bbce8990.chunk.js.map",
-  "runtime~main.js": "/static/js/runtime~main.ca566526.js",
-  "runtime~main.js.map": "/static/js/runtime~main.ca566526.js.map",
-  "static/media/GradeMyAid.png": "/static/media/GradeMyAid.96805cac.png",
-  "static/media/CryptoTracker.png": "/static/media/CryptoTracker.cecb897a.png",
-  "static/media/ytlight.png": "/static/media/ytlight.b224c3d8.png",
-  "static/media/StockPulse.png": "/static/media/StockPulse.2b08da35.png",
-  "static/media/clarity-coach.png": "/static/media/clarity-coach.2a49e373.png",
-  "static/media/App.css": "/static/media/banner-2.b9812e66.jpg",
-  "static/media/translator.png": "/static/media/translator.539ee8eb.png",
-  "static/css/2.3507665e.chunk.css.map": "/static/css/2.3507665e.chunk.css.map",
-  "static/css/main.b89ca845.chunk.css.map": "/static/css/main.b89ca845.chunk.css.map",
-  "index.html": "/index.html",
-  "precache-manifest.036bb1a5423b7915544282e7d53d3100.js": "/precache-manifest.036bb1a5423b7915544282e7d53d3100.js",
-  "service-worker.js": "/service-worker.js"
+  "files": {
+    "main.css": "/static/css/main.d2287bd3.css",
+    "main.js": "/static/js/main.1eb0b01b.js",
+    "static/js/453.fe03a297.chunk.js": "/static/js/453.fe03a297.chunk.js",
+    "static/media/ytlight.png": "/static/media/ytlight.1bcbdb499ea0f0a933ff.png",
+    "static/media/clarity-coach.png": "/static/media/clarity-coach.a95b066f170638d090f4.png",
+    "static/media/banner-2.jpg": "/static/media/banner-2.288062b541a907462a22.jpg",
+    "static/media/translator.png": "/static/media/translator.660fbf5032a2fd82df4b.png",
+    "static/media/StockPulse.png": "/static/media/StockPulse.f1adc5656f7db717fcfa.png",
+    "static/media/CryptoTracker.png": "/static/media/CryptoTracker.2e5d119b76b14344222b.png",
+    "static/media/GradeMyAid.png": "/static/media/GradeMyAid.afa4c4dee10851b8763a.png",
+    "static/media/CentraNo2-Bold.ttf": "/static/media/CentraNo2-Bold.2faff7f7d3fc92a2fcd9.ttf",
+    "static/media/CentraNo2-Medium.ttf": "/static/media/CentraNo2-Medium.f94be5b326d78bb32b95.ttf",
+    "static/media/CentraNo2-Book.ttf": "/static/media/CentraNo2-Book.2b143fa4b734a3584043.ttf",
+    "index.html": "/index.html",
+    "main.d2287bd3.css.map": "/static/css/main.d2287bd3.css.map",
+    "main.1eb0b01b.js.map": "/static/js/main.1eb0b01b.js.map",
+    "453.fe03a297.chunk.js.map": "/static/js/453.fe03a297.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d2287bd3.css",
+    "static/js/main.1eb0b01b.js"
+  ]
 }

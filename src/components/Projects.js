@@ -1,10 +1,4 @@
 import { useState, useEffect } from "react";
-import {
-  FaChevronDown,
-  FaChevronLeft,
-  FaChevronRight,
-  FaTimes,
-} from "react-icons/fa";
 import React from "react";
 import data from "./ProjectsData";
 import "animate.css";
@@ -12,8 +6,9 @@ import "animate.css";
 const Projects = ({ onShowBannerText }) => {
   const [selectedProjectIndex, setSelectedProjectIndex] = useState(0);
   const [showProjects, setShowProjects] = useState(false);
-  const [showProjectsModal, setShowProjectsModal] = useState(false);
-  const [animationClass, setAnimationClass] = useState("animate__jackInTheBox");
+  const [animationClass, setAnimationClass] = useState("slide-in-center");
+  const [introAnimationClass, setIntroAnimationClass] = useState("animate__jackInTheBox");
+  const [viewedProjects, setViewedProjects] = useState(new Set([0])); // Track which projects have been viewed
 
   // Cleanup on component unmount
   useEffect(() => {
@@ -23,40 +18,85 @@ const Projects = ({ onShowBannerText }) => {
   }, []);
 
   const handlePrevClick = () => {
-    setAnimationClass("animate__backOutLeft");
+    setAnimationClass("slide-out-right");
     setTimeout(() => {
+      let newIndex;
       if (selectedProjectIndex === 0) {
-        setSelectedProjectIndex(data.length - 1);
+        newIndex = data.length - 1;
       } else {
-        setSelectedProjectIndex((selectedProjectIndex - 1) % data.length);
+        newIndex = (selectedProjectIndex - 1) % data.length;
       }
-      setAnimationClass("animate__backInRight");
-    }, 1000);
+      setSelectedProjectIndex(newIndex);
+      
+      // Track viewed projects
+      const newViewedProjects = new Set(viewedProjects);
+      newViewedProjects.add(newIndex);
+      setViewedProjects(newViewedProjects);
+      
+      setAnimationClass("slide-in-left");
+    }, 300);
   };
 
   const handleNextClick = () => {
-    setAnimationClass("animate__backOutLeft");
+    // Check if we're on the last project and user has seen all projects
+    if (selectedProjectIndex === data.length - 1 && viewedProjects.size === data.length) {
+      // Auto-close immediately instead of cycling
+      handleAutoClose();
+      return;
+    }
+    
+    setAnimationClass("slide-out-left");
     setTimeout(() => {
-      // Fixed: Just move to next project, don't close modal
-      setSelectedProjectIndex((selectedProjectIndex + 1) % data.length);
-      setAnimationClass("animate__backInRight");
-    }, 1000);
+      const newIndex = (selectedProjectIndex + 1) % data.length;
+      setSelectedProjectIndex(newIndex);
+      
+      // Track viewed projects
+      const newViewedProjects = new Set(viewedProjects);
+      newViewedProjects.add(newIndex);
+      setViewedProjects(newViewedProjects);
+      
+      setAnimationClass("slide-in-right");
+    }, 300);
+  };
+
+  const handleAutoClose = () => {
+    // Use smooth slide-out animation for auto-close
+    setIntroAnimationClass("slide-out-smooth");
+    setTimeout(() => {
+      setShowProjects(false);
+      onShowBannerText && onShowBannerText(true);
+      document.body.style.overflow = 'auto';
+      
+      // Reset states for next time
+      setSelectedProjectIndex(0);
+      setViewedProjects(new Set([0]));
+      setIntroAnimationClass("animate__jackInTheBox");
+      setAnimationClass("slide-in-center");
+    }, 600); // Match the slide-out animation duration
   };
 
   const handleShowProjects = () => {
     setShowProjects(true);
-    setShowProjectsModal(true);
     onShowBannerText && onShowBannerText(false);
     // Lock body scroll on mobile
     document.body.style.overflow = 'hidden';
   };
 
   const handleCloseProjectsModal = () => {
-    setShowProjectsModal(false);
-    setShowProjects(false);
-    onShowBannerText && onShowBannerText(true);
-    // Restore body scroll
-    document.body.style.overflow = 'auto';
+    // Use the same smooth slide-out animation for manual close
+    setIntroAnimationClass("slide-out-smooth");
+    setTimeout(() => {
+      setShowProjects(false);
+      onShowBannerText && onShowBannerText(true);
+      // Restore body scroll
+      document.body.style.overflow = 'auto';
+      
+      // Reset states for next time
+      setSelectedProjectIndex(0);
+      setViewedProjects(new Set([0]));
+      setIntroAnimationClass("animate__jackInTheBox");
+      setAnimationClass("slide-in-center");
+    }, 600); // Match the slide-out animation duration
   };
 
   return (
@@ -64,14 +104,14 @@ const Projects = ({ onShowBannerText }) => {
       {showProjects && (
         <div className="projects-section">
           {/* Main container */}
-          <div className="projects-container">
+          <div className={`projects-container animate__animated ${introAnimationClass}`}>
             {/* New close button inside container */}
             <button
               className="close-btn"
               onClick={handleCloseProjectsModal}
               aria-label="Close projects"
             >
-              <span>×</span>
+              ×
             </button>
             
             <div className="project-carousel">
@@ -83,7 +123,7 @@ const Projects = ({ onShowBannerText }) => {
                   rel="noopener noreferrer"
                 >
                   <img
-                    className={`project-carousel-img animate__animated ${animationClass}`}
+                    className={`project-carousel-img ${animationClass}`}
                     src={data[selectedProjectIndex].image}
                     alt={data[selectedProjectIndex].title}
                   />
@@ -91,7 +131,7 @@ const Projects = ({ onShowBannerText }) => {
               </div>
               
               {/* Project info */}
-              <div className={`project-carousel-info animate__animated ${animationClass}`}>
+              <div className={`project-carousel-info ${animationClass}`}>
                 <h3>{data[selectedProjectIndex].title}</h3>
                 <p>{data[selectedProjectIndex].description}</p>
                 <div className="buttons-container">
@@ -180,6 +220,101 @@ const Projects = ({ onShowBannerText }) => {
           }
         }
 
+        /* Custom slide animations for project transitions */
+        .slide-in-center {
+          animation: slideInCenter 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+
+        .slide-in-left {
+          animation: slideInLeft 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+
+        .slide-in-right {
+          animation: slideInRight 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+
+        .slide-out-left {
+          animation: slideOutLeft 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+
+        .slide-out-right {
+          animation: slideOutRight 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+
+        .slide-out-smooth {
+          animation: slideOutSmooth 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+
+        @keyframes slideInCenter {
+          from {
+            transform: scale(0.9) translateY(20px);
+            opacity: 0;
+          }
+          to {
+            transform: scale(1) translateY(0);
+            opacity: 1;
+          }
+        }
+
+        @keyframes slideInLeft {
+          from {
+            transform: translateX(-100px);
+            opacity: 0;
+          }
+          to {
+            transform: translateX(0);
+            opacity: 1;
+          }
+        }
+
+        @keyframes slideInRight {
+          from {
+            transform: translateX(100px);
+            opacity: 0;
+          }
+          to {
+            transform: translateX(0);
+            opacity: 1;
+          }
+        }
+
+        @keyframes slideOutLeft {
+          from {
+            transform: translateX(0);
+            opacity: 1;
+          }
+          to {
+            transform: translateX(-100px);
+            opacity: 0;
+          }
+        }
+
+        @keyframes slideOutRight {
+          from {
+            transform: translateX(0);
+            opacity: 1;
+          }
+          to {
+            transform: translateX(100px);
+            opacity: 0;
+          }
+        }
+
+        @keyframes slideOutSmooth {
+          0% {
+            transform: translateX(0) scale(1);
+            opacity: 1;
+          }
+          50% {
+            transform: translateX(150px) scale(0.95);
+            opacity: 0.7;
+          }
+          100% {
+            transform: translateX(400px) scale(0.8);
+            opacity: 0;
+          }
+        }
+
         .close-btn {
           position: absolute;
           top: -70px;
@@ -200,7 +335,7 @@ const Projects = ({ onShowBannerText }) => {
           box-shadow: 0 2px 8px rgba(239, 68, 68, 0.3);
         }
 
-        .close-btn span {
+        .close-btn {
           font-size: 18px;
           line-height: 1;
           font-weight: 400;
@@ -511,7 +646,7 @@ const Projects = ({ onShowBannerText }) => {
             box-shadow: 0 4px 12px rgba(239, 68, 68, 0.4);
           }
 
-          .close-btn span {
+          .close-btn {
             font-size: 18px;
           }
 
@@ -598,7 +733,7 @@ const Projects = ({ onShowBannerText }) => {
             height: 30px;
           }
 
-          .close-btn span {
+          .close-btn {
             font-size: 16px;
           }
 

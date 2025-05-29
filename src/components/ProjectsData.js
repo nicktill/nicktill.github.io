@@ -22,7 +22,7 @@ const data = [
     description:
       "ClarityCoach (landing page) is a startup focused on AI-powered multi-modal feedback for creators. It analyzes input to provides tailored advice for optimal engagement and growth.",
     projectUrl: "https://clarity-coach-works.vercel.app/",
-    githubUrl: "github.com/nicktill/clarity-coach",
+    githubUrl: "https://github.com/nicktill/clarity-coach",
   },
   {
     id: 3,
@@ -51,15 +51,15 @@ const data = [
     projectUrl: "https://crypto-tracker-nicktill.vercel.app/",
     githubUrl: "https://github.com/nicktill/crypto-tracker",
   },
-  {
-    id: 6,
-    title: "Translator",
-    image: Translator,
-    description:
-      "A simple web app for translating text between 50+ languages. Includes text-to-speech support for all available languages, enhancing accessibility and ease of use.",
-    projectUrl: "https://translator-app-nicktill.vercel.app/",
-    githubUrl: "https://github.com/nicktill/translator-app",
-  },
+  // {
+  //   id: 6,
+  //   title: "Translator",
+  //   image: Translator,
+  //   description:
+  //     "A simple web app for translating text between 50+ languages. Includes text-to-speech support for all available languages, enhancing accessibility and ease of use.",
+  //   projectUrl: "https://translator-app-nicktill.vercel.app/",
+  //   githubUrl: "https://github.com/nicktill/translator-app",
+  // },
   
 ];
 

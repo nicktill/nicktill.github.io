@@ -26,7 +26,20 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 75px;
+  scr/* Headshot container */
+.headshot-container {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}-top: 75px;
 }
 
 .nicktill {
@@ -462,6 +475,7 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
     /* Very light misty green */ rgba(120, 222, 170, 0.75)
   );
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: gradient 15s linear infinite;
 }
@@ -483,4 +497,63 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   font-size: 1rem;
   font-weight: 700;
   border: none;
+}
+
+/* Brand container styling for headshot + text */
+.brand-container {
+  display: flex !important;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+
+.brand-container:hover {
+  text-decoration: none;
+}
+
+/* Headshot container */
+.headshot-container {
+  position: relative;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.headshot-container:hover {
+  transform: scale(1.1);
+  border-color: rgba(255, 255, 255, 0.6);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Headshot image */
+.navbar-headshot {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.headshot-container:hover .navbar-headshot {
+  filter: brightness(1.1) contrast(1.05);
+}
+
+/* Responsive headshot sizing */
+@media (max-width: 767px) {
+  .headshot-container {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .headshot-container {
+    width: 44px;
+    height: 44px;
+  }
 }

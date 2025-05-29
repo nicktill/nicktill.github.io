@@ -26,7 +26,14 @@ export const NavBar = React.memo(() => {
   return (
     <Navbar expand="md" className={scrolled ? "scrolled" : ""}>
       <Container>
-        <Navbar.Brand href="/">
+        <Navbar.Brand href="/" className="brand-container">
+          <div className="headshot-container">
+            <img 
+              src="/headshot.jpg" 
+              alt="Nick Tillmann" 
+              className="navbar-headshot"
+            />
+          </div>
           <h1 className="nicktill">/nicktill</h1>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav">

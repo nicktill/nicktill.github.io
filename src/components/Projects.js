@@ -458,8 +458,8 @@ const Projects = ({ onShowBannerText }) => {
         .arrow-btn {
           width: 40px;
           height: 40px;
+          /* Safari-compatible background */
           background: rgba(255, 255, 255, 0.1);
-          backdrop-filter: blur(10px);
           border: 1px solid rgba(255, 255, 255, 0.2);
           border-radius: 50%;
           color: white;
@@ -471,6 +471,12 @@ const Projects = ({ onShowBannerText }) => {
           justify-content: center;
           z-index: 10;
           flex-shrink: 0;
+          transform: translateZ(0);
+          
+          /* Safari-specific fixes */
+          -webkit-appearance: none;
+          -webkit-border-radius: 50%;
+          outline: none;
         }
 
         .arrow-btn:hover {

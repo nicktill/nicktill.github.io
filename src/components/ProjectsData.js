@@ -3,6 +3,7 @@ import CryptoTracker from "../assets/img/CryptoTracker.png";
 import YTRecap from "../assets/img/ytlight.png";
 import Translator from "../assets/img/translator.png";
 import StockPulse from "../assets/img/StockPulse.png";
+import ClarityCoach from "../assets/img/clarity-coach.png";
 
 const data = [
   {
@@ -10,46 +11,55 @@ const data = [
     title: "YTRecap",
     image: YTRecap,
     description:
-      "YTRecap is a web app that summarizes YouTube videos in seconds, regardless of their length by using the videos closed captions and other meta data and passing them to an NLP large language model (https://ytrecap.org)",
+      "YTRecap summarizes any YouTube videos using their captions and metadata, processed by an LLM model. It provides quick insights regardless of video length. (ytrecap.org)",
     projectUrl: "https://ytrecap.org",
     githubUrl: "https://github.com/nicktill/ytrecap",
   },
-  {
+    {
     id: 2,
+    title: "ClarityCoach",
+    image: ClarityCoach,
+    description:
+      "ClarityCoach (landing page) is a startup focused on AI-powered multi-modal feedback for creators. It analyzes input to provides tailored advice for optimal engagement and growth.",
+    projectUrl: "https://clarity-coach-works.vercel.app/",
+    githubUrl: "https://github.com/nicktill/clarity-coach",
+  },
+  {
+    id: 3,
     title: "StockPulse",
     image: StockPulse,
     description:
-      "StockPulse📈🚀 (WIP) empowers retail investors by leveraging AI-powered browsing capabilities to gather and analyze real-time financial data and sentiment from across the web. It processes and analyzes this information using advanced AI models, delivering well-researched stock recommendations and investment insights to help investors make informed decisions.",
+      "StockPulse (WIP) aids retail investors with AI-driven web browsing for real-time financial data and sentiment analysis, delivering researched stock recommendations and insights.",
     projectUrl: "https://github.com/nicktill/stock-pulse",
     githubUrl: "https://github.com/nicktill/stock-pulse",
   },
   {
-    id: 3,
+    id: 4,
     title: "GradeMyAid",
     image: GradeMyAid,
     description:
-      "GradeMyAid is a webapp that compares FAFSA scholarship data among various institutions, enabling users to assess and compare their awards to others, providing insights into each school's offerings. (https://grademyaid.com)",
+      "GradeMyAid compares FAFSA scholarship data across institutions, allowing users to assess their awards against others and understand school offerings. (grademyaid.com)",
     projectUrl: "https://grademyaid.com",
     githubUrl: "https://github.com/nicktill/cs1530-finance-group",
   },
   {
-    id: 4,
+    id: 5,
     title: "CryptoTracker",
     image: CryptoTracker,
     description:
-      "A comprehensive dashboard for tracking cryptocurrency prices and market data (including the option to sort by market cap, price, volume, and highest/lowest price change)",
+      "A dashboard for tracking cryptocurrency prices and market data. Features sorting by market cap, price, volume, and price changes for detailed market analysis.",
     projectUrl: "https://crypto-tracker-nicktill.vercel.app/",
     githubUrl: "https://github.com/nicktill/crypto-tracker",
   },
-  {
-    id: 5,
-    title: "Translator",
-    image: Translator,
-    description:
-      "A simple web app that translates text between fifty+ languages with text-to-speech support for all languages",
-    projectUrl: "https://translator-app-nicktill.vercel.app/",
-    githubUrl: "https://github.com/nicktill/translator-app",
-  },
+  // {
+  //   id: 6,
+  //   title: "Translator",
+  //   image: Translator,
+  //   description:
+  //     "A simple web app for translating text between 50+ languages. Includes text-to-speech support for all available languages, enhancing accessibility and ease of use.",
+  //   projectUrl: "https://translator-app-nicktill.vercel.app/",
+  //   githubUrl: "https://github.com/nicktill/translator-app",
+  // },
   
 ];
 

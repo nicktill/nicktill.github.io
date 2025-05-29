@@ -3,6 +3,7 @@ import CryptoTracker from "../assets/img/CryptoTracker.png";
 import YTRecap from "../assets/img/ytlight.png";
 import Translator from "../assets/img/translator.png";
 import StockPulse from "../assets/img/StockPulse.png";
+import ClarityCoach from "../assets/img/clarity-coach.png";
 
 const data = [
   {
@@ -14,8 +15,17 @@ const data = [
     projectUrl: "https://ytrecap.org",
     githubUrl: "https://github.com/nicktill/ytrecap",
   },
-  {
+    {
     id: 2,
+    title: "ClarityCoach",
+    image: ClarityCoach,
+    description:
+      "ClarityCoach is a web app that helps users achieve their goals by providing AI suggestions and guidance. It uses AI to analyze user input and provide tailored advice, helping users stay focused and motivated on their journey to success.",
+    projectUrl: "https://clarity-coach-works.vercel.app/",
+    githubUrl: "github.com/nicktill/clarity-coach",
+  },
+  {
+    id: 3,
     title: "StockPulse",
     image: StockPulse,
     description:
@@ -24,7 +34,7 @@ const data = [
     githubUrl: "https://github.com/nicktill/stock-pulse",
   },
   {
-    id: 3,
+    id: 4,
     title: "GradeMyAid",
     image: GradeMyAid,
     description:
@@ -33,7 +43,7 @@ const data = [
     githubUrl: "https://github.com/nicktill/cs1530-finance-group",
   },
   {
-    id: 4,
+    id: 5,
     title: "CryptoTracker",
     image: CryptoTracker,
     description:
@@ -42,7 +52,7 @@ const data = [
     githubUrl: "https://github.com/nicktill/crypto-tracker",
   },
   {
-    id: 5,
+    id: 6,
     title: "Translator",
     image: Translator,
     description:

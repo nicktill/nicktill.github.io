@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "63885598f27fa008671d",
+    "revision": "73c8202cc363d7d19758",
     "url": "/static/css/main.b89ca845.chunk.css"
   },
   {
-    "revision": "63885598f27fa008671d",
-    "url": "/static/js/main.63885598.chunk.js"
+    "revision": "73c8202cc363d7d19758",
+    "url": "/static/js/main.73c8202c.chunk.js"
   },
   {
     "revision": "6c2f0c669e75384f418e",
@@ -44,16 +44,16 @@ self.__precacheManifest = [
     "url": "/static/media/clarity-coach.2a49e373.png"
   },
   {
-    "revision": "386f05946a76935fcabf319affff517a",
-    "url": "/static/media/CentraNo2-Book.386f0594.ttf"
+    "revision": "4ea3794d631bedab7999678f46b0a162",
+    "url": "/static/media/CentraNo2-Bold.4ea3794d.ttf"
   },
   {
     "revision": "63911e8535278ced52b8a37e819f6f5d",
     "url": "/static/media/CentraNo2-Medium.63911e85.ttf"
   },
   {
-    "revision": "4ea3794d631bedab7999678f46b0a162",
-    "url": "/static/media/CentraNo2-Bold.4ea3794d.ttf"
+    "revision": "386f05946a76935fcabf319affff517a",
+    "url": "/static/media/CentraNo2-Book.386f0594.ttf"
   },
   {
     "revision": "b9812e665ea4002b980c881b906b569c",
@@ -64,7 +64,7 @@ self.__precacheManifest = [
     "url": "/static/media/translator.539ee8eb.png"
   },
   {
-    "revision": "a17e8a780f03931f12b81ae1e8df39e8",
+    "revision": "b7cedaee7496b188fe412ee6da98b74b",
     "url": "/index.html"
   }
 ];

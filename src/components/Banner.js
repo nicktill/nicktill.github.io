@@ -68,32 +68,30 @@ export const Banner = () => {
 
   return (
     <>
-      <section className="banner" id="home">
+      <section className="banner" id="home" style={{ position: 'relative' }}>
         <Container>
           <Row className="aligh-items-center">
             <Col xs={12} md={6} xl={7}>
               <TrackVisibility>
                 {({ isVisible }) => (
                   <div className="animate__animated animate__fadeInDown ">
-                    {showBannerText && (
-                      <>
-                        <span className="tagline  ">
-                          Welcome to my Portfolio!
-                        </span>
-                        <h1>
-                          {`Hi! I'm Nick,`} <br />
-                          <span className="txt-rotate">
-                            <span className="wrap gradient no-show-mobile">
-                              {title}
-                            </span>
+                    <div className={`banner-content ${!showBannerText ? 'hide-on-mobile' : ''}`}>
+                      <span className="tagline  ">
+                        Welcome to my Portfolio!
+                      </span>
+                      <h1>
+                        {`Hi! I'm Nick,`} <br />
+                        <span className="txt-rotate">
+                          <span className="wrap gradient no-show-mobile">
+                            {title}
                           </span>
-                        </h1>
-                        <p>
-                          I love creating intuitive interfaces and software that
-                          make users lives easier
-                        </p>
-                      </>
-                    )}
+                        </span>
+                      </h1>
+                      <p>
+                        I love creating intuitive interfaces and software that
+                        make users lives easier
+                      </p>
+                    </div>
                     <Projects onShowBannerText={setShowBannerText} />
                   </div>
                 )}

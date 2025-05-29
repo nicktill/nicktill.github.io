@@ -326,6 +326,11 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   .no-show-mobile {
     display: none;
   }
+  
+  /* Hide banner content on mobile when projects are open */
+  .banner-content.hide-on-mobile {
+    display: none;
+  }
 }
 
 /* For screens between 768px and 992px */

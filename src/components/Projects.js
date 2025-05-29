@@ -571,27 +571,33 @@ const Projects = ({ onShowBannerText }) => {
         }
 
         .showProjectsBtn {
-          display: flex;
+          display: inline-flex;
           align-items: center;
           justify-content: center;
-          gap: 0.5rem;
-          padding: 0.75rem 1.5rem;
-          background: linear-gradient(135deg, #1f2937 0%, #374151 100%);
+          gap: 6px;
+          padding: 12px 20px;
+          background: rgba(255, 255, 255, 0.12);
+          backdrop-filter: blur(15px);
+          border: 1px solid rgba(255, 255, 255, 0.25);
+          border-radius: 25px;
           color: white;
-          border: 1px solid rgba(255, 255, 255, 0.1);
-          border-radius: 50px;
-          font-size: 1rem;
+          font-size: 14px;
           font-weight: 600;
+          letter-spacing: 0.4px;
           cursor: pointer;
-          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-          box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+          transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+          box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+          position: relative;
+          transform-origin: center;
+          will-change: transform;
+          margin-top: 8px;
         }
 
         .showProjectsBtn:hover {
-          transform: translateY(-2px);
-          box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
-          background: linear-gradient(135deg, #374151 0%, #4b5563 100%);
-          border-color: rgba(255, 255, 255, 0.2);
+          background: rgba(255, 255, 255, 0.18);
+          border-color: rgba(255, 255, 255, 0.45);
+          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25);
+          transform: scale(1.05);
         }
 
         .btn-icon {
@@ -705,10 +711,11 @@ const Projects = ({ onShowBannerText }) => {
           }
 
           .showProjectsBtn {
-            font-size: 0.9rem;
-            padding: 0.6rem 1.2rem;
-            margin: 1rem auto 0 auto;
+            font-size: 12px;
+            padding: 10px 16px;
+            margin: 12px auto 0 auto;
             width: fit-content;
+            border-radius: 20px;
           }
         }
 

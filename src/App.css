@@ -400,7 +400,7 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   );
   border: 1px solid rgba(255, 255, 255, 0.5);
   font-size: 20px;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
   display: inline-block;
 }
 .banner h1 {
@@ -408,7 +408,7 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   font-weight: 700;
   letter-spacing: 0.8px;
   line-height: 1;
-  margin-bottom: 20px;
+  margin-bottom: 8px;
   display: block;
 }
 .banner p {
@@ -417,6 +417,7 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   letter-spacing: 0.8px;
   line-height: 1.5em;
   width: 96%;
+  margin-bottom: 8px;
 }
 .banner button {
   color: #fff;
@@ -459,7 +460,77 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   }
 }
 .txt-rotate > .wrap {
-  border-right: 0.08em solid #666;
+  border-right: none; /* Remove default border entirely */
+  position: relative;
+  min-height: 1.2em; /* Maintain minimum height to prevent layout shift */
+  display: inline-block;
+}
+
+.txt-rotate > .wrap::after {
+  content: '';
+  position: absolute;
+  right: -4px;
+  top: -2px;
+  bottom: -2px;
+  width: 4px;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.45) 0%,
+    rgba(255, 255, 255, 0.25) 30%,
+    rgba(255, 255, 255, 0.12) 70%,
+    rgba(255, 255, 255, 0.02) 100%
+  );
+  backdrop-filter: blur(8px) saturate(1.2);
+  border-radius: 3px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 
+    0 0 6px rgba(255, 255, 255, 0.12),
+    0 0 12px rgba(255, 255, 255, 0.04),
+    0 1px 3px rgba(0, 0, 0, 0.05),
+    inset 0 1px 1px rgba(255, 255, 255, 0.25),
+    inset 0 -1px 1px rgba(255, 255, 255, 0.1);
+  opacity: 1; /* Always visible with glass effect */
+}
+
+.txt-rotate > .wrap.cursor-blink::after {
+  animation: glass-cursor-blink 1.2s ease-in-out infinite;
+}
+
+@keyframes glass-cursor-blink {
+  0%, 45% {
+    opacity: 1;
+    transform: scaleY(1) scaleX(1);
+    box-shadow: 
+      0 0 6px rgba(255, 255, 255, 0.12),
+      0 0 12px rgba(255, 255, 255, 0.04),
+      0 1px 3px rgba(0, 0, 0, 0.05),
+      inset 0 1px 1px rgba(255, 255, 255, 0.25),
+      inset 0 -1px 1px rgba(255, 255, 255, 0.1);
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.45) 0%,
+      rgba(255, 255, 255, 0.25) 30%,
+      rgba(255, 255, 255, 0.12) 70%,
+      rgba(255, 255, 255, 0.02) 100%
+    );
+  }
+  50%, 100% {
+    opacity: 0.4;
+    transform: scaleY(0.95) scaleX(0.9);
+    box-shadow: 
+      0 0 3px rgba(255, 255, 255, 0.08),
+      0 0 6px rgba(255, 255, 255, 0.02),
+      0 1px 2px rgba(0, 0, 0, 0.03),
+      inset 0 1px 1px rgba(255, 255, 255, 0.15),
+      inset 0 -1px 1px rgba(255, 255, 255, 0.05);
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.25) 0%,
+      rgba(255, 255, 255, 0.12) 30%,
+      rgba(255, 255, 255, 0.06) 70%,
+      rgba(255, 255, 255, 0.01) 100%
+    );
+  }
 }
 
 .gradient {
@@ -555,5 +626,77 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   .headshot-container {
     width: 44px;
     height: 44px;
+  }
+}
+
+/* Skill Pills Styling */
+.skill-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 15px 0 20px 0;
+  justify-content: flex-start;
+  position: relative;
+  padding: 10px 5px;
+}
+
+.skill-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 8px 14px;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 20px;
+  color: white;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+  transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+  position: relative;
+  cursor: pointer;
+  transform-origin: center;
+  will-change: transform;
+}
+
+.skill-pill:hover {
+  background: rgba(255, 255, 255, 0.18);
+  border-color: rgba(255, 255, 255, 0.45);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25);
+}
+
+/* Mobile responsive adjustments for skill pills */
+@media (max-width: 767px) {
+  .skill-pills {
+    justify-content: center;
+    margin: 12px 0 18px 0;
+    gap: 8px;
+    padding: 8px 5px;
+  }
+  
+  .skill-pill {
+    padding: 6px 12px;
+    font-size: 11px;
+    font-weight: 500;
+  }
+  
+  /* Hide skill pills on mobile when projects are open */
+  .banner-content.hide-on-mobile .skill-pills {
+    display: none;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .skill-pills {
+    gap: 10px;
+    margin: 18px 0 22px 0;
+    padding: 8px 5px;
+  }
+  
+  .skill-pill {
+    padding: 7px 13px;
+    font-size: 11px;
   }
 }

@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import "animate.css";
 import TrackVisibility from "react-on-screen";
@@ -6,37 +6,44 @@ import React from "react";
 import Projects from "./Projects";
 
 export const Banner = () => {
-  const titles = [
+  const titles = useMemo(() => [
     "Software Engineer",
-    "Front-End Developer",
-    "UI/UX Designer",
-    "Back-End Developer",
-    "Mobile Developer",
-  ];
+    "Backend Developer", 
+    "Cloud Engineer"
+  ], []);
 
   const [titleIndex, setTitleIndex] = useState(0);
   const [title, setTitle] = useState("");
   const [typing, setTyping] = useState(true);
   const [showBannerText, setShowBannerText] = useState(true);
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [isTypingComplete, setIsTypingComplete] = useState(false);
+  const [shouldCursorBlink, setShouldCursorBlink] = useState(false);
 
   useEffect(() => {
     const intervalId = setInterval(() => {
-      setTyping(false);
-      setTimeout(() => {
-        setTitle("");
-        setTyping(true);
-        setTitleIndex((titleIndex) => (titleIndex + 1) % titles.length);
-      }, 1500);
-    }, 3000);
+      if (isTypingComplete) {
+        // Start erasing after grace period
+        setShouldCursorBlink(false); // Stop blinking before erasing starts
+        setTyping(false);
+        setIsTypingComplete(false);
+        setTimeout(() => {
+          setTitle("");
+          setTyping(true);
+          setTitleIndex((titleIndex) => (titleIndex + 1) % titles.length);
+        }, 1500); // Time for erasing + pause
+      }
+    }, 3000); // Reduced from 4500ms to 3000ms for much snappier cycles
 
     return () => {
       clearInterval(intervalId);
     };
-  }, [titles]);
+  }, [titles, isTypingComplete]);
 
   useEffect(() => {
     let timeoutId;
     if (typing) {
+      setShouldCursorBlink(false); // Stop blinking while typing
       let i = 0;
       const word = titles[titleIndex];
       timeoutId = setInterval(() => {
@@ -44,9 +51,15 @@ export const Banner = () => {
         i++;
         if (i >= word.length) {
           clearInterval(timeoutId);
+          setShouldCursorBlink(true); // Start blinking when typing is complete
+          // Add grace period after typing completes
+          setTimeout(() => {
+            setIsTypingComplete(true);
+          }, 400); // Reduced from 800ms to 400ms for faster transition
         }
-      }, 100);
+      }, 100); // Reduced from 120ms to 100ms for faster typing
     } else {
+      setShouldCursorBlink(false); // Stop blinking while erasing
       let i = title.length - 1;
       timeoutId = setInterval(() => {
         setTitle((title) => title.substring(0, i));
@@ -54,14 +67,51 @@ export const Banner = () => {
         if (i < 0) {
           clearInterval(timeoutId);
         }
-      }, 100);
+      }, 60); // Faster erasing
     }
 
     return () => clearInterval(timeoutId);
-  }, [titleIndex, typing]);
+  }, [titleIndex, typing, titles]);
 
   const handleShowProjects = () => {
     setShowBannerText(false);
+  };
+
+  const handleMouseMove = (e) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    setMousePosition({
+      x: e.clientX - rect.left,
+      y: e.clientY - rect.top
+    });
+  };
+
+  const calculatePillTransform = (pillElement, mouseX, mouseY) => {
+    if (!pillElement) return {};
+    
+    const rect = pillElement.getBoundingClientRect();
+    const containerRect = pillElement.parentElement.getBoundingClientRect();
+    
+    const pillCenterX = rect.left - containerRect.left + rect.width / 2;
+    const pillCenterY = rect.top - containerRect.top + rect.height / 2;
+    
+    const distance = Math.sqrt(
+      Math.pow(mouseX - pillCenterX, 2) + Math.pow(mouseY - pillCenterY, 2)
+    );
+    
+    const maxDistance = 120;
+    const maxScale = 1.08;
+    
+    if (distance < maxDistance) {
+      const intensity = 1 - distance / maxDistance;
+      const scale = 1 + (maxScale - 1) * intensity;
+      
+      return {
+        transform: `scale(${scale})`,
+        zIndex: Math.floor(intensity * 10) + 1
+      };
+    }
+    
+    return { transform: 'scale(1)', zIndex: 1 };
   };
 
   return (
@@ -80,15 +130,40 @@ export const Banner = () => {
                       <h1>
                         {`Hi! I'm Nick,`} <br />
                         <span className="txt-rotate">
-                          <span className="wrap gradient no-show-mobile">
-                            {title}
+                          <span className={`wrap gradient no-show-mobile ${shouldCursorBlink ? 'cursor-blink' : ''}`}>
+                            {title || '\u00A0'}
                           </span>
                         </span>
                       </h1>
-                      <p>
-                        I love creating intuitive interfaces and software that
-                        make users lives easier
-                      </p>
+                      <p>I love building intuitive interfaces and software that make users' lives easier</p>
+                      <div 
+                        className="skill-pills"
+                        onMouseMove={handleMouseMove}
+                        onMouseLeave={() => setMousePosition({ x: 0, y: 0 })}
+                      >
+                        {[
+                          { emoji: "☁️", text: "cloud infra" },
+                          { emoji: "📊", text: "observability" },
+                          { emoji: "🌐", text: "distributed systems" },
+                          { emoji: "🔧", text: "full-stack" }
+                        ].map((skill, index) => (
+                          <span 
+                            key={skill.text}
+                            className="skill-pill"
+                            ref={(el) => {
+                              if (el && mousePosition.x && mousePosition.y) {
+                                const styles = calculatePillTransform(el, mousePosition.x, mousePosition.y);
+                                Object.assign(el.style, styles);
+                              } else if (el) {
+                                el.style.transform = 'scale(1)';
+                                el.style.zIndex = '1';
+                              }
+                            }}
+                          >
+                            {skill.emoji} {skill.text}
+                          </span>
+                        ))}
+                      </div>
                     </div>
                     <Projects onShowBannerText={setShowBannerText} />
                   </div>

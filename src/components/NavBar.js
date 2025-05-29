@@ -3,7 +3,7 @@ import { Navbar, Nav, Container } from "react-bootstrap";
 import { useState, useEffect } from "react";
 import { FaLinkedin, FaFilePdf, FaGithub } from "react-icons/fa";
 
-export const NavBar = () => {
+export const NavBar = React.memo(() => {
   const [activeLink, setActiveLink] = useState("home"); //used to tell us which link is active (which part the user is on)
   const [scrolled, setScroll] = useState(false); //used to tell us if the user has scrolled down
 
@@ -57,6 +57,6 @@ export const NavBar = () => {
       </Container>
     </Navbar>
   );
-};
+});
 
 export default NavBar;

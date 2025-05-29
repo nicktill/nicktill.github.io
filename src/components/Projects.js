@@ -245,7 +245,7 @@ const Projects = ({ onShowBannerText }) => {
         .project-carousel-image {
           position: relative;
           border-radius: 16px;
-          overflow: visible;
+          overflow: hidden;
           box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
         }
 
@@ -261,6 +261,7 @@ const Projects = ({ onShowBannerText }) => {
             rgba(131, 169, 236, 0.1) 0%,
             rgba(255, 255, 255, 0.05) 100%
           );
+          border-radius: 16px;
           pointer-events: none;
         }
 
@@ -268,7 +269,7 @@ const Projects = ({ onShowBannerText }) => {
           width: 100%;
           height: 280px;
           object-fit: cover;
-          object-position: center;
+          object-position: top;
           border-radius: 16px;
           transition: transform 0.3s ease;
         }
@@ -359,15 +360,38 @@ const Projects = ({ onShowBannerText }) => {
         }
 
         .primary-btn {
-          background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+          background: linear-gradient(
+            to right,
+            rgba(79, 118, 185, 0.9),
+            rgba(86, 137, 180, 0.9),
+            rgba(93, 156, 175, 0.85),
+            rgba(100, 175, 170, 0.85),
+            rgba(107, 194, 165, 0.8),
+            rgba(110, 208, 159, 0.8),
+            rgba(115, 215, 165, 0.75),
+            rgba(120, 222, 170, 0.75)
+          );
+          background-size: 200% 100%;
           color: white;
           border: none;
           box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+          animation: gradient-shift 15s linear infinite;
+        }
+
+        @keyframes gradient-shift {
+          0% {
+            background-position: 0% 50%;
+          }
+          100% {
+            background-position: 100% 50%;
+          }
         }
 
         .primary-btn:hover {
           transform: translateY(-2px);
-          box-shadow: 0 8px 25px rgba(99, 102, 241, 0.4);
+          box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+          filter: brightness(1.1);
+          color: white;
         }
 
         .secondary-btn {
@@ -378,9 +402,11 @@ const Projects = ({ onShowBannerText }) => {
         }
 
         .secondary-btn:hover {
-          background: rgba(255, 255, 255, 0.1);
-          border-color: rgba(255, 255, 255, 0.5);
+          background: rgba(255, 255, 255, 0.15);
+          border-color: rgba(255, 255, 255, 0.6);
           transform: translateY(-2px);
+          box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+          color: white;
         }
 
         .progress-indicator {

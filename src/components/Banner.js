@@ -106,11 +106,13 @@ export const Banner = () => {
                     }
                   >
                     {/* <img
+                      loading="lazy"
                       className="headerImg"
                       src={headerImg}
                       alt="Header Img"
                     />
                     <img
+                      loading="lazy"
                       className="headerImgBackground"
                       src={headerImgBackground}
                       alt="Header Img Background"

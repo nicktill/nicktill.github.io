@@ -540,6 +540,7 @@ const Projects = ({ onShowBannerText }) => {
           color: white;
           border: 1px solid rgba(255, 255, 255, 0.3);
           backdrop-filter: blur(10px);
+          -webkit-appearance: none;
         }
 
         .secondary-btn:hover {

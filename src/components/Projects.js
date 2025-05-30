@@ -786,6 +786,47 @@ const Projects = ({ onShowBannerText }) => {
             height: 6px;
           }
         }
+
+        /* Strong styling for light background 17.jpg - ONLY for project navigation */
+        :global(.light-background-17) .arrow-btn,
+        :global(.light-background-17) .arrow-btn.left-arrow,
+        :global(.light-background-17) .arrow-btn.right-arrow {
+          background: rgb(0, 0, 0) !important;
+          border: 3px solid rgb(0, 0, 0) !important;
+          backdrop-filter: blur(10px) !important;
+          color: rgb(255, 255, 255) !important;
+          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8) !important;
+          opacity: 1 !important;
+        }
+
+        :global(.light-background-17) .arrow-btn:hover,
+        :global(.light-background-17) .arrow-btn.left-arrow:hover,
+        :global(.light-background-17) .arrow-btn.right-arrow:hover {
+          background: rgb(0, 0, 0) !important;
+          border: 3px solid rgb(255, 255, 255) !important;
+          box-shadow: 0 6px 25px rgba(0, 0, 0, 0.9) !important;
+          transform: scale(1.1) !important;
+          color: rgb(255, 255, 255) !important;
+        }
+
+        :global(.light-background-17) .secondary-btn,
+        :global(.light-background-17) .button.secondary-btn {
+          background: rgb(0, 0, 0) !important;
+          border: 3px solid rgb(0, 0, 0) !important;
+          backdrop-filter: blur(10px) !important;
+          color: rgb(255, 255, 255) !important;
+          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8) !important;
+          opacity: 1 !important;
+        }
+
+        :global(.light-background-17) .secondary-btn:hover,
+        :global(.light-background-17) .button.secondary-btn:hover {
+          background: rgb(0, 0, 0) !important;
+          border: 3px solid rgb(255, 255, 255) !important;
+          box-shadow: 0 6px 25px rgba(0, 0, 0, 0.9) !important;
+          transform: scale(1.1) !important;
+          color: rgb(255, 255, 255) !important;
+        }
       `}</style>
     </>
   );

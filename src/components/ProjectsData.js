@@ -1,7 +1,7 @@
 import GradeMyAid from "../assets/img/GradeMyAid.png";
 import CryptoTracker from "../assets/img/CryptoTracker.png";
 import YTRecap from "../assets/img/ytlight.png";
-import Translator from "../assets/img/translator.png";
+// import Translator from "../assets/img/translator.png";
 import StockPulse from "../assets/img/StockPulse.png";
 import ClarityCoach from "../assets/img/clarity-coach.png";
 

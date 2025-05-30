@@ -360,7 +360,8 @@ const Projects = ({ onShowBannerText }) => {
           max-width: none;
           background: rgba(255, 255, 255, 0.08);
           backdrop-filter: blur(20px);
-          border: 1px solid rgba(255, 255, 255, 0.15);
+          -webkit-backdrop-filter: blur(15px);
+          border: 1px solid rgba(255, 255, 255, 0.2);
           border-radius: 20px;
           padding: 1.5rem;
           box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
@@ -459,8 +460,8 @@ const Projects = ({ onShowBannerText }) => {
           width: 40px;
           height: 40px;
           /* Safari-compatible background */
-          background: rgba(255, 255, 255, 0.1);
-          border: 1px solid rgba(255, 255, 255, 0.2);
+          background: rgba(255, 255, 255, 0.08);
+          border: 1px solid rgba(255, 255, 255, 0.15);
           border-radius: 50%;
           color: white;
           font-size: 1.3rem;
@@ -480,9 +481,9 @@ const Projects = ({ onShowBannerText }) => {
         }
 
         .arrow-btn:hover {
-          background: rgba(255, 255, 255, 0.2);
+          background: rgba(255, 255, 255, 0.16);
           transform: scale(1.1);
-          border-color: rgba(255, 255, 255, 0.3);
+          border-color: rgba(255, 255, 255, 0.25);
         }
 
         .arrow-btn:active {
@@ -536,9 +537,9 @@ const Projects = ({ onShowBannerText }) => {
         }
 
         .secondary-btn {
-          background: rgba(255, 255, 255, 0.1);
+          background: rgba(255, 255, 255, 0.08);
           color: white;
-          border: 1px solid rgba(255, 255, 255, 0.3);
+          border: 1px solid rgba(255, 255, 255, 0.25);
           -webkit-appearance: none;
           -webkit-border-radius: 50px;
           -webkit-transform: translateZ(0);
@@ -582,6 +583,7 @@ const Projects = ({ onShowBannerText }) => {
           padding: 12px 20px;
           background: rgba(255, 255, 255, 0.12);
           backdrop-filter: blur(15px);
+          -webkit-backdrop-filter: blur(20px);
           border: 1px solid rgba(255, 255, 255, 0.25);
           border-radius: 25px;
           color: white;
@@ -638,6 +640,7 @@ const Projects = ({ onShowBannerText }) => {
             padding: 1.5rem;
             background: rgba(255, 255, 255, 0.08);
             backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
             border: 1px solid rgba(255, 255, 255, 0.15);
             border-radius: 20px;
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
@@ -739,8 +742,9 @@ const Projects = ({ onShowBannerText }) => {
             border-radius: 16px;
             background: rgba(255, 255, 255, 0.08);
             backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
             border: 1px solid rgba(255, 255, 255, 0.15);
-            margin: -3rem auto 0 auto;
+            margin: 0 auto;
           }
 
           .close-btn {

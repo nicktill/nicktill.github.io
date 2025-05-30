@@ -19,8 +19,22 @@ export const Banner = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isTypingComplete, setIsTypingComplete] = useState(false);
   const [shouldCursorBlink, setShouldCursorBlink] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Mobile detection
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 767);
+    };
+
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   useEffect(() => {
+    if (isMobile) return; // Skip typing effect on mobile
+    
     const intervalId = setInterval(() => {
       if (isTypingComplete) {
         // Start erasing after grace period
@@ -38,9 +52,11 @@ export const Banner = () => {
     return () => {
       clearInterval(intervalId);
     };
-  }, [titles, isTypingComplete]);
+  }, [titles, isTypingComplete, isMobile]);
 
   useEffect(() => {
+    if (isMobile) return; // Skip typing effect on mobile
+    
     let timeoutId;
     if (typing) {
       setShouldCursorBlink(false); // Stop blinking while typing
@@ -71,7 +87,7 @@ export const Banner = () => {
     }
 
     return () => clearInterval(timeoutId);
-  }, [titleIndex, typing, titles]);
+  }, [titleIndex, typing, titles, isMobile]);
 
   const handleShowProjects = () => {
     setShowBannerText(false);
@@ -128,12 +144,18 @@ export const Banner = () => {
                         Welcome to my Portfolio!
                       </span>
                       <h1>
-                        {`Hi! I'm Nick,`} <br />
-                        <span className="txt-rotate">
-                          <span className={`wrap gradient no-show-mobile ${shouldCursorBlink ? 'cursor-blink' : ''}`}>
-                            {title || '\u00A0'}
-                          </span>
-                        </span>
+                        {isMobile ? (
+                          "Hi! I'm Nick"
+                        ) : (
+                          <>
+                            {`Hi! I'm Nick,`} <br />
+                            <span className="txt-rotate">
+                              <span className={`wrap gradient ${shouldCursorBlink ? 'cursor-blink' : ''}`}>
+                                {title || '\u00A0'}
+                              </span>
+                            </span>
+                          </>
+                        )}
                       </h1>
                       <p>I love building intuitive interfaces and software that make users' lives easier</p>
                       <div 
@@ -178,18 +200,6 @@ export const Banner = () => {
                       "mobileflag animate__animated animate__fadeInRight"
                     }
                   >
-                    {/* <img
-                      loading="lazy"
-                      className="headerImg"
-                      src={headerImg}
-                      alt="Header Img"
-                    />
-                    <img
-                      loading="lazy"
-                      className="headerImgBackground"
-                      src={headerImgBackground}
-                      alt="Header Img Background"
-                    /> */}
                   </div>
                 )}
               </TrackVisibility>

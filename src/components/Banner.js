@@ -158,29 +158,16 @@ export const Banner = () => {
                         )}
                       </h1>
                       <p>I love building intuitive interfaces and software that make users' lives easier</p>
-                      <div 
-                        className="skill-pills"
-                        onMouseMove={handleMouseMove}
-                        onMouseLeave={() => setMousePosition({ x: 0, y: 0 })}
-                      >
+                      <div className="skill-pills">
                         {[
                           { emoji: "☁️", text: "cloud infra" },
                           { emoji: "📊", text: "observability" },
                           { emoji: "🌐", text: "distributed systems" },
                           { emoji: "🔧", text: "full-stack" }
-                        ].map((skill, index) => (
+                        ].map((skill) => (
                           <span 
                             key={skill.text}
                             className="skill-pill"
-                            ref={(el) => {
-                              if (el && mousePosition.x && mousePosition.y) {
-                                const styles = calculatePillTransform(el, mousePosition.x, mousePosition.y);
-                                Object.assign(el.style, styles);
-                              } else if (el) {
-                                el.style.transform = 'scale(1)';
-                                el.style.zIndex = '1';
-                              }
-                            }}
                           >
                             {skill.emoji} {skill.text}
                           </span>

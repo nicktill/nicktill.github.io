@@ -644,24 +644,24 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   padding: 8px 14px;
   background: rgba(255, 255, 255, 0.12);
   backdrop-filter: blur(15px);
-  border: 1px solid rgba(255, 255, 255, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.18); /* lighter border */
   border-radius: 20px;
   color: white;
   font-size: 12px;
   font-weight: 600;
   letter-spacing: 0.4px;
-  transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+  transition: none;
+  box-shadow: none; /* Remove shadow for static look */
   position: relative;
-  cursor: pointer;
-  transform-origin: center;
-  will-change: transform;
+  cursor: default; /* Not clickable */
+  transform: none;
+  will-change: auto;
 }
 
 .skill-pill:hover {
-  background: rgba(255, 255, 255, 0.18);
-  border-color: rgba(255, 255, 255, 0.45);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25);
+  background: rgba(255, 255, 255, 0.12); /* No hover effect */
+  border-color: rgba(255, 255, 255, 0.18);
+  box-shadow: none;
 }
 
 /* Mobile responsive adjustments for skill pills */

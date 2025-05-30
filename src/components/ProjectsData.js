@@ -39,7 +39,7 @@ const data = [
     image: GradeMyAid,
     description:
       "GradeMyAid compares FAFSA scholarship data across institutions, allowing users to assess their awards against others and understand school offerings. (grademyaid.com)",
-    projectUrl: "https://grademyaid.com",
+    projectUrl: "https://grademyaid-jdm36wvnz-gamedog9988.vercel.app/",
     githubUrl: "https://github.com/nicktill/cs1530-finance-group",
   },
   {

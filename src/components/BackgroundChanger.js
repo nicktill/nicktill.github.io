@@ -2,11 +2,33 @@ import React, { useState, useEffect } from 'react';
 
 const BackgroundChanger = () => {
   // Define our background collection
-  const backgrounds = [3, 7, 8, 15, 17, 19, 21];
+  const originalBackgrounds = [3, 7, 8, 15, 17, 19, 21];
   
-  // Track current index and whether we need to return to original
-  const [currentIndex, setCurrentIndex] = useState(-1); // Start at -1 so first click goes to index 0
-  const [hasSeenOriginal, setHasSeenOriginal] = useState(true); // Track if we've shown original
+  // Create shuffled backgrounds array but start with default banner-2
+  const [backgrounds, setBackgrounds] = useState(() => {
+    const shuffled = [...originalBackgrounds].sort(() => Math.random() - 0.5);
+    
+    // Set the initial default background immediately (synchronously) 
+    try {
+      const defaultPath = require('../assets/img/banner-2.jpg');
+      document.documentElement.style.setProperty('--banner-bg', `url("${defaultPath}")`);
+      console.log('Set initial default background: banner-2.jpg');
+    } catch (error) {
+      console.error('Failed to load default banner-2.jpg:', error);
+    }
+    
+    return shuffled;
+  });
+  
+  // Track current index - start at -1 to indicate we're using default background
+  const [currentIndex, setCurrentIndex] = useState(-1);
+  const [hasSeenOriginal, setHasSeenOriginal] = useState(true); // Start with true since we begin with default bg
+  
+  // Apply initial styling for the default background
+  useEffect(() => {
+    // Since we start with default banner-2.jpg, no special styling needed
+    console.log('Started with default background banner-2.jpg, no special styling applied');
+  }, []); // Only run once on mount
   
   // Effect to reapply styling when navigating sections
   useEffect(() => {
@@ -15,6 +37,10 @@ const BackgroundChanger = () => {
         const currentBg = backgrounds[currentIndex];
         applyBackgroundStyling(currentBg);
         console.log(`Reapplied styling for background ${currentBg} on component update`);
+      } else if (currentIndex === -1) {
+        // We're using default background, no special styling needed
+        applyBackgroundStyling(null);
+        console.log('Reapplied styling for default background on component update');
       }
     };
     
@@ -60,7 +86,7 @@ const BackgroundChanger = () => {
       console.log('Removed light-background-17 class from body');
       console.log('Body classes:', body.classList.toString());
       
-      // Reset to default styling for all other backgrounds
+      // Reset to default styling for all other backgrounds (including default)
       const arrowBtns = document.querySelectorAll('.arrow-btn');
       const secondaryBtns = document.querySelectorAll('.secondary-btn');
       
@@ -82,27 +108,33 @@ const BackgroundChanger = () => {
   
   const changeBackground = () => {
     let selectedBg;
-    let nextIndex = currentIndex + 1;
+    let nextIndex;
     
-    // If we've gone through all backgrounds, return to original (banner-2.jpg)
+    if (currentIndex === -1) {
+      // First click from default background - start with first shuffled background
+      nextIndex = 0;
+    } else {
+      nextIndex = currentIndex + 1;
+    }
+    
+    // If we've gone through all backgrounds, return to default
     if (nextIndex >= backgrounds.length) {
-      if (!hasSeenOriginal) {
-        // Return to original background
-        try {
-          const originalPath = require('../assets/img/banner-2.jpg');
-          performSmoothTransition(originalPath);
-          console.log('Background returned to original: banner-2.jpg');
-          setHasSeenOriginal(true);
-          setCurrentIndex(-1); // Reset for next cycle
-          // Remove any background-specific styling
-          document.body.classList.remove('light-background-17');
-          return;
-        } catch (error) {
-          console.error('Failed to load original banner-2.jpg:', error);
-          nextIndex = 0; // Fallback to first background
-        }
-      } else {
-        nextIndex = 0; // Start new cycle
+      // Return to default background
+      try {
+        const defaultPath = require('../assets/img/banner-2.jpg');
+        performSmoothTransition(defaultPath);
+        console.log('Background returned to default: banner-2.jpg');
+        setCurrentIndex(-1); // Reset to default background
+        setHasSeenOriginal(true);
+        // Remove any background-specific styling
+        applyBackgroundStyling(null);
+        return;
+      } catch (error) {
+        console.error('Failed to load default banner-2.jpg:', error);
+        // If default fails, reshuffle and continue
+        const newShuffled = [...originalBackgrounds].sort(() => Math.random() - 0.5);
+        setBackgrounds(newShuffled);
+        nextIndex = 0;
       }
     }
     

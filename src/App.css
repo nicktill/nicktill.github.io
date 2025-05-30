@@ -176,6 +176,62 @@ span.navbar-text {
 .navbar-text button:hover {
   transform: scale(1.06);
 }
+
+/* Clean "Let's Chat" button styling */
+.navbar-text button.vvd {
+  font-weight: 600;
+  color: white;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 25px;
+  padding: 12px 24px;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  margin-left: 15px;
+  position: relative;
+  backdrop-filter: blur(10px);
+  box-shadow: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  text-transform: none;
+  overflow: hidden;
+}
+
+.navbar-text button.vvd::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  transition: left 0.4s ease;
+}
+
+.navbar-text button.vvd:hover {
+  transform: translateY(-1px) scale(1.02);
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 2px 8px rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+.navbar-text button.vvd:hover::before {
+  left: 100%;
+}
+
+.navbar-text button.vvd:active {
+  transform: translateY(0px) scale(1);
+  box-shadow: none;
+}
+
+@keyframes subtle-gradient {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
 nav.navbar .navbar-toggler:active,
 nav.navbar .navbar-toggler:focus {
   outline: none;
@@ -737,8 +793,8 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 .bg-change-btn::after {
   content: attr(data-tooltip);
   position: absolute;
-  bottom: 55px;
-  right: 55px;
+  bottom: 45px;
+  right: 45px;
   background: rgba(0, 0, 0, 0.9);
   color: white;
   padding: 8px 12px;

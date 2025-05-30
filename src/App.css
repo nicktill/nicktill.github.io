@@ -26,21 +26,10 @@
 
 html {
   scroll-behavior: smooth;
-  scr/* Headshot container */
-.headshot-container {
-  position: absolute;
-  left: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  overflow: hidden;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  border: 2px solid rgba(255, 255, 255, 0.3);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-}-top: 75px;
+  scroll-padding-top: 75px;
 }
+
+
 
 .nicktill {
   line-height: normal;
@@ -186,6 +175,62 @@ span.navbar-text {
 
 .navbar-text button:hover {
   transform: scale(1.06);
+}
+
+/* Clean "Let's Chat" button styling */
+.navbar-text button.vvd {
+  font-weight: 600;
+  color: white;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 25px;
+  padding: 12px 24px;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  margin-left: 15px;
+  position: relative;
+  backdrop-filter: blur(10px);
+  box-shadow: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  text-transform: none;
+  overflow: hidden;
+}
+
+.navbar-text button.vvd::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  transition: left 0.4s ease;
+}
+
+.navbar-text button.vvd:hover {
+  transform: translateY(-1px) scale(1.02);
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 2px 8px rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+.navbar-text button.vvd:hover::before {
+  left: 100%;
+}
+
+.navbar-text button.vvd:active {
+  transform: translateY(0px) scale(1);
+  box-shadow: none;
+}
+
+@keyframes subtle-gradient {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
 }
 nav.navbar .navbar-toggler:active,
 nav.navbar .navbar-toggler:focus {
@@ -370,16 +415,26 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   }
 }
 
+:root {
+  --banner-bg: url("./assets/img/banner-2.jpg");
+}
+
 .banner {
   margin-top: 0;
   padding: 260px 0 100px 0;
-  background-image: url("./assets/img/banner-2.jpg");
+  /* light: 4, 9, 16, 17, */
+  /* normal: 2, 3, 7, 8, 15, 19, 21 */
+  background-image: var(--banner-bg);
   /* background-color: black; */
-  background-position: center;
+  background-position: center center;
   background-size: cover;
+  background-attachment: scroll;
   min-height: 100vh;
   /* no repeat */
   background-repeat: no-repeat;
+  position: relative;
+  /* Prevent layout shifts and scaling issues */
+  overflow: hidden;
 }
 
 .banner:hover {
@@ -695,5 +750,82 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   .skill-pill {
     padding: 7px 13px;
     font-size: 11px;
+  }
+}
+
+/* Background changer button */
+.background-changer {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  z-index: 10000;
+}
+
+.bg-change-btn {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+.bg-change-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.4);
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.bg-change-btn:active {
+  transform: scale(0.95);
+}
+
+.bg-change-btn::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 45px;
+  right: 45px;
+  background: rgba(0, 0, 0, 0.9);
+  color: white;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  z-index: 10001;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.bg-change-btn:hover::after {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 767px) {
+  .background-changer {
+    bottom: 15px;
+    right: 15px;
+  }
+  
+  .bg-change-btn {
+    width: 45px;
+    height: 45px;
+    font-size: 18px;
   }
 }

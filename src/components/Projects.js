@@ -536,11 +536,14 @@ const Projects = ({ onShowBannerText }) => {
         }
 
         .secondary-btn {
-          background: transparent;
+          background: rgba(255, 255, 255, 0.1);
           color: white;
           border: 1px solid rgba(255, 255, 255, 0.3);
-          backdrop-filter: blur(10px);
           -webkit-appearance: none;
+          -webkit-border-radius: 50px;
+          -webkit-transform: translateZ(0);
+          transform: translateZ(0);
+          outline: none;
         }
 
         .secondary-btn:hover {

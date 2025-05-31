@@ -623,7 +623,7 @@ const Projects = ({ onShowBannerText }) => {
         /* Mobile responsiveness */
         @media screen and (max-width: 768px) {
           .projects-section {
-            top: -200px;
+            top: -300px;
             left: 0;
             width: 100vw;
             height: 100vh;

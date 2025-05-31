@@ -9,6 +9,7 @@ const Projects = ({ onShowBannerText }) => {
   const [animationClass, setAnimationClass] = useState("slide-in-center");
   const [introAnimationClass, setIntroAnimationClass] = useState("animate__jackInTheBox");
   const [viewedProjects, setViewedProjects] = useState(new Set([0])); // Track which projects have been viewed
+  const [hasBeenShownBefore, setHasBeenShownBefore] = useState(false); // Track if component has been opened before
 
   // Cleanup on component unmount
   useEffect(() => {
@@ -77,6 +78,7 @@ const Projects = ({ onShowBannerText }) => {
 
   const handleShowProjects = () => {
     setShowProjects(true);
+    setHasBeenShownBefore(true); // Mark that projects have been shown at least once
     onShowBannerText && onShowBannerText(false);
     // Lock body scroll on mobile
     document.body.style.overflow = 'hidden';
@@ -189,7 +191,7 @@ const Projects = ({ onShowBannerText }) => {
 
       {!showProjects && (
         <button 
-          className="showProjectsBtn animate__animated animate__fadeIn animate__slower animate__delay-5s" 
+          className={`showProjectsBtn animate__animated animate__fadeIn animate__slower ${!hasBeenShownBefore ? 'animate__delay-5s' : ''}`}
           onClick={handleShowProjects}
           style={{ animationFillMode: 'both' }}
         >

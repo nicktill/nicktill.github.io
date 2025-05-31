@@ -817,8 +817,6 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   visibility: visible;
 }
 
-
-
 /* Mobile responsive adjustments */
 @media (max-width: 767px) {
   .background-changer {
@@ -831,4 +829,54 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
     height: 45px;
     font-size: 18px;
   }
+}
+
+/* Dark glassmorphism styles for light background 17 */
+.light-background-17 .skill-pill {
+  background: rgba(0, 0, 0, 0.45) !important;
+  backdrop-filter: blur(20px) !important;
+  border: 1px solid rgba(0, 0, 0, 0.3) !important;
+  color: white !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2) !important;
+}
+
+.light-background-17 .showProjectsBtn {
+  background: rgba(0, 0, 0, 0.5) !important;
+  backdrop-filter: blur(20px) !important;
+  border: 1px solid rgba(0, 0, 0, 0.35) !important;
+  color: white !important;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25) !important;
+}
+
+.light-background-17 .showProjectsBtn:hover {
+  background: rgba(0, 0, 0, 0.65) !important;
+  border: 1px solid rgba(0, 0, 0, 0.5) !important;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35) !important;
+  transform: scale(1.05) !important;
+}
+
+.light-background-17 .projects-container {
+  background: rgba(0, 0, 0, 0.55) !important;
+  backdrop-filter: blur(25px) !important;
+  border: 1px solid rgba(0, 0, 0, 0.4) !important;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4) !important;
+}
+
+.light-background-17 .project-carousel-info h3 {
+  background: linear-gradient(135deg, #ffffff 0%, #f0f0f0 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+}
+
+.light-background-17 .project-carousel-info p {
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+
+.light-background-17 .progress-dot {
+  background: rgba(255, 255, 255, 0.4) !important;
+}
+
+.light-background-17 .progress-dot.active {
+  background: linear-gradient(135deg, #ffffff 0%, #e0e0e0 100%) !important;
 }

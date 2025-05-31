@@ -188,7 +188,11 @@ const Projects = ({ onShowBannerText }) => {
       )}
 
       {!showProjects && (
-        <button className="showProjectsBtn" onClick={handleShowProjects}>
+        <button 
+          className="showProjectsBtn animate__animated animate__fadeIn animate__slower animate__delay-5s" 
+          onClick={handleShowProjects}
+          style={{ animationFillMode: 'both' }}
+        >
           <span>View Projects</span>
           <span className="btn-icon">→</span>
         </button>

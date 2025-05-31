@@ -24,7 +24,7 @@ export const NavBar = React.memo(() => {
   };
 
   return (
-    <Navbar expand="md" className={scrolled ? "scrolled" : ""}>
+    <Navbar expand="md" className={`animate__animated animate__backInUp animate__slower ${scrolled ? "scrolled" : ""}`}>
       <Container>
         <Navbar.Brand href="/" className="brand-container">
           <div className="headshot-container">

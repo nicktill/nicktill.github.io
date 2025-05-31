@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import 'animate.css';
 
 const BackgroundChanger = () => {
   // Define our background collection
@@ -189,12 +190,12 @@ const BackgroundChanger = () => {
   };
   
   return (
-    <div className="background-changer">
+    <div className="background-changer animate__animated animate__backInDown animate__slower animate__delay-5s">
       <button 
         className="bg-change-btn"
         onClick={changeBackground}
-        data-tooltip="Want a new scenery?"
-        aria-label="new scenery"
+        data-tooltip-main="Want a new scenery?"
+        aria-label="Change background scenery"
       >
         🎨
       </button>

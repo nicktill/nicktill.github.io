@@ -791,9 +791,9 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 }
 
 .bg-change-btn::after {
-  content: attr(data-tooltip);
+  content: attr(data-tooltip-main);
   position: absolute;
-  bottom: 45px;
+  bottom: 55px;
   right: 45px;
   background: rgba(0, 0, 0, 0.9);
   color: white;
@@ -809,12 +809,15 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   z-index: 10001;
   border: 1px solid rgba(255, 255, 255, 0.3);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  line-height: 1.2;
 }
 
 .bg-change-btn:hover::after {
   opacity: 1;
   visibility: visible;
 }
+
+
 
 /* Mobile responsive adjustments */
 @media (max-width: 767px) {

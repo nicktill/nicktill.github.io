@@ -138,12 +138,11 @@ export const Banner = () => {
             <Col xs={12} md={6} xl={7}>
               <TrackVisibility>
                 {({ isVisible }) => (
-                  <div className="animate__animated animate__fadeInDown ">
-                    <div className={`banner-content ${!showBannerText ? 'hide-on-mobile' : ''}`}>
-                      <span className="tagline  ">
-                        Welcome to my Portfolio!
-                      </span>
-                      <h1>
+                  <div className="animate__animated animate__fadeInDown animate__slower">
+                    <div className={`banner-content ${!showBannerText ? 'hide-on-mobile' : ''}`}>                      <span className="tagline animate__animated animate__fadeIn animate__slow animate__delay-1s">
+                      Welcome to my Portfolio!
+                    </span>
+                    <h1 className="animate__animated animate__fadeIn animate__slow animate__delay-2s">
                         {isMobile ? (
                           "Hi! I'm Nick"
                         ) : (
@@ -156,9 +155,8 @@ export const Banner = () => {
                             </span>
                           </>
                         )}
-                      </h1>
-                      <p>I love building intuitive interfaces and software that make users' lives easier</p>
-                      <div className="skill-pills">
+                      </h1>                      <p className="animate__animated animate__fadeIn animate__slow animate__delay-3s">I love building intuitive interfaces and software that make users' lives easier</p>
+                    <div className="skill-pills animate__animated animate__fadeIn animate__slow animate__delay-4s">
                         {[
                           { emoji: "☁️", text: "cloud infra" },
                           { emoji: "📊", text: "observability" },
@@ -182,11 +180,7 @@ export const Banner = () => {
             <Col xs={12} md={6} xl={5}>
               <TrackVisibility>
                 {({ isVisible }) => (
-                  <div
-                    className={
-                      "mobileflag animate__animated animate__fadeInRight"
-                    }
-                  >
+                  <div className="mobileflag animate__animated animate__fadeInRight animate__slower">
                   </div>
                 )}
               </TrackVisibility>

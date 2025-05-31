@@ -8,14 +8,8 @@ const BackgroundChanger = () => {
   const [backgrounds, setBackgrounds] = useState(() => {
     const shuffled = [...originalBackgrounds].sort(() => Math.random() - 0.5);
     
-    // Set the initial default background immediately (synchronously) 
-    try {
-      const defaultPath = require('../assets/img/banner-2.jpg');
-      document.documentElement.style.setProperty('--banner-bg', `url("${defaultPath}")`);
-      console.log('Set initial default background: banner-2.jpg');
-    } catch (error) {
-      console.error('Failed to load default banner-2.jpg:', error);
-    }
+    // Don't set initial background since it's already set in HTML
+    console.log('Background already preloaded via HTML, skipping initial setup');
     
     return shuffled;
   });

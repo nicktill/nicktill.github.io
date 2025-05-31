@@ -189,7 +189,7 @@ const BackgroundChanger = () => {
   };
   
   return (
-    <div className="background-changer">
+    <div className="background-changer animate__animated animate__fadeInUp animate__slow">
       <button 
         className="bg-change-btn"
         onClick={changeBackground}

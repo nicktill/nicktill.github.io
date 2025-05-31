@@ -1,5 +1,5 @@
 import GradeMyAid from "../assets/img/GradeMyAid.png";
-import CryptoTracker from "../assets/img/CryptoTracker.png";
+import CryptoTracker from "../assets/img/crypto.png";
 import YTRecap from "../assets/img/ytlight.png";
 // import Translator from "../assets/img/translator.png";
 import StockPulse from "../assets/img/StockPulse.png";
@@ -26,12 +26,12 @@ const data = [
   },
   {
     id: 3,
-    title: "StockPulse",
-    image: StockPulse,
+    title: "CryptoTracker",
+    image: CryptoTracker,
     description:
-      "StockPulse (WIP) aids retail investors with AI-driven web browsing for real-time financial data and sentiment analysis, delivering researched stock recommendations and insights.",
-    projectUrl: "https://github.com/nicktill/stock-pulse",
-    githubUrl: "https://github.com/nicktill/stock-pulse",
+      "A dashboard for tracking cryptocurrency prices and market data. Features sorting by market cap, price, volume, and price changes for detailed market analysis.",
+    projectUrl: "https://crypto-tracker-ten-ivory.vercel.app/",
+    githubUrl: "https://github.com/nicktill/crypto-tracker",
   },
   {
     id: 4,
@@ -42,14 +42,14 @@ const data = [
     projectUrl: "https://grademyaid-jdm36wvnz-gamedog9988.vercel.app/",
     githubUrl: "https://github.com/nicktill/cs1530-finance-group",
   },
-  {
+   {
     id: 5,
-    title: "CryptoTracker",
-    image: CryptoTracker,
+    title: "StockPulse",
+    image: StockPulse,
     description:
-      "A dashboard for tracking cryptocurrency prices and market data. Features sorting by market cap, price, volume, and price changes for detailed market analysis.",
-    projectUrl: "https://crypto-tracker-nicktill.vercel.app/",
-    githubUrl: "https://github.com/nicktill/crypto-tracker",
+      "StockPulse (WIP) aids retail investors with AI-driven web browsing for real-time financial data and sentiment analysis, delivering researched stock recommendations and insights.",
+    projectUrl: "https://github.com/nicktill/stock-pulse",
+    githubUrl: "https://github.com/nicktill/stock-pulse",
   },
   // {
   //   id: 6,

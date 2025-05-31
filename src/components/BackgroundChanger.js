@@ -3,7 +3,7 @@ import 'animate.css';
 
 const BackgroundChanger = () => {
   // Define our background collection
-  const originalBackgrounds = [3, 7, 8, 15, 17, 19, 21, 22];
+  const originalBackgrounds = [3, 7, 8, 15, 17, 19, 21];
   
   // Define which backgrounds are light and need dark glassmorphism styling
   const lightBackgrounds = [17];

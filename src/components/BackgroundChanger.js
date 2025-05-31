@@ -3,7 +3,10 @@ import 'animate.css';
 
 const BackgroundChanger = () => {
   // Define our background collection
-  const originalBackgrounds = [3, 7, 8, 15, 17, 19, 21];
+  const originalBackgrounds = [3, 7, 8, 15, 17, 19, 21, 22];
+  
+  // Define which backgrounds are light and need dark glassmorphism styling
+  const lightBackgrounds = [17];
   
   // Create shuffled backgrounds array but start with default banner-2
   const [backgrounds, setBackgrounds] = useState(() => {
@@ -48,37 +51,36 @@ const BackgroundChanger = () => {
     return () => clearInterval(interval);
   }, [currentIndex]);
   
-  // Helper function to apply styling for light background (17.jpg)
+  // Helper function to apply styling for light backgrounds that need dark glassmorphism
   const applyBackgroundStyling = (backgroundId) => {
     const body = document.body;
     
-    if (backgroundId === 17) {
-      body.classList.add('light-background-17');
-      console.log('Added light-background-17 class to body for background 17');
+    if (lightBackgrounds.includes(backgroundId)) {
+      body.classList.add('light-background-dark-glassmorphic');
+      console.log(`Added light-background-dark-glassmorphic class to body for background ${backgroundId}`);
       console.log('Body classes:', body.classList.toString());
       
-      // Apply subtle styling for light background 17
+      // Apply subtle styling for light backgrounds
       const arrowBtns = document.querySelectorAll('.arrow-btn');
       const secondaryBtns = document.querySelectorAll('.secondary-btn');
       
       arrowBtns.forEach(btn => {
-        btn.style.border = '1px solid rgba(255, 255, 255, 0.8)';
-        btn.style.color = 'white';
+        btn.style.border = '.7px solid rgba(255, 255, 255, 0.4)';
         btn.style.background = 'rgba(0, 0, 0, 0.2)';
-        btn.style.textShadow = '1px 1px 2px rgba(0, 0, 0, 0.8)';
-        console.log('Applied subtle styling for background 17 to arrow button');
+        btn.style.textShadow = '1px 1px 2px rgba(0, 0, 0, 0.4)';
+        console.log(`Applied subtle styling for background ${backgroundId} to arrow button`);
       });
       
       secondaryBtns.forEach(btn => {
-        btn.style.border = '1px solid rgba(255, 255, 255, 0.8)';
+        btn.style.border = '.7px solid rgba(255, 255, 255, 0.4)';
         btn.style.color = 'white';
         btn.style.background = 'rgba(0, 0, 0, 0.2)';
         btn.style.textShadow = '1px 1px 2px rgba(0, 0, 0, 0.8)';
-        console.log('Applied subtle styling for background 17 to secondary button');
+        console.log(`Applied subtle styling for background ${backgroundId} to secondary button`);
       });
     } else {
-      body.classList.remove('light-background-17');
-      console.log('Removed light-background-17 class from body');
+      body.classList.remove('light-background-dark-glassmorphic');
+      console.log('Removed light background class from body');
       console.log('Body classes:', body.classList.toString());
       
       // Reset to default styling for all other backgrounds (including default)

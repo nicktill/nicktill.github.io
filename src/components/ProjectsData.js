@@ -4,6 +4,7 @@ import YTRecap from "../assets/img/ytlight.png";
 // import Translator from "../assets/img/translator.png";
 import StockPulse from "../assets/img/StockPulse.png";
 import ClarityCoach from "../assets/img/clarity-coach.png";
+import Peerfolio from "../assets/img/peerfolio.png";
 
 const data = [
   {
@@ -15,8 +16,17 @@ const data = [
     projectUrl: "https://ytrecap.org",
     githubUrl: "https://github.com/nicktill/ytrecap",
   },
-    {
+  {
     id: 2,
+    title: "Peerfolio",
+    image: Peerfolio,
+    description:
+      "[WIP]Peerfolio is a social investing platform that lets you connect your brokerage accounts using Plaid, automatically aggregate your portfolio data, and track investment performance — not just solo, but with friends!",
+    projectUrl: "https://peerfolio-five.vercel.app/",
+    githubUrl: "https://github.com/nicktill/peerfolio"
+  },
+  {
+    id: 3,
     title: "ClarityCoach",
     image: ClarityCoach,
     description:
@@ -25,7 +35,7 @@ const data = [
     githubUrl: "https://github.com/nicktill/clarity-coach",
   },
   {
-    id: 3,
+    id: 4,
     title: "CryptoTracker",
     image: CryptoTracker,
     description:
@@ -34,7 +44,7 @@ const data = [
     githubUrl: "https://github.com/nicktill/crypto-tracker",
   },
   {
-    id: 4,
+    id: 5,
     title: "GradeMyAid",
     image: GradeMyAid,
     description:
@@ -42,15 +52,15 @@ const data = [
     projectUrl: "https://grademyaid-jdm36wvnz-gamedog9988.vercel.app/",
     githubUrl: "https://github.com/nicktill/cs1530-finance-group",
   },
-   {
-    id: 5,
+  {
+    id: 6,
     title: "StockPulse",
     image: StockPulse,
     description:
       "StockPulse (WIP) aids retail investors with AI-driven web browsing for real-time financial data and sentiment analysis, delivering researched stock recommendations and insights.",
     projectUrl: "https://github.com/nicktill/stock-pulse",
     githubUrl: "https://github.com/nicktill/stock-pulse",
-  },
+  }
   // {
   //   id: 6,
   //   title: "Translator",

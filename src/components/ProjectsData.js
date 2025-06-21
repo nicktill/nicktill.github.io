@@ -21,8 +21,8 @@ const data = [
     title: "Peerfolio",
     image: Peerfolio,
     description:
-      "[WIP]Peerfolio is a social investing platform that lets you connect your brokerage accounts using Plaid, automatically aggregate your portfolio data, and track investment performance — not just solo, but with friends!",
-    projectUrl: "https://peerfolio-five.vercel.app/",
+      "Peerfolio (WIP) is a social investing platform that connects all your brokerage accounts via Plaid, aggregates your portfolio data, and lets you track investment performance — both individually and with friends. (peerfolio.org)",
+    projectUrl: "https://peerfolio.org",
     githubUrl: "https://github.com/nicktill/peerfolio"
   },
   {

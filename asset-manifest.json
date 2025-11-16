@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.304e9c9a.css",
-    "main.js": "/static/js/main.bb364576.js",
+    "main.css": "/static/css/main.5b010b81.css",
+    "main.js": "/static/js/main.c153fefd.js",
     "static/js/453.fe03a297.chunk.js": "/static/js/453.fe03a297.chunk.js",
     "static/media/peerfolio.png": "/static/media/peerfolio.b41a5ba8089a1706133a.png",
     "static/media/17.jpg": "/static/media/17.84e5382317a0bc0431e2.jpg",
@@ -11,6 +11,7 @@
     "static/media/21.jpg": "/static/media/21.4ae240bdf12cf9a1fa2e.jpg",
     "static/media/ytlight.png": "/static/media/ytlight.1bcbdb499ea0f0a933ff.png",
     "static/media/clarity-coach.png": "/static/media/clarity-coach.a95b066f170638d090f4.png",
+    "static/media/tinyobs.png": "/static/media/tinyobs.c870521aa6373a9d4883.png",
     "static/media/crypto.png": "/static/media/crypto.8529971cea15881fc0b1.png",
     "static/media/banner-2.jpg": "/static/media/banner-2.288062b541a907462a22.jpg",
     "static/media/StockPulse.png": "/static/media/StockPulse.f1adc5656f7db717fcfa.png",
@@ -21,12 +22,12 @@
     "static/media/CentraNo2-Medium.ttf": "/static/media/CentraNo2-Medium.f94be5b326d78bb32b95.ttf",
     "static/media/CentraNo2-Book.ttf": "/static/media/CentraNo2-Book.2b143fa4b734a3584043.ttf",
     "index.html": "/index.html",
-    "main.304e9c9a.css.map": "/static/css/main.304e9c9a.css.map",
-    "main.bb364576.js.map": "/static/js/main.bb364576.js.map",
+    "main.5b010b81.css.map": "/static/css/main.5b010b81.css.map",
+    "main.c153fefd.js.map": "/static/js/main.c153fefd.js.map",
     "453.fe03a297.chunk.js.map": "/static/js/453.fe03a297.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.304e9c9a.css",
-    "static/js/main.bb364576.js"
+    "static/css/main.5b010b81.css",
+    "static/js/main.c153fefd.js"
   ]
 }

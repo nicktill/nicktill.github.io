@@ -1,6 +1,7 @@
 import GradeMyAid from "../assets/img/GradeMyAid.png";
 import CryptoTracker from "../assets/img/crypto.png";
 import YTRecap from "../assets/img/ytlight.png";
+import TinyOBS from "../assets/img/tinyobs.png";
 // import Translator from "../assets/img/translator.png";
 import StockPulse from "../assets/img/StockPulse.png";
 import ClarityCoach from "../assets/img/clarity-coach.png";
@@ -18,6 +19,15 @@ const data = [
   },
   {
     id: 2,
+    title: "TinyOBS",
+    image: TinyOBS,
+    description:
+      "TinyOBS is a lightweight observability tool built in Go that provides real-time monitoring, metrics collection, and distributed tracing for microservices. Features minimal overhead with powerful insights into system performance.",
+    projectUrl: "https://github.com/nicktill/tinyobs",
+    githubUrl: "https://github.com/nicktill/tinyobs",
+  },
+  {
+    id: 3,
     title: "Peerfolio",
     image: Peerfolio,
     description:
@@ -26,7 +36,7 @@ const data = [
     githubUrl: "https://github.com/nicktill/peerfolio"
   },
   {
-    id: 3,
+    id: 4,
     title: "ClarityCoach",
     image: ClarityCoach,
     description:
@@ -35,7 +45,7 @@ const data = [
     githubUrl: "https://github.com/nicktill/clarity-coach",
   },
   {
-    id: 4,
+    id: 5,
     title: "CryptoTracker",
     image: CryptoTracker,
     description:
@@ -44,7 +54,7 @@ const data = [
     githubUrl: "https://github.com/nicktill/crypto-tracker",
   },
   {
-    id: 5,
+    id: 6,
     title: "GradeMyAid",
     image: GradeMyAid,
     description:
@@ -53,7 +63,7 @@ const data = [
     githubUrl: "https://github.com/nicktill/cs1530-finance-group",
   },
   {
-    id: 6,
+    id: 7,
     title: "StockPulse",
     image: StockPulse,
     description:

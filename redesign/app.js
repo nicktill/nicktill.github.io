@@ -7,14 +7,20 @@
   var root = document.documentElement;
   var themeBtns = Array.prototype.slice.call(document.querySelectorAll('[data-theme-set]'));
 
+  function usesPhoto(name) { return name === 'dark' || name === 'amber'; }
+
   function setTheme(name, remember) {
     root.setAttribute('data-theme', name);
     themeBtns.forEach(function (b) {
       b.setAttribute('aria-pressed', b.dataset.themeSet === name ? 'true' : 'false');
     });
-    // only the photography theme derives its accent from the image
-    if (name !== 'dark') root.style.removeProperty('--accent');
-    else if (buttons[current]) applyAccent(buttons[current].dataset.src);
+    // dark and amber both sit on the photographs; the others do not
+    if (usesPhoto(name)) {
+      if (buttons[current]) applyAccent(buttons[current].dataset.src);
+    } else {
+      root.style.removeProperty('--accent');
+      document.body.classList.remove('is-bright');
+    }
     if (remember) {
       try { localStorage.setItem('theme', name); } catch (e) {}
     }
@@ -96,7 +102,9 @@
         var sat = Math.min(0.72, Math.max(0.40, (satSum / count) * 1.5));
         var accent = 'hsl(' + hue.toFixed(1) + ' ' + (sat * 100).toFixed(0) + '% 72%)';
         accentCache[src] = accent;
-        document.documentElement.style.setProperty('--accent', accent);
+        if (root.getAttribute('data-theme') !== 'amber') {
+          root.style.setProperty('--accent', accent);
+        }
       } catch (e) { /* tainted canvas or no 2d context, so keep the default accent */ }
     };
     img.src = src;

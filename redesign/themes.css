@@ -164,3 +164,142 @@
 :root[data-theme="flat"] .dot { border-radius: 0; }
 :root[data-theme="flat"] .job li::marker { color: var(--accent); }
 :root[data-theme="flat"] .foot { background: var(--ground); }
+
+
+/* ------------------------------------------------------------
+   TERMINAL — amber monochrome. One hue, everything monospace,
+   faint scanlines. Retro-technical rather than modern-technical.
+   ------------------------------------------------------------ */
+:root[data-theme="terminal"] {
+  --ink: #E8D5B0;
+  --ink-soft: #A5906B;
+  --ink-mute: #6E5D44;
+  --ground: #0A0806;
+  --accent: #FFB000;
+  --line: #241B0F;
+  --edge: #3D2F1B;
+  --panel: #0A0806;
+  --mono: 'IBM Plex Mono', ui-monospace, monospace;
+}
+
+:root[data-theme="terminal"] body { background: var(--ground); font-family: var(--mono); }
+:root[data-theme="terminal"] .bg,
+:root[data-theme="terminal"] .strip,
+:root[data-theme="terminal"] .hero__scroll { display: none; }
+
+/* scanlines */
+:root[data-theme="terminal"] main::before {
+  content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none;
+  background-image: repeating-linear-gradient(0deg, rgba(255, 176, 0, 0.035) 0 1px, transparent 1px 3px);
+}
+
+:root[data-theme="terminal"] .nav {
+  background: rgba(10, 8, 6, 0.95); border-bottom: 1px solid var(--line); backdrop-filter: none;
+}
+:root[data-theme="terminal"] .nav__brand img { border-radius: 2px; filter: sepia(0.5) saturate(1.3); }
+:root[data-theme="terminal"] .nav__cta { border-radius: 2px; border-color: var(--accent); color: var(--accent); }
+:root[data-theme="terminal"] .nav__cta:hover { background: var(--accent); color: #0A0806; }
+
+:root[data-theme="terminal"] .hero {
+  min-height: 0;
+  padding-top: clamp(76px, 12vh, 140px); padding-bottom: clamp(56px, 9vh, 100px);
+  border-bottom: 1px solid var(--line);
+}
+:root[data-theme="terminal"] .hero__inner { transform: none !important; opacity: 1 !important; }
+:root[data-theme="terminal"] .hero h1,
+:root[data-theme="terminal"] .hero__lead { text-shadow: none; }
+
+/* every face becomes the terminal face */
+:root[data-theme="terminal"] .hero h1,
+:root[data-theme="terminal"] .section-title,
+:root[data-theme="terminal"] .contact__title,
+:root[data-theme="terminal"] .now-grid h3,
+:root[data-theme="terminal"] .proj__body h3,
+:root[data-theme="terminal"] .role__co,
+:root[data-theme="terminal"] .closing__email {
+  font-family: var(--mono); font-weight: 500;
+  letter-spacing: -0.02em; font-variation-settings: normal;
+}
+:root[data-theme="terminal"] .hero h1 { font-size: clamp(40px, 6vw, 72px); }
+
+:root[data-theme="terminal"] .panel { background: transparent; backdrop-filter: none; border-top: 1px solid var(--line); }
+:root[data-theme="terminal"] .panel--end { background: transparent; }
+:root[data-theme="terminal"] .btn,
+:root[data-theme="terminal"] .proj__shot,
+:root[data-theme="terminal"] .proj__shot img,
+:root[data-theme="terminal"] .closing__me img,
+:root[data-theme="terminal"] .themes button { border-radius: 2px; }
+:root[data-theme="terminal"] .btn--solid { background: var(--accent); color: #0A0806; }
+:root[data-theme="terminal"] .proj__shot { box-shadow: none; }
+:root[data-theme="terminal"] .proj__shot:hover { box-shadow: none; border-color: var(--accent); }
+:root[data-theme="terminal"] .closing__me img { border-radius: 2px; filter: sepia(0.5) saturate(1.3); }
+:root[data-theme="terminal"] .dot { border-radius: 0; }
+:root[data-theme="terminal"] .job li::marker { color: var(--accent); }
+:root[data-theme="terminal"] .foot { background: var(--ground); }
+
+
+/* ------------------------------------------------------------
+   SWISS — cool neutral ground, one red, no serif anywhere,
+   square corners, tight headline tracking. Systematic.
+   ------------------------------------------------------------ */
+:root[data-theme="swiss"] {
+  --ink: #0E0F11;
+  --ink-soft: #4A4E55;
+  --ink-mute: #868B93;
+  --ground: #EDEEF0;
+  --accent: #E5342A;
+  --line: #D2D5DA;
+  --edge: #B4B9C0;
+  --panel: transparent;
+}
+
+:root[data-theme="swiss"] body { background: var(--ground); }
+:root[data-theme="swiss"] .bg,
+:root[data-theme="swiss"] .strip,
+:root[data-theme="swiss"] .hero__scroll { display: none; }
+
+:root[data-theme="swiss"] .nav {
+  background: rgba(237, 238, 240, 0.92); border-bottom: 1px solid var(--ink); backdrop-filter: none;
+}
+:root[data-theme="swiss"] .nav.is-scrolled { background: rgba(237, 238, 240, 0.98); }
+:root[data-theme="swiss"] .nav__cta { border-radius: 0; border-color: var(--ink); }
+:root[data-theme="swiss"] .nav__cta:hover { background: var(--accent); border-color: var(--accent); color: #fff; }
+
+:root[data-theme="swiss"] .hero {
+  min-height: 0;
+  padding-top: clamp(76px, 12vh, 140px); padding-bottom: clamp(56px, 9vh, 100px);
+  border-bottom: 2px solid var(--ink);
+}
+:root[data-theme="swiss"] .hero__inner { transform: none !important; opacity: 1 !important; }
+:root[data-theme="swiss"] .hero h1,
+:root[data-theme="swiss"] .hero__lead { text-shadow: none; }
+
+/* no serif anywhere; headlines set tight and heavy */
+:root[data-theme="swiss"] .hero h1,
+:root[data-theme="swiss"] .section-title,
+:root[data-theme="swiss"] .contact__title,
+:root[data-theme="swiss"] .now-grid h3,
+:root[data-theme="swiss"] .proj__body h3,
+:root[data-theme="swiss"] .role__co,
+:root[data-theme="swiss"] .closing__email {
+  font-family: var(--sans); font-weight: 600;
+  letter-spacing: -0.045em; font-variation-settings: normal;
+}
+
+:root[data-theme="swiss"] .panel { background: transparent; backdrop-filter: none; border-top: 1px solid var(--ink); }
+:root[data-theme="swiss"] .panel--end { background: transparent; }
+:root[data-theme="swiss"] .btn,
+:root[data-theme="swiss"] .proj__shot,
+:root[data-theme="swiss"] .proj__shot img,
+:root[data-theme="swiss"] .closing__me img,
+:root[data-theme="swiss"] .themes button { border-radius: 0; }
+:root[data-theme="swiss"] .btn--solid { background: var(--accent); color: #fff; }
+:root[data-theme="swiss"] .btn--solid:hover { box-shadow: none; }
+:root[data-theme="swiss"] .btn--quiet { border-color: var(--ink); }
+:root[data-theme="swiss"] .proj__shot { border-color: var(--ink); box-shadow: none; }
+:root[data-theme="swiss"] .proj__shot:hover { box-shadow: none; border-color: var(--accent); }
+:root[data-theme="swiss"] .sec-num { color: var(--accent); }
+:root[data-theme="swiss"] .dot { border-radius: 0; }
+:root[data-theme="swiss"] .job li::marker { color: var(--accent); }
+:root[data-theme="swiss"] .foot { background: var(--ground); border-top: 2px solid var(--ink); }
+:root[data-theme="swiss"] .skip { background: var(--accent); color: #fff; }

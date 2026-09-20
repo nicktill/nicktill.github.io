@@ -8,7 +8,7 @@
 <link rel="preload" href="img/scene-19.jpg" as="image" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Karla:wght@300;400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,300..600,0..100,0..1&family=Karla:wght@300..600&display=swap">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -265,15 +265,42 @@
     </div>
   </section>
 
-  <!-- NOTES — placeholder slot -->
+  <!-- NOTES -->
   <section class="panel panel--tight" id="notes">
     <div class="wrap">
       <p class="sec-num">05</p>
       <h2 class="section-title">Notes</h2>
-      <p class="section-lead todo">
-        [Placeholder — two or three short write-ups go here. PromMocker, cardinality, instrumenting a
-        DNS pipeline from scratch. Delete this section if you'd rather not write.]
-      </p>
+      <p class="section-lead">Short things I've written down about work, mostly so I remember them.</p>
+
+      <div class="notes">
+        <article class="note">
+          <h3>What PromMocker was actually for</h3>
+          <p>Every time we changed something in the remote-write path, the only way to know whether the
+             metrics came out right was to stand up a full gateway environment and wait. So I built a
+             thing that generated the traffic instead — synthetic resources, synthetic series, shaped
+             closely enough to the real thing to be worth trusting. The tool itself isn't very
+             interesting. What mattered was that checking your instrumentation stopped costing half a
+             day, which meant people actually did it.</p>
+        </article>
+
+        <article class="note">
+          <h3>Remote-write is three systems wearing one name</h3>
+          <p>In config it looks like a single block. In practice it's scraping, then middleware that
+             enriches every sample on the way through, then ingestion into Thanos for long-term
+             storage. Three systems, three sets of failure modes, one label on the diagram. Most of my
+             two years on the Mesh team went into making the seams between them visible — because when
+             something went missing, "remote-write is broken" was never a useful sentence.</p>
+        </article>
+
+        <article class="note">
+          <h3>Where did that DNS record go</h3>
+          <p>A change leaves Route53 as an event, lands on a queue, gets picked up by a daemon process
+             or a Lambda, and eventually shows up in NS1. Any one of those hops can drop it quietly, and
+             the symptom is identical at every stage: the record just isn't there yet. Tracing the whole
+             path with OpenTelemetry doesn't make the system more reliable on its own. It makes the
+             question answerable, which turns out to be most of the job.</p>
+        </article>
+      </div>
     </div>
   </section>
 

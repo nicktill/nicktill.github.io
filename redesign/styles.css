@@ -1,4 +1,12 @@
+/* registering --accent lets it animate when the scenery changes */
+@property --accent {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #E8C07A;
+}
+
 :root {
+  transition: --accent 900ms cubic-bezier(0.22, 1, 0.36, 1);
   --ink: #F2EFE9;
   --ink-soft: rgba(242, 239, 233, 0.78);
   --ink-mute: rgba(242, 239, 233, 0.56);
@@ -53,9 +61,11 @@ section[id] { scroll-margin-top: 84px; }
   background-size: cover;
   background-position: center;
   opacity: 0;
-  transition: opacity 1000ms var(--ease);
   animation: kenburns 42s ease-in-out infinite alternate;
-  will-change: opacity, transform;
+  /* `translate` is its own property, so pointer drift composes with the Ken Burns transform */
+  translate: var(--px, 0) var(--py, 0);
+  transition: opacity 1000ms var(--ease), translate 700ms ease-out;
+  will-change: opacity, transform, translate;
 }
 .bg__layer.is-active { opacity: 1; }
 
@@ -69,6 +79,13 @@ section[id] { scroll-margin-top: 84px; }
   background:
     linear-gradient(180deg, rgba(11,13,15,0.66) 0%, rgba(11,13,15,0.12) 34%, rgba(11,13,15,0.30) 100%),
     linear-gradient(100deg, rgba(11,13,15,0.72) 0%, rgba(11,13,15,0.10) 58%, rgba(11,13,15,0) 100%);
+  transition: background 900ms var(--ease);
+}
+/* bright photos get a heavier scrim so the hero copy keeps its contrast */
+.is-bright .bg__tint {
+  background:
+    linear-gradient(180deg, rgba(11,13,15,0.74) 0%, rgba(11,13,15,0.38) 34%, rgba(11,13,15,0.58) 100%),
+    linear-gradient(100deg, rgba(11,13,15,0.86) 0%, rgba(11,13,15,0.40) 58%, rgba(11,13,15,0.18) 100%);
 }
 
 /* film grain — keeps the photos from looking like stock wallpaper */
@@ -161,6 +178,10 @@ section[id] { scroll-margin-top: 84px; }
   line-height: 1.0;
   letter-spacing: -0.032em;
   text-shadow: 0 2px 34px rgba(0,0,0,0.5);
+  font-variation-settings: 'opsz' 144, 'SOFT' 28, 'WONK' 1;
+}
+.section-title, .contact__title, .now-grid h3, .proj__body h3, .role__co, .note h3 {
+  font-variation-settings: 'opsz' 72, 'SOFT' 18, 'WONK' 1;
 }
 .hero__lead {
   margin: 26px 0 0; max-width: 640px;
@@ -271,6 +292,13 @@ section[id] { scroll-margin-top: 84px; }
   width: 100%; aspect-ratio: 16 / 10; object-fit: cover; object-position: top left;
   transition: transform 900ms var(--ease);
 }
+/* screenshots wipe up rather than fading in */
+.proj.reveal .proj__shot img { clip-path: inset(0 0 100% 0); transform: scale(1.04); }
+.proj.reveal.is-in .proj__shot img {
+  clip-path: inset(0 0 0 0); transform: scale(1);
+  transition: clip-path 1000ms var(--ease) 120ms, transform 1200ms var(--ease) 120ms;
+}
+.proj.reveal.is-in .proj__shot:hover img { transform: scale(1.035); transition: transform 900ms var(--ease); }
 .proj__shot:hover { transform: translateY(-5px); border-color: rgba(232,192,122,0.4); box-shadow: 0 40px 90px rgba(0,0,0,0.62); }
 .proj__shot:hover img { transform: scale(1.035); }
 
@@ -308,6 +336,23 @@ section[id] { scroll-margin-top: 84px; }
 .strip__btn:hover img { transform: scale(1.08); }
 .strip__btn.is-active { opacity: 1; border-color: var(--accent); border-width: 2px; transform: translateX(-4px); }
 
+/* ---------- notes ---------- */
+.notes { display: grid; gap: 0; }
+.note { padding: 28px 0; border-top: 1px solid var(--line); display: grid; grid-template-columns: minmax(0, 320px) minmax(0, 1fr); gap: 40px; align-items: start; }
+.note:last-child { border-bottom: 1px solid var(--line); }
+.note h3 { margin: 0; font-family: var(--serif); font-weight: 500; font-size: 23px; letter-spacing: -0.015em; line-height: 1.25; }
+.note p { margin: 0; font-size: 16px; line-height: 1.72; color: var(--ink-soft); }
+
+/* ---------- word-level reveal for leads ---------- */
+/* the words carry the animation, so the paragraph itself doesn't also fade */
+.section-lead.reveal { opacity: 1; transform: none; }
+.w { display: inline-block; opacity: 0; transform: translateY(0.4em); }
+.is-in .w {
+  opacity: 1; transform: none;
+  transition: opacity 560ms var(--ease), transform 560ms var(--ease);
+  transition-delay: calc(var(--w) * 26ms);
+}
+
 /* ---------- reveal ---------- */
 .reveal { opacity: 0; transform: translateY(16px); }
 .reveal.is-in {
@@ -340,6 +385,7 @@ section[id] { scroll-margin-top: 84px; }
 }
 
 @media (max-width: 900px) {
+  .note { grid-template-columns: 1fr; gap: 14px; }
   .role { grid-template-columns: 1fr; gap: 20px; }
   .proj { grid-template-columns: 1fr; gap: 26px; margin-bottom: 56px; }
   .proj--flip .proj__shot { order: 0; }
@@ -355,7 +401,9 @@ section[id] { scroll-margin-top: 84px; }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .reveal, .r { opacity: 1; transform: none; transition: none; }
+  :root { transition: none; }
+  .reveal, .r, .w { opacity: 1; transform: none; transition: none; }
+  .proj.reveal .proj__shot img { clip-path: none; transform: none; }
   .bg__layer { transition: none; animation: none; }
   .bg__grain { animation: none; }
   .dot, .hero__scroll span { animation: none; }

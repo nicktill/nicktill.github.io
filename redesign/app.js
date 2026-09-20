@@ -20,6 +20,67 @@
 
   function pad(n) { return (n < 10 ? '0' : '') + n; }
 
+  /* ---- pull an accent colour out of the photo, so the whole page
+         re-tints when you change the scenery ---- */
+  var accentCache = {};
+
+  function applyAccent(src) {
+    if (reduced) return;
+    if (accentCache[src]) {
+      document.documentElement.style.setProperty('--accent', accentCache[src]);
+      return;
+    }
+    var img = new Image();
+    img.onload = function () {
+      try {
+        var n = 28;
+        var c = document.createElement('canvas');
+        c.width = n; c.height = n;
+        var ctx = c.getContext('2d', { willReadFrequently: true });
+        ctx.drawImage(img, 0, 0, n, n);
+        var d = ctx.getImageData(0, 0, n, n).data;
+
+        // average hue as a vector so it wraps correctly, weighted by saturation
+        var x = 0, y = 0, satSum = 0, count = 0, lumaSum = 0, lumaCount = 0;
+        for (var i = 0; i < d.length; i += 4) {
+          var r = d[i] / 255, g = d[i + 1] / 255, b = d[i + 2] / 255;
+          lumaSum += 0.2126 * r + 0.7152 * g + 0.0722 * b;
+          lumaCount++;
+          var max = Math.max(r, g, b), min = Math.min(r, g, b);
+          var l = (max + min) / 2;
+          if (l < 0.12 || l > 0.93) continue;         // skip crushed shadows and blown sky
+          var delta = max - min;
+          if (delta < 0.04) continue;                  // skip near-grey
+          var s = delta / (1 - Math.abs(2 * l - 1));
+          var h;
+          if (max === r) h = ((g - b) / delta) % 6;
+          else if (max === g) h = (b - r) / delta + 2;
+          else h = (r - g) / delta + 4;
+          h *= 60;
+          if (h < 0) h += 360;
+          var rad = h * Math.PI / 180;
+          x += Math.cos(rad) * s;
+          y += Math.sin(rad) * s;
+          satSum += s;
+          count++;
+        }
+        // a bright photo needs a heavier scrim or the hero copy stops being readable
+        document.body.classList.toggle('is-bright', (lumaSum / lumaCount) > 0.46);
+
+        if (!count) return;
+
+        var hue = Math.atan2(y, x) * 180 / Math.PI;
+        if (hue < 0) hue += 360;
+        // clamp into a band that stays legible on the dark ground and takes dark text
+        var sat = Math.min(0.72, Math.max(0.40, (satSum / count) * 1.5));
+        var accent = 'hsl(' + hue.toFixed(1) + ' ' + (sat * 100).toFixed(0) + '% 72%)';
+        accentCache[src] = accent;
+        document.documentElement.style.setProperty('--accent', accent);
+      } catch (e) { /* tainted canvas or no 2d context — keep the default accent */ }
+    };
+    img.src = src;
+  }
+
   function show(index) {
     if (index === current) return;
     var btn = buttons[index];
@@ -43,6 +104,7 @@
 
     current = index;
     if (photoNum) photoNum.textContent = pad(index + 1);
+    applyAccent(src);
   }
 
   // preload the neighbours of the current photo rather than all seven up front
@@ -57,6 +119,7 @@
     });
   }
   warm(0);
+  if (buttons[0]) applyAccent(buttons[0].dataset.src);
 
   buttons.forEach(function (btn, i) {
     btn.addEventListener('mouseenter', function () {
@@ -115,14 +178,42 @@
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 
+  /* ---- hero drifts a few pixels with the pointer ---- */
+  if (!reduced && window.matchMedia('(pointer: fine)').matches) {
+    var hero = document.querySelector('.hero');
+    var bgLayers = document.querySelectorAll('.bg__layer');
+    hero.addEventListener('mousemove', function (e) {
+      var dx = (e.clientX / window.innerWidth - 0.5);
+      var dy = (e.clientY / window.innerHeight - 0.5);
+      bgLayers.forEach(function (l) {
+        l.style.setProperty('--px', (dx * -14).toFixed(2) + 'px');
+        l.style.setProperty('--py', (dy * -10).toFixed(2) + 'px');
+      });
+    });
+  }
+
   if (reduced || !('IntersectionObserver' in window)) return;
+
+  /* ---- split section leads into words so they can come in one at a time ---- */
+  document.querySelectorAll('.section-lead').forEach(function (p) {
+    var words = p.textContent.trim().split(/\s+/);
+    p.textContent = '';
+    words.forEach(function (word, i) {
+      var span = document.createElement('span');
+      span.className = 'w';
+      span.style.setProperty('--w', Math.min(i, 26));
+      span.textContent = word;
+      p.appendChild(span);
+      if (i < words.length - 1) p.appendChild(document.createTextNode(' '));
+    });
+  });
 
   /* ---- reveal on scroll, staggered within each section ---- */
   document.querySelectorAll('.panel .wrap').forEach(function (wrap) {
     var kids = wrap.querySelectorAll(
       ':scope > .sec-num, :scope > .section-title, :scope > .section-lead, ' +
       ':scope > .now-grid > *, :scope > .role, :scope > .kit > div, ' +
-      ':scope > .proj, :scope > .also, :scope > .contact__actions'
+      ':scope > .notes > *, :scope > .proj, :scope > .also, :scope > .contact__actions'
     );
     kids.forEach(function (el, i) {
       el.classList.add('reveal');

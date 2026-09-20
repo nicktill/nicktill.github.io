@@ -4,7 +4,7 @@
     {
       "name": "redesign",
       "runtimeExecutable": "python3",
-      "runtimeArgs": ["-m", "http.server", "3000", "--directory", "redesign"],
+      "runtimeArgs": ["serve-redesign.py"],
       "port": 3000
     }
   ]

@@ -180,7 +180,7 @@ section[id] { scroll-margin-top: 84px; }
   text-shadow: 0 2px 34px rgba(0,0,0,0.5);
   font-variation-settings: 'opsz' 144, 'SOFT' 28, 'WONK' 1;
 }
-.section-title, .contact__title, .now-grid h3, .proj__body h3, .role__co, .note h3 {
+.section-title, .contact__title, .now-grid h3, .proj__body h3, .role__co {
   font-variation-settings: 'opsz' 72, 'SOFT' 18, 'WONK' 1;
 }
 .hero__lead {
@@ -290,8 +290,11 @@ section[id] { scroll-margin-top: 84px; }
   box-shadow: 0 30px 70px rgba(0,0,0,0.55);
   transition: transform 600ms var(--ease), box-shadow 600ms var(--ease), border-color 600ms var(--ease);
 }
+/* the three screenshots are 1.52, 1.88 and 2.01 wide, so they all get cropped to
+   fit one frame. anchor top centre so the crop is symmetrical instead of lopping
+   the right-hand side off whichever image is widest. */
 .proj__shot img {
-  width: 100%; aspect-ratio: 16 / 10; object-fit: cover; object-position: top left;
+  width: 100%; aspect-ratio: 16 / 10; object-fit: cover; object-position: top center;
   transition: transform 900ms var(--ease);
 }
 /* screenshots wipe up rather than fading in */
@@ -338,22 +341,6 @@ section[id] { scroll-margin-top: 84px; }
 .strip__btn:hover img { transform: scale(1.08); }
 .strip__btn.is-active { opacity: 1; border-color: var(--accent); border-width: 2px; transform: translateX(-4px); }
 
-/* ---------- notes ---------- */
-.notes { display: grid; gap: 0; }
-.note { padding: 28px 0; border-top: 1px solid var(--line); display: grid; grid-template-columns: minmax(0, 320px) minmax(0, 1fr); gap: 40px; align-items: start; }
-.note:last-child { border-bottom: 1px solid var(--line); }
-.note h3 { margin: 0; font-family: var(--serif); font-weight: 500; font-size: 23px; letter-spacing: -0.015em; line-height: 1.25; }
-.note p { margin: 0; font-size: 16px; line-height: 1.72; color: var(--ink-soft); }
-
-/* ---------- hobbies ---------- */
-.hobbies { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 10px; }
-.hobbies li {
-  font-size: 14.5px; color: var(--ink-soft);
-  border: 1px solid var(--line); border-radius: 999px; padding: 8px 18px;
-  transition: border-color 300ms var(--ease), color 300ms var(--ease);
-}
-.hobbies li:hover { border-color: var(--accent); color: var(--accent); }
-
 /* ---------- word-level reveal for leads ---------- */
 /* the words carry the animation, so the paragraph itself doesn't also fade */
 .section-lead.reveal { opacity: 1; transform: none; }
@@ -396,7 +383,6 @@ section[id] { scroll-margin-top: 84px; }
 }
 
 @media (max-width: 900px) {
-  .note { grid-template-columns: 1fr; gap: 14px; }
   .role { grid-template-columns: 1fr; gap: 20px; }
   .proj { grid-template-columns: 1fr; gap: 26px; margin-bottom: 56px; }
   .proj--flip .proj__shot { order: 0; }

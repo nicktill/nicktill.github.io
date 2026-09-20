@@ -213,8 +213,7 @@
     var kids = wrap.querySelectorAll(
       ':scope > .sec-num, :scope > .section-title, :scope > .section-lead, ' +
       ':scope > .now-grid > *, :scope > .role, :scope > .kit > div, ' +
-      ':scope > .notes > *, :scope > .proj, :scope > .also, :scope > .hobbies, ' +
-      ':scope > .contact__actions'
+      ':scope > .proj, :scope > .also, :scope > .contact__actions'
     );
     kids.forEach(function (el, i) {
       el.classList.add('reveal');

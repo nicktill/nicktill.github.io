@@ -265,65 +265,22 @@
     </div>
   </section>
 
-  <!-- NOTES -->
-  <section class="panel panel--tight" id="notes">
-    <div class="wrap">
-      <p class="sec-num">05</p>
-      <h2 class="section-title">Notes</h2>
-      <p class="section-lead">A few things I've written down about work, mostly so I don't forget them.</p>
-
-      <div class="notes">
-        <article class="note">
-          <h3>What PromMocker was for</h3>
-          <p>Every time we changed something in the remote-write path, the only way to know if the
-             metrics came out right was to spin up a full gateway environment and wait. That got old
-             pretty fast, so I built something that generated the traffic instead. Synthetic resources,
-             synthetic series, close enough to the real thing to be useful. The tool itself isn't that
-             interesting. The nice part was that checking your instrumentation went from half a day to
-             a few minutes, so people actually bothered doing it.</p>
-        </article>
-
-        <article class="note">
-          <h3>Remote-write is three systems with one name</h3>
-          <p>In config it looks like a single block. In practice it's scraping, then middleware that
-             enriches every sample on the way through, then ingestion into Thanos for long term
-             storage. Three systems, three sets of failure modes, one label on the diagram. A lot of my
-             two years on the Mesh team went into making the seams between them visible, mostly because
-             "remote-write is broken" was never a useful thing to say out loud.</p>
-        </article>
-
-        <article class="note">
-          <h3>Where did that DNS record go</h3>
-          <p>A change leaves Route53 as an event, lands on a queue, gets picked up by a daemon or a
-             Lambda, and eventually shows up in NS1. Any of those hops can drop it quietly, and the
-             symptom looks the same at every stage: the record just isn't there yet. Tracing the path
-             with OpenTelemetry doesn't make any of it more reliable on its own, it just means you can
-             answer the question. Most days that's enough.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
   <!-- OUTSIDE WORK -->
   <section class="panel panel--tight" id="outside">
     <div class="wrap">
-      <p class="sec-num">06</p>
+      <p class="sec-num">05</p>
       <h2 class="section-title">Outside work</h2>
       <p class="section-lead">
-        I play a lot of piano, mostly classical. At the moment that's more Chopin than is probably
-        reasonable, plus some Liszt and Rachmaninoff when I'm feeling brave. I cook most nights.
-        In winter I ski, and the rest of the year it's usually tennis, pickleball or golf with friends.
+        Piano, mostly Chopin and Rachmaninoff. Cooking. Skiing in winter, tennis and golf
+        the rest of the year.
       </p>
-      <ul class="hobbies">
-        <li>Piano</li><li>Cooking</li><li>Skiing</li><li>Tennis</li><li>Pickleball</li><li>Golf</li>
-      </ul>
     </div>
   </section>
 
   <!-- CONTACT -->
   <section class="panel panel--end" id="contact">
     <div class="wrap">
-      <p class="sec-num">07</p>
+      <p class="sec-num">06</p>
       <h2 class="contact__title">Come say hi.</h2>
       <p class="section-lead">
         Happy to talk about observability, distributed systems, piano, or where to go skiing.

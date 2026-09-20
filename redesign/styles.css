@@ -88,7 +88,7 @@ section[id] { scroll-margin-top: 84px; }
     linear-gradient(100deg, rgba(11,13,15,0.86) 0%, rgba(11,13,15,0.40) 58%, rgba(11,13,15,0.18) 100%);
 }
 
-/* film grain — keeps the photos from looking like stock wallpaper */
+/* film grain, so the photos don't look like stock wallpaper */
 .bg__grain {
   position: absolute; inset: -50%;
   opacity: 0.16;
@@ -281,6 +281,8 @@ section[id] { scroll-margin-top: 84px; }
 
 /* ---------- projects ---------- */
 .proj { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: 48px; align-items: center; margin-bottom: 72px; }
+/* flipped rows mirror the column widths too, so every screenshot is the same size */
+.proj--flip { grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); }
 .proj--flip .proj__shot { order: 2; }
 .proj__shot {
   display: block; overflow: hidden; border-radius: 10px;
@@ -342,6 +344,15 @@ section[id] { scroll-margin-top: 84px; }
 .note:last-child { border-bottom: 1px solid var(--line); }
 .note h3 { margin: 0; font-family: var(--serif); font-weight: 500; font-size: 23px; letter-spacing: -0.015em; line-height: 1.25; }
 .note p { margin: 0; font-size: 16px; line-height: 1.72; color: var(--ink-soft); }
+
+/* ---------- hobbies ---------- */
+.hobbies { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+.hobbies li {
+  font-size: 14.5px; color: var(--ink-soft);
+  border: 1px solid var(--line); border-radius: 999px; padding: 8px 18px;
+  transition: border-color 300ms var(--ease), color 300ms var(--ease);
+}
+.hobbies li:hover { border-color: var(--accent); color: var(--accent); }
 
 /* ---------- word-level reveal for leads ---------- */
 /* the words carry the animation, so the paragraph itself doesn't also fade */

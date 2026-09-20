@@ -76,7 +76,7 @@
         var accent = 'hsl(' + hue.toFixed(1) + ' ' + (sat * 100).toFixed(0) + '% 72%)';
         accentCache[src] = accent;
         document.documentElement.style.setProperty('--accent', accent);
-      } catch (e) { /* tainted canvas or no 2d context — keep the default accent */ }
+      } catch (e) { /* tainted canvas or no 2d context, so keep the default accent */ }
     };
     img.src = src;
   }
@@ -213,7 +213,8 @@
     var kids = wrap.querySelectorAll(
       ':scope > .sec-num, :scope > .section-title, :scope > .section-lead, ' +
       ':scope > .now-grid > *, :scope > .role, :scope > .kit > div, ' +
-      ':scope > .notes > *, :scope > .proj, :scope > .also, :scope > .contact__actions'
+      ':scope > .notes > *, :scope > .proj, :scope > .also, :scope > .hobbies, ' +
+      ':scope > .contact__actions'
     );
     kids.forEach(function (el, i) {
       el.classList.add('reveal');

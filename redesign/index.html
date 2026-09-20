@@ -8,8 +8,16 @@
 <link rel="preload" href="img/scene-19.jpg" as="image" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,300..600,0..100,0..1&family=Karla:wght@300..600&display=swap">
-<link rel="stylesheet" href="styles.css?v=1789905410">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,300..600,0..100,0..1&family=Karla:wght@300..600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="styles.css?v=1789905761">
+<link rel="stylesheet" href="themes.css?v=1789905761">
+<script>
+  // set the theme before first paint so there is no flash of the wrong one
+  try {
+    var t = localStorage.getItem('theme');
+    if (t) document.documentElement.setAttribute('data-theme', t);
+  } catch (e) {}
+</script>
 </head>
 <body>
 
@@ -265,31 +273,33 @@
     </div>
   </section>
 
-  <!-- OUTSIDE WORK -->
-  <section class="panel panel--tight" id="outside">
-    <div class="wrap">
-      <p class="sec-num">05</p>
-      <h2 class="section-title">Outside work</h2>
-      <p class="section-lead">
-        Piano, mostly Chopin and Rachmaninoff. Cooking. Skiing in winter, tennis and golf
-        the rest of the year.
-      </p>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
+  <!-- CLOSING -->
   <section class="panel panel--end" id="contact">
-    <div class="wrap">
-      <p class="sec-num">06</p>
-      <h2 class="contact__title">Come say hi.</h2>
-      <p class="section-lead">
-        Happy to talk about observability, distributed systems, piano, or where to go skiing.
-      </p>
-      <div class="contact__actions">
-        <a class="btn btn--solid" href="mailto:ntillmann1439@gmail.com">ntillmann1439@gmail.com</a>
-        <a class="btn btn--quiet" href="https://github.com/nicktill">github</a>
-        <a class="btn btn--quiet" href="https://linkedin.com/in/nicholastillmann">linkedin</a>
+    <div class="wrap closing">
+
+      <aside class="closing__me">
+        <img src="img/headshot.jpg" alt="Nick Tillmann" width="132" height="132">
+        <p class="closing__label">Outside work</p>
+        <p class="closing__personal">
+          Piano, mostly Chopin and Rachmaninoff. Cooking. Skiing in winter, tennis and golf
+          the rest of the year.
+        </p>
+      </aside>
+
+      <div class="closing__main">
+        <p class="sec-num">05</p>
+        <h2 class="contact__title">Come say hi.</h2>
+        <p class="closing__lead">
+          Happy to talk about observability, distributed systems, piano, or where to go skiing.
+        </p>
+        <a class="closing__email" href="mailto:ntillmann1439@gmail.com">ntillmann1439@gmail.com</a>
+        <div class="closing__links">
+          <a href="https://github.com/nicktill">github</a>
+          <a href="https://linkedin.com/in/nicholastillmann">linkedin</a>
+          <a href="/resume.pdf">résumé</a>
+        </div>
       </div>
+
     </div>
   </section>
 
@@ -298,6 +308,11 @@
 <footer class="foot">
   <div class="wrap foot__row">
     <span>© 2026 Nick Tillmann</span>
+    <div class="themes" role="group" aria-label="Page theme">
+      <button type="button" data-theme-set="dark" aria-pressed="true">dark</button>
+      <button type="button" data-theme-set="light" aria-pressed="false">paper</button>
+      <button type="button" data-theme-set="flat" aria-pressed="false">flat</button>
+    </div>
     <span class="foot__photo">photo <span id="photoNum">01</span> / 07</span>
   </div>
 </footer>
@@ -316,6 +331,6 @@
   </div>
 </aside>
 
-<script src="app.js?v=1789905410"></script>
+<script src="app.js?v=1789905761"></script>
 </body>
 </html>

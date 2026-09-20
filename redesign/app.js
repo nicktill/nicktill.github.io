@@ -3,6 +3,27 @@
 
   var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  /* ---- theme: dark (photography), light (paper), flat (structural) ---- */
+  var root = document.documentElement;
+  var themeBtns = Array.prototype.slice.call(document.querySelectorAll('[data-theme-set]'));
+
+  function setTheme(name, remember) {
+    root.setAttribute('data-theme', name);
+    themeBtns.forEach(function (b) {
+      b.setAttribute('aria-pressed', b.dataset.themeSet === name ? 'true' : 'false');
+    });
+    // only the photography theme derives its accent from the image
+    if (name !== 'dark') root.style.removeProperty('--accent');
+    else if (buttons[current]) applyAccent(buttons[current].dataset.src);
+    if (remember) {
+      try { localStorage.setItem('theme', name); } catch (e) {}
+    }
+  }
+
+  themeBtns.forEach(function (b) {
+    b.addEventListener('click', function () { setTheme(b.dataset.themeSet, true); });
+  });
+
   /* ---- hero entrance ---- */
   requestAnimationFrame(function () {
     document.body.classList.add('loaded');
@@ -119,7 +140,11 @@
     });
   }
   warm(0);
-  if (buttons[0]) applyAccent(buttons[0].dataset.src);
+
+  // restore the saved theme now that applyAccent and the strip exist
+  var saved = 'dark';
+  try { saved = localStorage.getItem('theme') || 'dark'; } catch (e) {}
+  setTheme(saved, false);
 
   buttons.forEach(function (btn, i) {
     btn.addEventListener('mouseenter', function () {

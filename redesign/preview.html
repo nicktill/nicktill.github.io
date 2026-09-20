@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Theme comparison</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Karla:wght@400;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+  :root { --bd: #2A2E35; }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 30px 26px 60px;
+    background: #15171B; color: #E6E9EE;
+    font-family: 'Karla', system-ui, sans-serif;
+  }
+  header { max-width: 1600px; margin: 0 auto 26px; }
+  h1 { margin: 0 0 6px; font-size: 22px; font-weight: 600; letter-spacing: -0.02em; }
+  header p { margin: 0; font-size: 14.5px; color: #98A0AC; }
+
+  .grid {
+    max-width: 1600px; margin: 0 auto;
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 26px;
+  }
+
+  figure { margin: 0; }
+  figcaption {
+    display: flex; align-items: baseline; justify-content: space-between; gap: 10px;
+    margin-bottom: 10px;
+  }
+  .name { font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: #E6E9EE; }
+  .open { font-size: 12.5px; color: #7FB5F5; text-decoration: none; }
+  .open:hover { text-decoration: underline; }
+  .note { margin: 9px 2px 0; font-size: 12.5px; line-height: 1.5; color: #8B93A0; }
+
+  /* each frame renders the real page at desktop width, scaled down */
+  .shot {
+    position: relative; overflow: hidden;
+    border: 1px solid var(--bd); border-radius: 8px;
+    aspect-ratio: 1440 / 1500;
+    background: #0B0D0F;
+  }
+  .shot iframe {
+    position: absolute; top: 0; left: 0;
+    width: 1440px; height: 1500px;
+    border: 0;
+    transform-origin: top left;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Five treatments, same page</h1>
+  <p>Each frame is the real site at 1440px, scaled down. Identical content and structure in all five. Click a name to open it full size.</p>
+</header>
+
+<div class="grid" id="grid"></div>
+
+<script>
+  var themes = [
+    ['dark',     'Photography as the ground. Translucent panels, serif headlines, accent sampled from the photo.'],
+    ['terminal', 'Amber monochrome, scanlines, monospace throughout. The most committed of the five.'],
+    ['flat',     'Near-black with a faint green grid. Mono labels, sans headlines, square corners.'],
+    ['light',    'Warm cream paper, deep red, hairline rules. Your screenshots become the only images.'],
+    ['swiss',    'Cool neutral grey, one hard red, no serif anywhere, tight headline tracking.']
+  ];
+
+  var grid = document.getElementById('grid');
+
+  themes.forEach(function (t) {
+    var name = t[0], note = t[1];
+    var fig = document.createElement('figure');
+    fig.innerHTML =
+      '<figcaption>' +
+        '<span class="name">' + name + '</span>' +
+        '<a class="open" href="index.html?theme=' + name + '" target="_blank" rel="noopener">open full size &#8599;</a>' +
+      '</figcaption>' +
+      '<div class="shot"><iframe loading="lazy" title="' + name + ' theme" src="index.html?theme=' + name + '"></iframe></div>' +
+      '<p class="note">' + note + '</p>';
+    grid.appendChild(fig);
+  });
+
+  // keep each iframe scaled to whatever width its column ended up
+  function fit() {
+    document.querySelectorAll('.shot').forEach(function (shot) {
+      var frame = shot.querySelector('iframe');
+      frame.style.transform = 'scale(' + (shot.clientWidth / 1440) + ')';
+    });
+  }
+  window.addEventListener('resize', fit);
+  fit();
+  setTimeout(fit, 400);
+</script>
+
+</body>
+</html>

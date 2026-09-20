@@ -14,7 +14,8 @@
 <script>
   // set the theme before first paint so there is no flash of the wrong one
   try {
-    var t = localStorage.getItem('theme');
+    var q = new URLSearchParams(location.search).get('theme');
+    var t = q || localStorage.getItem('theme');
     if (t) document.documentElement.setAttribute('data-theme', t);
   } catch (e) {}
 </script>

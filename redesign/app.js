@@ -143,7 +143,10 @@
 
   // restore the saved theme now that applyAccent and the strip exist
   var saved = 'dark';
-  try { saved = localStorage.getItem('theme') || 'dark'; } catch (e) {}
+  try {
+    var q = new URLSearchParams(location.search).get('theme');
+    saved = q || localStorage.getItem('theme') || 'dark';
+  } catch (e) {}
   setTheme(saved, false);
 
   buttons.forEach(function (btn, i) {

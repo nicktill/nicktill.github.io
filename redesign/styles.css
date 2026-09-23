@@ -133,16 +133,25 @@ section[id] { scroll-margin-top: 84px; }
 .nav {
   position: sticky; top: 0; z-index: 30;
   display: flex; align-items: center; justify-content: space-between; gap: 24px;
-  padding: 18px var(--gutter);
-  background: linear-gradient(180deg, rgba(11,13,15,0.45), rgba(11,13,15,0));
-  border-bottom: 1px solid transparent;
-  transition: background 320ms var(--ease), border-color 320ms var(--ease), padding 320ms var(--ease);
+  /* every part of the bar is driven by --nav-solid, which app.js ramps
+     from 0 to 1 over the first 90px. it used to transition a gradient
+     into a flat colour, which CSS cannot interpolate, so the whole bar
+     snapped at 40px instead of arriving. */
+  padding: calc(18px - var(--nav-solid, 0) * 5px) var(--gutter);
+  background-color: rgba(11, 13, 15, calc(var(--nav-solid, 0) * 0.9));
+  backdrop-filter: blur(calc(var(--nav-solid, 0) * 14px));
 }
-.nav.is-scrolled {
-  background: rgba(11, 13, 15, 0.9);
-  backdrop-filter: blur(14px);
-  border-bottom-color: var(--line);
-  padding-top: 13px; padding-bottom: 13px;
+/* the scrim that keeps the brand legible over a bright photo, gone by the
+   time the solid bar has taken over */
+.nav::before {
+  content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  background: linear-gradient(180deg, rgba(11,13,15,0.5), rgba(11,13,15,0));
+  opacity: calc(1 - var(--nav-solid, 0));
+}
+/* and the hairline underneath it, on the same ramp */
+.nav::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 1px;
+  background: var(--line); opacity: var(--nav-solid, 0); pointer-events: none;
 }
 .nav__brand { display: flex; align-items: center; gap: 11px; font-weight: 600; font-size: 15px; }
 .nav__brand img { width: 34px; height: 34px; border-radius: 50%; object-fit: cover; border: 1px solid var(--edge); transition: transform 400ms var(--ease); }

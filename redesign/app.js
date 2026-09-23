@@ -205,6 +205,9 @@
     requestAnimationFrame(function () {
       var y = window.scrollY;
 
+      // the bar fades in over the first 90px rather than flipping at 40
+      var solid = Math.min(1, Math.max(0, (y - 6) / 90));
+      root.style.setProperty('--nav-solid', solid.toFixed(3));
       nav.classList.toggle('is-scrolled', y > 40);
       document.documentElement.classList.toggle('is-scrolled', y > 40);
 

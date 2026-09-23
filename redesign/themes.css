@@ -27,6 +27,13 @@
 :root[data-theme="light"] .bg,
 :root[data-theme="light"] .scenes { display: none; }
 
+/* the themes that drop the photography paint their own flat bar, so the
+   hero scrim has nothing to do */
+:root[data-theme="light"] .nav::before, :root[data-theme="light"] .nav::after,
+:root[data-theme="flat"] .nav::before, :root[data-theme="flat"] .nav::after,
+:root[data-theme="terminal"] .nav::before, :root[data-theme="terminal"] .nav::after,
+:root[data-theme="swiss"] .nav::before, :root[data-theme="swiss"] .nav::after { display: none; }
+
 :root[data-theme="light"] .nav {
   background: rgba(244, 241, 234, 0.86);
   border-bottom: 1px solid var(--line);

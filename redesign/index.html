@@ -23,12 +23,12 @@
 <meta name="twitter:title" content="Nick Tillmann - Software Engineer">
 <meta name="twitter:description" content="Software engineer at IBM. Observability, distributed systems, and the Go services that keep DNS records in sync.">
 <meta name="twitter:image" content="https://nicktill.com/og.png">
-<link rel="preload" href="img/scene-19.jpg" as="image" fetchpriority="high">
+<link rel="preload" href="img/scene-3.jpg" as="image" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,300..600,0..100,0..1&family=Karla:wght@300..600&family=IBM+Plex+Mono:wght@400;500&display=swap">
-<link rel="stylesheet" href="styles.css?v=1790129987">
-<link rel="stylesheet" href="themes.css?v=1790129987">
+<link rel="stylesheet" href="styles.css?v=1790130841">
+<link rel="stylesheet" href="themes.css?v=1790130841">
 <script>
   // set the theme before first paint so there is no flash of the wrong one
   try {
@@ -45,7 +45,7 @@
 
 <!-- the landscape, two layers so it can cross-fade -->
 <div class="bg" aria-hidden="true">
-  <div class="bg__layer bg__layer--a is-active" style="background-image: url('img/scene-19.jpg')"></div>
+  <div class="bg__layer bg__layer--a is-active" style="background-image: url('img/scene-3.jpg')"></div>
   <div class="bg__layer bg__layer--b"></div>
   <div class="bg__tint"></div>
   <div class="bg__grain"></div>
@@ -60,7 +60,7 @@
     <a href="#now" data-spy="now">now</a>
     <a href="#experience" data-spy="experience">experience</a>
     <a href="#work" data-spy="work">work</a>
-    <a href="resume.pdf">résumé</a>
+    <a href="resume.pdf" target="_blank" rel="noopener">résumé</a>
     <a class="nav__cta" href="mailto:ntillmann1439@gmail.com">say hi</a>
   </nav>
 </header>
@@ -80,16 +80,16 @@
         <a class="btn btn--solid" href="#now">What I work on
           <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
         </a>
-        <a class="btn btn--quiet" href="resume.pdf">résumé (pdf)</a>
+        <a class="btn btn--quiet" href="resume.pdf" target="_blank" rel="noopener">résumé (pdf)</a>
       </div>
     </div>
     <div class="hero__scroll r" style="--i:5" aria-hidden="true"><span></span>scroll</div>
     <div class="scenes r" style="--i:4">
       <span class="scenes__label">the view</span>
       <div class="scenes__dots" role="group" aria-label="Change the background photo">
-        <button type="button" class="scenes__dot is-active" data-src="img/scene-19.jpg" aria-pressed="true" aria-label="Alpine valley at golden hour"><span class="scenes__peek" style="background-image: url(img/scene-19.jpg)"></span></button>
+        <button type="button" class="scenes__dot is-active" data-src="img/scene-3.jpg" aria-pressed="true" aria-label="Ridge line above the clouds"><span class="scenes__peek" style="background-image: url(img/scene-3.jpg)"></span></button>
+        <button type="button" class="scenes__dot" data-src="img/scene-19.jpg" aria-pressed="false" aria-label="Alpine valley at golden hour"><span class="scenes__peek" style="background-image: url(img/scene-19.jpg)"></span></button>
         <button type="button" class="scenes__dot" data-src="img/scene-8.jpg" aria-pressed="false" aria-label="Storm over the peaks"><span class="scenes__peek" style="background-image: url(img/scene-8.jpg)"></span></button>
-        <button type="button" class="scenes__dot" data-src="img/scene-3.jpg" aria-pressed="false" aria-label="Ridge line above the clouds"><span class="scenes__peek" style="background-image: url(img/scene-3.jpg)"></span></button>
         <button type="button" class="scenes__dot" data-src="img/scene-7.jpg" aria-pressed="false" aria-label="Mountain scene"><span class="scenes__peek" style="background-image: url(img/scene-7.jpg)"></span></button>
         <button type="button" class="scenes__dot" data-src="img/scene-17.jpg" aria-pressed="false" aria-label="Bright mountain scene"><span class="scenes__peek" style="background-image: url(img/scene-17.jpg)"></span></button>
         <button type="button" class="scenes__dot" data-src="img/scene-21.jpg" aria-pressed="false" aria-label="Mountain scene"><span class="scenes__peek" style="background-image: url(img/scene-21.jpg)"></span></button>
@@ -250,7 +250,7 @@
       <p class="section-lead">A few side projects. The rest are on GitHub.</p>
 
       <article class="proj">
-        <a class="proj__shot" href="https://ytrecap.org">
+        <a class="proj__shot" href="https://ytrecap.org" target="_blank" rel="noopener">
           <img src="img/proj-ytlight.jpg" alt="YTRecap interface" loading="lazy">
         </a>
         <div class="proj__body">
@@ -258,14 +258,14 @@
           <h3>YTRecap</h3>
           <p>Summarizes a YouTube video by parsing its closed captions and passing them to an LLM.
              Built in 2023, in Python and Flask.</p>
-          <a class="proj__link" href="https://ytrecap.org">ytrecap.org
+          <a class="proj__link" href="https://ytrecap.org" target="_blank" rel="noopener">ytrecap.org
             <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12L12 4M12 4H6M12 4v6"/></svg>
           </a>
         </div>
       </article>
 
       <article class="proj proj--flip">
-        <a class="proj__shot" href="https://github.com/nicktill/tinyobs">
+        <a class="proj__shot" href="https://github.com/nicktill/tinyobs" target="_blank" rel="noopener">
           <img src="img/proj-tinyobs.jpg" alt="TinyOBS interface" loading="lazy">
         </a>
         <div class="proj__body">
@@ -273,14 +273,14 @@
           <h3>TinyOBS</h3>
           <p>Monitoring, metrics collection and distributed tracing for microservices, written in Go.
              A much smaller version of what I work on during the day.</p>
-          <a class="proj__link" href="https://github.com/nicktill/tinyobs">read the source
+          <a class="proj__link" href="https://github.com/nicktill/tinyobs" target="_blank" rel="noopener">read the source
             <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12L12 4M12 4H6M12 4v6"/></svg>
           </a>
         </div>
       </article>
 
       <article class="proj">
-        <a class="proj__shot" href="https://peerfolio.org">
+        <a class="proj__shot" href="https://peerfolio.org" target="_blank" rel="noopener">
           <img src="img/proj-peerfolio.jpg" alt="Peerfolio interface" loading="lazy">
         </a>
         <div class="proj__body">
@@ -289,7 +289,7 @@
           <p>Links brokerage accounts through Plaid, aggregates holdings into one portfolio, and lets
              you compare performance with friends. Most of the work is in reconciling account data,
              since every brokerage models it differently.</p>
-          <a class="proj__link" href="https://peerfolio.org">peerfolio.org
+          <a class="proj__link" href="https://peerfolio.org" target="_blank" rel="noopener">peerfolio.org
             <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12L12 4M12 4H6M12 4v6"/></svg>
           </a>
         </div>
@@ -297,10 +297,9 @@
 
       <p class="also">
         Also on GitHub:
-        <a href="https://github.com/nicktill/stock-pulse">StockPulse</a>,
-        <a href="https://github.com/nicktill/clarity-coach">ClarityCoach</a>,
-        <a href="https://github.com/nicktill/crypto-tracker">CryptoTracker</a>,
-        <a href="https://github.com/nicktill/cs1530-finance-group">GradeMyAid</a>.
+        <a href="https://github.com/nicktill/stock-pulse" target="_blank" rel="noopener">StockPulse</a>,
+        <a href="https://github.com/nicktill/crypto-tracker" target="_blank" rel="noopener">CryptoTracker</a>,
+        <a href="https://github.com/nicktill/cs1530-finance-group" target="_blank" rel="noopener">GradeMyAid</a>.
       </p>
     </div>
   </section>
@@ -313,8 +312,9 @@
         <img src="img/headshot.jpg" alt="Nick Tillmann" width="132" height="132">
         <p class="closing__label">Outside work</p>
         <p class="closing__personal">
-          Piano, mostly Chopin and Liszt. Cooking. Skiing in winter, tennis and golf
-          the rest of the year.
+          Piano, mostly Chopin and Liszt and the usual classics. Cooking. Skiing in
+          winter, then tennis, pickleball and golf the rest of the year. Coffee
+          throughout.
         </p>
       </aside>
 
@@ -326,9 +326,9 @@
         </p>
         <a class="closing__email" href="mailto:ntillmann1439@gmail.com">ntillmann1439@gmail.com</a>
         <div class="closing__links">
-          <a href="https://github.com/nicktill">github</a>
-          <a href="https://linkedin.com/in/nicholastillmann">linkedin</a>
-          <a href="resume.pdf">résumé</a>
+          <a href="https://github.com/nicktill" target="_blank" rel="noopener">github</a>
+          <a href="https://linkedin.com/in/nicholastillmann" target="_blank" rel="noopener">linkedin</a>
+          <a href="resume.pdf" target="_blank" rel="noopener">résumé</a>
         </div>
       </div>
 
@@ -353,6 +353,6 @@
 </footer>
 
 
-<script src="app.js?v=1790129987"></script>
+<script src="app.js?v=1790130841"></script>
 </body>
 </html>

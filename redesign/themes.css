@@ -6,7 +6,7 @@
 
 
 /* ------------------------------------------------------------
-   PAPER — warm editorial. No photo ground; the screenshots
+   PAPER: warm editorial. No photo ground; the screenshots
    become the only images, set as plates on a paper field.
    ------------------------------------------------------------ */
 :root[data-theme="light"] {
@@ -71,7 +71,7 @@
 
 
 /* ------------------------------------------------------------
-   FLAT — structural and technical. No photography, visible grid,
+   FLAT: structural and technical. No photography, visible grid,
    mono labels, square corners, tight rhythm.
    ------------------------------------------------------------ */
 :root[data-theme="flat"] {
@@ -171,7 +171,7 @@
 
 
 /* ------------------------------------------------------------
-   TERMINAL — amber monochrome. One hue, everything monospace,
+   TERMINAL: amber monochrome. One hue, everything monospace,
    faint scanlines. Retro-technical rather than modern-technical.
    ------------------------------------------------------------ */
 :root[data-theme="terminal"] {
@@ -245,7 +245,7 @@
 
 
 /* ------------------------------------------------------------
-   SWISS — cool neutral ground, one red, no serif anywhere,
+   SWISS: cool neutral ground, one red, no serif anywhere,
    square corners, tight headline tracking. Systematic.
    ------------------------------------------------------------ */
 :root[data-theme="swiss"] {
@@ -314,7 +314,7 @@
 
 
 /* ------------------------------------------------------------
-   AMBER — the photograph from dark, the discipline from terminal.
+   AMBER: the photograph from dark, the discipline from terminal.
    Landscape stays, but toned toward amber so the whole page sits
    on one hue. Serif display over monospace labels, square corners.
    ------------------------------------------------------------ */

@@ -412,12 +412,17 @@ section[id] { scroll-margin-top: 84px; }
   .role { grid-template-columns: 1fr; gap: 20px; }
   .proj { grid-template-columns: 1fr; gap: 26px; margin-bottom: 56px; }
   .proj--flip .proj__shot { order: 0; }
-  .nav__links a:not(.nav__cta) { display: none; }
   .hero { min-height: max(84svh, 600px); }
   .hero__scroll { display: none; }
+  /* the links still fit here, they just need less room */
+  .nav__links { gap: 18px; font-size: 13.5px; }
+  .nav__cta { padding: 7px 15px; }
 }
 
-@media (max-width: 680px) {
+/* below this the four links crowd the brand, so only the invitation stays */
+@media (max-width: 620px) {
+  .nav__links a:not(.nav__cta) { display: none; }
+  .nav__brand span { font-size: 14px; }
 }
 
 @media (prefers-reduced-motion: reduce) {

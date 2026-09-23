@@ -23,19 +23,60 @@
 <meta name="twitter:title" content="Nick Tillmann - Software Engineer">
 <meta name="twitter:description" content="Software engineer at IBM. Observability, distributed systems, and the Go services that keep DNS records in sync.">
 <meta name="twitter:image" content="https://nicktill.com/og.jpg">
-<link rel="preload" href="img/scene-3.jpg" as="image" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,300..600,0..100,0..1&family=Karla:wght@300..600&family=IBM+Plex+Mono:wght@400;500&display=swap">
-<link rel="stylesheet" href="styles.css?v=1790167587">
-<link rel="stylesheet" href="themes.css?v=1790167587">
+<link rel="stylesheet" href="styles.css?v=1790168217">
+<link rel="stylesheet" href="themes.css?v=1790168217">
 <script>
-  // set the theme before first paint so there is no flash of the wrong one
-  try {
-    var q = new URLSearchParams(location.search).get('theme');
-    var t = q || localStorage.getItem('theme');
-    if (t) document.documentElement.setAttribute('data-theme', t);
-  } catch (e) {}
+  // the scenery lives here rather than in app.js because one of them has to be
+  // chosen and preloaded before the first paint, or you see one photo load and
+  // then get replaced by another
+  window.SCENES = [
+    ['scene-3.jpg', 'Ridge line above the clouds'],
+    ['scene-ridge-cloud.jpg', 'Peaks breaking through cloud'],
+    ['scene-mist-forest.jpg', 'Mist wreathed around a hill'],
+    ['scene-alpenglow.jpg', 'First light on the summits'],
+    ['scene-19.jpg', 'Alpine valley at golden hour'],
+    ['scene-bleak-peak.jpg', 'Dark peak in low cloud'],
+    ['scene-nz-valley.jpg', 'Valley in New Zealand'],
+    ['scene-8.jpg', 'Storm over the peaks'],
+    ['scene-wenatchee.jpg', 'Forest above Lake Wenatchee'],
+    ['scene-grey-ridge.jpg', 'Forested ridge under grey sky'],
+    ['scene-yosemite.jpg', 'Yosemite Valley'],
+    ['scene-coast-storm.jpg', 'Storm coming in off the coast'],
+    ['scene-7.jpg', 'Haze over a long valley'],
+    ['scene-glacier.jpg', 'Glacier above cold water'],
+    ['scene-kerid.jpg', 'Sunset over Kerid'],
+    ['scene-21.jpg', 'Cloud caught on a summit'],
+    ['scene-15.jpg', 'Dusk over the range'],
+    ['scene-17.jpg', 'Snowfield in full sun']
+  ];
+  (function () {
+    try {
+      var q = new URLSearchParams(location.search);
+
+      // theme first, so there is no flash of the wrong one
+      var t = q.get('theme') || localStorage.getItem('theme');
+      if (t) document.documentElement.setAttribute('data-theme', t);
+
+      // a different view every time you arrive. ?scene=N pins one, which is how
+      // the social card gets a screenshot that does not change under it.
+      var pinned = parseInt(q.get('scene'), 10);
+      var i = (pinned >= 0 && pinned < window.SCENES.length)
+        ? pinned
+        : Math.floor(Math.random() * window.SCENES.length);
+      window.SCENE_FIRST = i;
+
+      var src = 'img/' + window.SCENES[i][0];
+      var pre = document.createElement('link');
+      pre.rel = 'preload'; pre.as = 'image'; pre.fetchPriority = 'high'; pre.href = src;
+      document.head.appendChild(pre);
+      var st = document.createElement('style');
+      st.textContent = '.bg__layer--a{background-image:url("' + src + '")}';
+      document.head.appendChild(st);
+    } catch (e) {}
+  })();
 </script>
 </head>
 <body>
@@ -45,7 +86,7 @@
 
 <!-- the landscape, two layers so it can cross-fade -->
 <div class="bg" aria-hidden="true">
-  <div class="bg__layer bg__layer--a is-active" style="background-image: url('img/scene-3.jpg')"></div>
+  <div class="bg__layer bg__layer--a is-active"></div>
   <div class="bg__layer bg__layer--b"></div>
   <div class="bg__tint"></div>
   <div class="bg__grain"></div>
@@ -87,20 +128,8 @@
     <div class="scenes r" style="--i:4">
       <span class="scenes__label">the view</span>
       <div class="scenes__dots" role="group" aria-label="Change the background photo">
-        <button type="button" class="scenes__dot is-active" data-src="img/scene-3.jpg" aria-pressed="true" aria-label="Ridge line above the clouds"><span class="scenes__peek" style="background-image: url(img/scene-3.jpg)"></span></button>
-        <button type="button" class="scenes__dot" data-src="img/scene-ridge-cloud.jpg" aria-pressed="false" aria-label="Peaks breaking through cloud"><span class="scenes__peek" style="background-image: url(img/scene-ridge-cloud.jpg)"></span></button>
-        <button type="button" class="scenes__dot" data-src="img/scene-19.jpg" aria-pressed="false" aria-label="Alpine valley at golden hour"><span class="scenes__peek" style="background-image: url(img/scene-19.jpg)"></span></button>
-        <button type="button" class="scenes__dot" data-src="img/scene-bleak-peak.jpg" aria-pressed="false" aria-label="Dark peak in low cloud"><span class="scenes__peek" style="background-image: url(img/scene-bleak-peak.jpg)"></span></button>
-        <button type="button" class="scenes__dot" data-src="img/scene-8.jpg" aria-pressed="false" aria-label="Storm over the peaks"><span class="scenes__peek" style="background-image: url(img/scene-8.jpg)"></span></button>
-        <button type="button" class="scenes__dot" data-src="img/scene-alpenglow.jpg" aria-pressed="false" aria-label="First light on the summits"><span class="scenes__peek" style="background-image: url(img/scene-alpenglow.jpg)"></span></button>
-        <button type="button" class="scenes__dot" data-src="img/scene-grey-ridge.jpg" aria-pressed="false" aria-label="Forested ridge under grey sky"><span class="scenes__peek" style="background-image: url(img/scene-grey-ridge.jpg)"></span></button>
-        <button type="button" class="scenes__dot" data-src="img/scene-7.jpg" aria-pressed="false" aria-label="Haze over a long valley"><span class="scenes__peek" style="background-image: url(img/scene-7.jpg)"></span></button>
-        <button type="button" class="scenes__dot" data-src="img/scene-glacier.jpg" aria-pressed="false" aria-label="Glacier above cold water"><span class="scenes__peek" style="background-image: url(img/scene-glacier.jpg)"></span></button>
-        <button type="button" class="scenes__dot" data-src="img/scene-21.jpg" aria-pressed="false" aria-label="Cloud caught on a summit"><span class="scenes__peek" style="background-image: url(img/scene-21.jpg)"></span></button>
-        <button type="button" class="scenes__dot" data-src="img/scene-15.jpg" aria-pressed="false" aria-label="Dusk over the range"><span class="scenes__peek" style="background-image: url(img/scene-15.jpg)"></span></button>
-        <button type="button" class="scenes__dot" data-src="img/scene-17.jpg" aria-pressed="false" aria-label="Snowfield in full sun"><span class="scenes__peek" style="background-image: url(img/scene-17.jpg)"></span></button>
       </div>
-      <span class="scenes__count"><span id="photoNum">01</span> / 12</span>
+      <span class="scenes__count"><span id="photoNum">01</span> / <span id="photoTotal">18</span></span>
     </div>
   </section>
 
@@ -358,6 +387,6 @@
 </footer>
 
 
-<script src="app.js?v=1790167587"></script>
+<script src="app.js?v=1790168217"></script>
 </body>
 </html>

@@ -92,6 +92,8 @@ section[id] { scroll-margin-top: 84px; }
   will-change: opacity, transform, translate;
 }
 .bg__layer.is-active { opacity: 1; }
+/* if the head script never ran there is still a photo behind the hero */
+.bg__layer--a { background-image: url("img/scene-3.jpg"); }
 /* once the hero is behind you the pan is invisible under the panels, and
    leaving it running forces every backdrop-filter above it to re-blur on
    every frame. that was most of the scroll stutter. */
@@ -407,7 +409,7 @@ section[id] { scroll-margin-top: 84px; }
   font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
   color: var(--ink-mute); white-space: nowrap;
 }
-.scenes__dots { display: flex; align-items: center; gap: 9px; }
+.scenes__dots { display: flex; align-items: center; gap: 7px; }
 
 .scenes__dot {
   position: relative; width: 7px; height: 7px; padding: 0;

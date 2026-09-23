@@ -15,7 +15,7 @@ SHOT="$TMP/shot.png"
 "$CHROME" --headless --disable-gpu --hide-scrollbars \
   --user-data-dir="$TMP/profile" --virtual-time-budget=6000 \
   --screenshot="$SHOT" --window-size=1600,840 \
-  "http://localhost:3000/" >/dev/null 2>&1 &
+  "http://localhost:3000/?scene=0" >/dev/null 2>&1 &
 PID=$!
 
 # headless Chrome writes the file and then hangs, so wait on the file

@@ -42,11 +42,36 @@
     document.querySelector('.bg__layer--b')
   ];
   var front = 0;
-  var buttons = Array.prototype.slice.call(document.querySelectorAll('.scenes__dot'));
-  var photoNum = document.getElementById('photoNum');
-  var current = 0;
 
   function pad(n) { return (n < 10 ? '0' : '') + n; }
+
+  var photoNum = document.getElementById('photoNum');
+
+  /* ---- build the picker from the list the head script declared, so there is
+         one place to add a photo and the random pick already agrees with it ---- */
+  var SCENES = window.SCENES || [];
+  var current = window.SCENE_FIRST || 0;
+  var dotsEl = document.querySelector('.scenes__dots');
+
+  SCENES.forEach(function (scene, i) {
+    var src = 'img/' + scene[0];
+    var b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'scenes__dot' + (i === current ? ' is-active' : '');
+    b.dataset.src = src;
+    b.setAttribute('aria-pressed', i === current ? 'true' : 'false');
+    b.setAttribute('aria-label', scene[1]);
+    var peek = document.createElement('span');
+    peek.className = 'scenes__peek';
+    peek.style.backgroundImage = 'url(' + src + ')';
+    b.appendChild(peek);
+    dotsEl.appendChild(b);
+  });
+
+  var buttons = Array.prototype.slice.call(dotsEl.children);
+  var total = document.getElementById('photoTotal');
+  if (total) total.textContent = pad(SCENES.length);
+
 
   /* ---- pull an accent colour out of the photo, so the whole page
          re-tints when you change the scenery ---- */
@@ -176,7 +201,8 @@
       }
     });
   }
-  warm(0);
+  if (photoNum) photoNum.textContent = pad(current + 1);
+  warm(current);
 
   // restore the saved theme now that applyAccent and the dots exist
   var saved = 'dark';

@@ -71,10 +71,16 @@
 
         // average hue as a vector so it wraps correctly, weighted by saturation
         var x = 0, y = 0, satSum = 0, count = 0, lumaSum = 0, lumaCount = 0;
+        var topSum = 0, topCount = 0;
         for (var i = 0; i < d.length; i += 4) {
           var r = d[i] / 255, g = d[i + 1] / 255, b = d[i + 2] / 255;
-          lumaSum += 0.2126 * r + 0.7152 * g + 0.0722 * b;
+          var luma = 0.2126 * r + 0.7152 * g + 0.0722 * b;
+          lumaSum += luma;
           lumaCount++;
+          // the top rows separately: the nav sits on the sky, not on the
+          // whole picture, and a dark valley under a white sky still needs
+          // a heavy bar to keep the links readable
+          if (i / 4 < n * 4) { topSum += luma; topCount++; }
           var max = Math.max(r, g, b), min = Math.min(r, g, b);
           var l = (max + min) / 2;
           if (l < 0.12 || l > 0.93) continue;         // skip crushed shadows and blown sky
@@ -95,6 +101,13 @@
         }
         // a bright photo needs a heavier scrim or the hero copy stops being readable
         document.body.classList.toggle('is-bright', (lumaSum / lumaCount) > 0.46);
+
+        // and the bar tints itself to whatever the sky behind it is doing.
+        // .bg__tint has already taken two thirds out of the top of the photo
+        // by this point, so the bar only has to cover the rest.
+        var topLuma = topCount ? topSum / topCount : 0.3;
+        root.style.setProperty('--nav-tint',
+          Math.min(0.52, Math.max(0.26, 0.22 + topLuma * 0.34)).toFixed(3));
 
         if (!count) return;
 
@@ -192,43 +205,76 @@
     });
   });
 
-  /* ---- scroll: progress bar, nav state, hero parallax ---- */
+  /* ---- scroll ----
+     everything here runs on every frame you scroll, so it does three things
+     and nothing else: no layout reads, no custom property writes, and only
+     properties the compositor can handle on its own. */
   var nav = document.getElementById('nav');
   var bar = document.getElementById('progressBar');
+  var bgEl = document.querySelector('.bg');
   var heroEl = document.querySelector('.hero');
   var heroInner = document.querySelector('.hero__inner');
+
+  // measuring the document mid-scroll forces a synchronous layout, so both
+  // of these are taken once and again only when the page can have resized
+  var scrollMax = 1;
+  var heroHeight = 1;
+  var driftSpan = 1;
+  function measure() {
+    scrollMax = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+    heroHeight = heroEl ? heroEl.offsetHeight : window.innerHeight;
+    driftSpan = heroHeight * 0.55;
+  }
+
   var ticking = false;
+  var wasScrolled = null;
+  var wasStill = null;
+  var lastDrift = -1;
+
+  function paint() {
+    ticking = false;
+    var y = window.scrollY;
+
+    bar.style.transform = 'scaleX(' + Math.min(1, y / scrollMax).toFixed(4) + ')';
+
+    // the bar's own 300ms transition does the fade, so this flips once per
+    // crossing rather than writing a new value on every frame
+    var scrolled = y > 40;
+    if (scrolled !== wasScrolled) {
+      wasScrolled = scrolled;
+      nav.classList.toggle('is-scrolled', scrolled);
+      root.classList.toggle('is-scrolled', scrolled);
+    }
+
+    var still = y > heroHeight;
+    if (still !== wasStill) {
+      wasStill = still;
+      bgEl.classList.toggle('bg--still', still);
+    }
+
+    // the hero lifts away and is gone by halfway down its own height. going
+    // up rather than down means it leaves the frame instead of sliding into
+    // the section underneath it.
+    if (heroInner && !reduced) {
+      var p = Math.min(1, y / driftSpan);
+      if (p !== lastDrift) {
+        lastDrift = p;
+        heroInner.style.transform = 'translate3d(0,' + (p * -38).toFixed(1) + 'px,0)';
+        heroInner.style.opacity = (1 - p).toFixed(3);
+      }
+    }
+  }
 
   function onScroll() {
     if (ticking) return;
     ticking = true;
-    requestAnimationFrame(function () {
-      var y = window.scrollY;
-
-      // the bar fades in over the first 90px rather than flipping at 40
-      var solid = Math.min(1, Math.max(0, (y - 6) / 90));
-      root.style.setProperty('--nav-solid', solid.toFixed(3));
-      nav.classList.toggle('is-scrolled', y > 40);
-      document.documentElement.classList.toggle('is-scrolled', y > 40);
-
-      var max = document.documentElement.scrollHeight - window.innerHeight;
-      bar.style.width = (max > 0 ? (y / max) * 100 : 0) + '%';
-
-      // the hero lifts away and is gone by halfway down its own height.
-      // drifting upward rather than downward means it leaves the frame instead
-      // of sliding toward the section underneath it.
-      if (heroInner && !reduced) {
-        var span = (heroEl ? heroEl.offsetHeight : window.innerHeight) * 0.55;
-        var p = Math.min(1, y / span);
-        heroInner.style.transform = 'translate3d(0,' + (p * -38).toFixed(1) + 'px,0)';
-        heroInner.style.opacity = String(1 - p);
-      }
-
-      ticking = false;
-    });
+    requestAnimationFrame(paint);
   }
+
   window.addEventListener('scroll', onScroll, { passive: true });
-  onScroll();
+  window.addEventListener('resize', function () { measure(); onScroll(); });
+  measure();
+  paint();
 
   /* ---- hero drifts a few pixels with the pointer ---- */
   if (!reduced && window.matchMedia('(pointer: fine)').matches) {

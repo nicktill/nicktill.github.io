@@ -93,9 +93,13 @@
           else h = (r - g) / delta + 4;
           h *= 60;
           if (h < 0) h += 360;
+          // weight by saturation squared: these photos are mostly grey-blue
+          // haze, and a straight average lets that bury the small amount of
+          // colour that actually gives a picture its character
+          var w = s * s;
           var rad = h * Math.PI / 180;
-          x += Math.cos(rad) * s;
-          y += Math.sin(rad) * s;
+          x += Math.cos(rad) * w;
+          y += Math.sin(rad) * w;
           satSum += s;
           count++;
         }
@@ -113,8 +117,10 @@
 
         var hue = Math.atan2(y, x) * 180 / Math.PI;
         if (hue < 0) hue += 360;
-        // clamp into a band that stays legible on the dark ground and takes dark text
-        var sat = Math.min(0.80, Math.max(0.52, (satSum / count) * 1.7));
+        // clamp into a band that stays legible on the dark ground and takes dark
+        // text. the floor used to be high enough that every photo hit it and
+        // they all came out the same colour.
+        var sat = Math.min(0.78, Math.max(0.36, (satSum / count) * 1.9));
         var accent = 'hsl(' + hue.toFixed(1) + ' ' + (sat * 100).toFixed(0) + '% 68%)';
         // a companion a little way round the wheel, paler and softer, so the
         // quieter text has a second colour to sit in and the page is not one note

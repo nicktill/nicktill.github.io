@@ -21,3 +21,6 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# scratch: background-photo candidate thumbnails
+redesign/_cand/

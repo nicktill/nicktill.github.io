@@ -11,6 +11,7 @@
    ------------------------------------------------------------ */
 :root[data-theme="light"] {
   --ink: #1C1A17;
+  --ink-lead: #3B362D;
   --ink-soft: #565046;
   --ink-mute: #8A8277;
   --ground: #F4F1EA;
@@ -75,6 +76,7 @@
    ------------------------------------------------------------ */
 :root[data-theme="flat"] {
   --ink: #E8EDF2;
+  --ink-lead: #C2CBD5;
   --ink-soft: #97A3AF;
   --ink-mute: #626D79;
   --ground: #0D1014;
@@ -174,6 +176,7 @@
    ------------------------------------------------------------ */
 :root[data-theme="terminal"] {
   --ink: #E8D5B0;
+  --ink-lead: #D8C6A2;
   --ink-soft: #A5906B;
   --ink-mute: #6E5D44;
   --ground: #0A0806;
@@ -247,6 +250,7 @@
    ------------------------------------------------------------ */
 :root[data-theme="swiss"] {
   --ink: #0E0F11;
+  --ink-lead: #32363C;
   --ink-soft: #4A4E55;
   --ink-mute: #868B93;
   --ground: #EDEEF0;
@@ -316,6 +320,7 @@
    ------------------------------------------------------------ */
 :root[data-theme="amber"] {
   --ink: #EDE1C6;
+  --ink-lead: rgba(237, 225, 198, 0.90);
   --ink-soft: #BCAA84;
   --ink-mute: #85745A;
   --ground: #0A0806;

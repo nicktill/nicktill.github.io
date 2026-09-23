@@ -99,8 +99,8 @@
         var hue = Math.atan2(y, x) * 180 / Math.PI;
         if (hue < 0) hue += 360;
         // clamp into a band that stays legible on the dark ground and takes dark text
-        var sat = Math.min(0.72, Math.max(0.40, (satSum / count) * 1.5));
-        var accent = 'hsl(' + hue.toFixed(1) + ' ' + (sat * 100).toFixed(0) + '% 72%)';
+        var sat = Math.min(0.80, Math.max(0.52, (satSum / count) * 1.7));
+        var accent = 'hsl(' + hue.toFixed(1) + ' ' + (sat * 100).toFixed(0) + '% 68%)';
         accentCache[src] = accent;
         if (root.getAttribute('data-theme') !== 'amber') {
           root.style.setProperty('--accent', accent);
@@ -206,7 +206,7 @@
         var vh = window.innerHeight;
         if (y <= vh) {
           var p = y / vh;
-          heroInner.style.transform = 'translate3d(0,' + (y * 0.24) + 'px,0)';
+          heroInner.style.transform = 'translate3d(0,' + (y * 0.14) + 'px,0)';
           heroInner.style.opacity = String(Math.max(0, 1 - p * p));
         }
       }

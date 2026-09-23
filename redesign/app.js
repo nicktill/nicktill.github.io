@@ -185,6 +185,7 @@
   /* ---- scroll: progress bar, nav state, hero parallax ---- */
   var nav = document.getElementById('nav');
   var bar = document.getElementById('progressBar');
+  var heroEl = document.querySelector('.hero');
   var heroInner = document.querySelector('.hero__inner');
   var ticking = false;
 
@@ -195,20 +196,19 @@
       var y = window.scrollY;
 
       nav.classList.toggle('is-scrolled', y > 40);
+      document.documentElement.classList.toggle('is-scrolled', y > 40);
 
       var max = document.documentElement.scrollHeight - window.innerHeight;
       bar.style.width = (max > 0 ? (y / max) * 100 : 0) + '%';
 
-      // hero drifts a little slower than the page and fades as it leaves.
-      // the fade is quadratic so it stays readable through the first half
-      // of the scroll instead of dropping off almost immediately.
+      // the hero lifts away and is gone by halfway down its own height.
+      // drifting upward rather than downward means it leaves the frame instead
+      // of sliding toward the section underneath it.
       if (heroInner && !reduced) {
-        var vh = window.innerHeight;
-        if (y <= vh) {
-          var p = y / vh;
-          heroInner.style.transform = 'translate3d(0,' + (y * 0.14) + 'px,0)';
-          heroInner.style.opacity = String(Math.max(0, 1 - p * p));
-        }
+        var span = (heroEl ? heroEl.offsetHeight : window.innerHeight) * 0.55;
+        var p = Math.min(1, y / span);
+        heroInner.style.transform = 'translate3d(0,' + (p * -38).toFixed(1) + 'px,0)';
+        heroInner.style.opacity = String(1 - p);
       }
 
       ticking = false;
@@ -219,9 +219,8 @@
 
   /* ---- hero drifts a few pixels with the pointer ---- */
   if (!reduced && window.matchMedia('(pointer: fine)').matches) {
-    var hero = document.querySelector('.hero');
     var bgLayers = document.querySelectorAll('.bg__layer');
-    hero.addEventListener('mousemove', function (e) {
+    heroEl.addEventListener('mousemove', function (e) {
       var dx = (e.clientX / window.innerWidth - 0.5);
       var dy = (e.clientY / window.innerHeight - 0.5);
       bgLayers.forEach(function (l) {

@@ -10,8 +10,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,300..600,0..100,0..1&family=Karla:wght@300..600&family=IBM+Plex+Mono:wght@400;500&display=swap">
-<link rel="stylesheet" href="styles.css?v=1790128397">
-<link rel="stylesheet" href="themes.css?v=1790128397">
+<link rel="stylesheet" href="styles.css?v=1790128916">
+<link rel="stylesheet" href="themes.css?v=1790128916">
 <script>
   // set the theme before first paint so there is no flash of the wrong one
   try {
@@ -66,7 +66,20 @@
         <a class="btn btn--quiet" href="resume.pdf">résumé (pdf)</a>
       </div>
     </div>
-    <div class="hero__scroll r" style="--i:4" aria-hidden="true"><span></span>scroll</div>
+    <div class="hero__scroll r" style="--i:5" aria-hidden="true"><span></span>scroll</div>
+    <div class="scenes r" style="--i:4">
+      <span class="scenes__label">the view</span>
+      <div class="scenes__dots" role="group" aria-label="Change the background photo">
+        <button type="button" class="scenes__dot is-active" data-src="img/scene-19.jpg" aria-pressed="true" aria-label="Alpine valley at golden hour"><span class="scenes__peek" style="background-image: url(img/scene-19.jpg)"></span></button>
+        <button type="button" class="scenes__dot" data-src="img/scene-8.jpg" aria-pressed="false" aria-label="Storm over the peaks"><span class="scenes__peek" style="background-image: url(img/scene-8.jpg)"></span></button>
+        <button type="button" class="scenes__dot" data-src="img/scene-3.jpg" aria-pressed="false" aria-label="Ridge line above the clouds"><span class="scenes__peek" style="background-image: url(img/scene-3.jpg)"></span></button>
+        <button type="button" class="scenes__dot" data-src="img/scene-7.jpg" aria-pressed="false" aria-label="Mountain scene"><span class="scenes__peek" style="background-image: url(img/scene-7.jpg)"></span></button>
+        <button type="button" class="scenes__dot" data-src="img/scene-17.jpg" aria-pressed="false" aria-label="Bright mountain scene"><span class="scenes__peek" style="background-image: url(img/scene-17.jpg)"></span></button>
+        <button type="button" class="scenes__dot" data-src="img/scene-21.jpg" aria-pressed="false" aria-label="Mountain scene"><span class="scenes__peek" style="background-image: url(img/scene-21.jpg)"></span></button>
+        <button type="button" class="scenes__dot" data-src="img/scene-15.jpg" aria-pressed="false" aria-label="Mountain scene"><span class="scenes__peek" style="background-image: url(img/scene-15.jpg)"></span></button>
+      </div>
+      <span class="scenes__count"><span id="photoNum">01</span> / 07</span>
+    </div>
   </section>
 
   <!-- NOW -->
@@ -322,20 +335,7 @@
   </div>
 </footer>
 
-<!-- the background changer -->
-<aside class="strip" aria-label="Change the background photo">
-  <p class="strip__label">change<br>the view</p>
-  <div class="strip__items" role="group">
-    <button type="button" class="strip__btn is-active" data-src="img/scene-19.jpg" aria-pressed="true"><img src="img/scene-19.jpg" alt="Alpine valley at golden hour" loading="lazy"></button>
-    <button type="button" class="strip__btn" data-src="img/scene-8.jpg" aria-pressed="false"><img src="img/scene-8.jpg" alt="Storm over the peaks" loading="lazy"></button>
-    <button type="button" class="strip__btn" data-src="img/scene-3.jpg" aria-pressed="false"><img src="img/scene-3.jpg" alt="Ridge line above the clouds" loading="lazy"></button>
-    <button type="button" class="strip__btn" data-src="img/scene-7.jpg" aria-pressed="false"><img src="img/scene-7.jpg" alt="Mountain scene" loading="lazy"></button>
-    <button type="button" class="strip__btn" data-src="img/scene-17.jpg" aria-pressed="false"><img src="img/scene-17.jpg" alt="Bright mountain scene" loading="lazy"></button>
-    <button type="button" class="strip__btn" data-src="img/scene-21.jpg" aria-pressed="false"><img src="img/scene-21.jpg" alt="Mountain scene" loading="lazy"></button>
-    <button type="button" class="strip__btn" data-src="img/scene-15.jpg" aria-pressed="false"><img src="img/scene-15.jpg" alt="Mountain scene" loading="lazy"></button>
-  </div>
-</aside>
 
-<script src="app.js?v=1790128397"></script>
+<script src="app.js?v=1790128916"></script>
 </body>
 </html>

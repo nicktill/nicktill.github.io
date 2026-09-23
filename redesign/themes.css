@@ -24,7 +24,7 @@
 
 /* the landscape steps aside entirely */
 :root[data-theme="light"] .bg,
-:root[data-theme="light"] .strip { display: none; }
+:root[data-theme="light"] .scenes { display: none; }
 
 :root[data-theme="light"] .nav {
   background: rgba(244, 241, 234, 0.86);
@@ -35,6 +35,7 @@
 :root[data-theme="light"] .nav__cta { border-color: var(--ink); }
 :root[data-theme="light"] .nav__cta:hover { background: var(--ink); border-color: var(--ink); color: var(--ground); }
 
+:root[data-theme="light"] .hero::after { display: none; }
 :root[data-theme="light"] .hero {
   min-height: 0;
   padding-top: clamp(80px, 13vh, 150px);
@@ -86,7 +87,7 @@
 
 :root[data-theme="flat"] body { background: var(--ground); }
 :root[data-theme="flat"] .bg,
-:root[data-theme="flat"] .strip,
+:root[data-theme="flat"] .scenes,
 :root[data-theme="flat"] .hero__scroll { display: none; }
 
 /* a faint grid stands in for the photograph */
@@ -108,6 +109,7 @@
 :root[data-theme="flat"] .nav__cta { border-radius: 2px; border-color: var(--accent); color: var(--accent); }
 :root[data-theme="flat"] .nav__cta:hover { background: var(--accent); color: #06210E; }
 
+:root[data-theme="flat"] .hero::after { display: none; }
 :root[data-theme="flat"] .hero {
   min-height: 0;
   padding-top: clamp(76px, 12vh, 140px);
@@ -184,7 +186,7 @@
 
 :root[data-theme="terminal"] body { background: var(--ground); font-family: var(--mono); }
 :root[data-theme="terminal"] .bg,
-:root[data-theme="terminal"] .strip,
+:root[data-theme="terminal"] .scenes,
 :root[data-theme="terminal"] .hero__scroll { display: none; }
 
 /* scanlines */
@@ -200,6 +202,7 @@
 :root[data-theme="terminal"] .nav__cta { border-radius: 2px; border-color: var(--accent); color: var(--accent); }
 :root[data-theme="terminal"] .nav__cta:hover { background: var(--accent); color: #0A0806; }
 
+:root[data-theme="terminal"] .hero::after { display: none; }
 :root[data-theme="terminal"] .hero {
   min-height: 0;
   padding-top: clamp(76px, 12vh, 140px); padding-bottom: clamp(56px, 9vh, 100px);
@@ -255,7 +258,7 @@
 
 :root[data-theme="swiss"] body { background: var(--ground); }
 :root[data-theme="swiss"] .bg,
-:root[data-theme="swiss"] .strip,
+:root[data-theme="swiss"] .scenes,
 :root[data-theme="swiss"] .hero__scroll { display: none; }
 
 :root[data-theme="swiss"] .nav {
@@ -265,6 +268,7 @@
 :root[data-theme="swiss"] .nav__cta { border-radius: 0; border-color: var(--ink); }
 :root[data-theme="swiss"] .nav__cta:hover { background: var(--accent); border-color: var(--accent); color: #fff; }
 
+:root[data-theme="swiss"] .hero::after { display: none; }
 :root[data-theme="swiss"] .hero {
   min-height: 0;
   padding-top: clamp(76px, 12vh, 140px); padding-bottom: clamp(56px, 9vh, 100px);
@@ -318,11 +322,12 @@
   --accent: #FFB000;
   --line: rgba(237, 225, 198, 0.15);
   --edge: rgba(237, 225, 198, 0.3);
-  --panel: rgba(10, 8, 6, 0.84);
+  --panel: rgba(10, 8, 6, 0.70);
   --mono: 'IBM Plex Mono', ui-monospace, monospace;
 }
 
 :root[data-theme="amber"] body { background: var(--ground); }
+:root[data-theme="amber"] .hero::after { background: linear-gradient(180deg, rgba(10,8,6,0) 0%, var(--panel) 100%); }
 
 /* the landscape stays, pulled toward the theme's hue */
 :root[data-theme="amber"] .bg__layer {
@@ -365,7 +370,8 @@
 :root[data-theme="amber"] .role__where,
 :root[data-theme="amber"] .closing__label,
 :root[data-theme="amber"] .closing__links,
-:root[data-theme="amber"] .strip__label,
+:root[data-theme="amber"] .scenes__label,
+:root[data-theme="amber"] .scenes__count,
 :root[data-theme="amber"] .foot__row,
 :root[data-theme="amber"] .btn { font-family: var(--mono); }
 :root[data-theme="amber"] .nav__links { font-size: 13px; }
@@ -377,7 +383,6 @@
 :root[data-theme="amber"] .nav__cta,
 :root[data-theme="amber"] .proj__shot,
 :root[data-theme="amber"] .proj__shot img,
-:root[data-theme="amber"] .strip__btn,
 :root[data-theme="amber"] .themes button { border-radius: 2px; }
 :root[data-theme="amber"] .nav__brand img,
 :root[data-theme="amber"] .closing__me img { border-radius: 2px; filter: saturate(0.85); }
@@ -393,8 +398,8 @@
 :root[data-theme="amber"] .proj__shot { box-shadow: 0 26px 60px rgba(0, 0, 0, 0.6); }
 :root[data-theme="amber"] .proj__shot:hover { border-color: var(--accent); }
 
-:root[data-theme="amber"] .strip__btn img { filter: saturate(0.6); }
-:root[data-theme="amber"] .strip__btn.is-active { border-color: var(--accent); }
+
+
 :root[data-theme="amber"] .job li::marker { color: var(--accent); }
 :root[data-theme="amber"] .foot { background: var(--ground); }
 :root[data-theme="amber"] .skip { background: var(--accent); color: #0A0806; }

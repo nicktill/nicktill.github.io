@@ -41,7 +41,7 @@
     document.querySelector('.bg__layer--b')
   ];
   var front = 0;
-  var buttons = Array.prototype.slice.call(document.querySelectorAll('.strip__btn'));
+  var buttons = Array.prototype.slice.call(document.querySelectorAll('.scenes__dot'));
   var photoNum = document.getElementById('photoNum');
   var current = 0;
 
@@ -149,7 +149,7 @@
   }
   warm(0);
 
-  // restore the saved theme now that applyAccent and the strip exist
+  // restore the saved theme now that applyAccent and the dots exist
   var saved = 'dark';
   try {
     var q = new URLSearchParams(location.search).get('theme');
@@ -169,7 +169,7 @@
       show(i);
       warm(i);
     });
-    // left/right (or up/down) arrows move through the strip
+    // left/right (or up/down) arrows move through the scenes
     btn.addEventListener('keydown', function (e) {
       var next = null;
       if (e.key === 'ArrowRight' || e.key === 'ArrowDown') next = (i + 1) % buttons.length;

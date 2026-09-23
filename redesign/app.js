@@ -199,12 +199,15 @@
       var max = document.documentElement.scrollHeight - window.innerHeight;
       bar.style.width = (max > 0 ? (y / max) * 100 : 0) + '%';
 
-      // hero drifts a little slower than the page and fades as it leaves
+      // hero drifts a little slower than the page and fades as it leaves.
+      // the fade is quadratic so it stays readable through the first half
+      // of the scroll instead of dropping off almost immediately.
       if (heroInner && !reduced) {
         var vh = window.innerHeight;
-        if (y < vh) {
-          heroInner.style.transform = 'translate3d(0,' + (y * 0.18) + 'px,0)';
-          heroInner.style.opacity = String(Math.max(0, 1 - (y / vh) * 1.35));
+        if (y <= vh) {
+          var p = y / vh;
+          heroInner.style.transform = 'translate3d(0,' + (y * 0.24) + 'px,0)';
+          heroInner.style.opacity = String(Math.max(0, 1 - p * p));
         }
       }
 
@@ -264,9 +267,20 @@
         io.unobserve(entry.target);
       }
     });
-  }, { rootMargin: '0px 0px 6% 0px', threshold: 0.02 });
+  }, { rootMargin: '0px 0px 14% 0px', threshold: 0.01 });
 
   document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
+
+  /* ---- the accent tick on each panel's top edge ---- */
+  var lit = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-lit');
+        lit.unobserve(entry.target);
+      }
+    });
+  }, { rootMargin: '0px 0px -10% 0px', threshold: 0 });
+  document.querySelectorAll('.panel').forEach(function (el) { lit.observe(el); });
 
   /* ---- nav highlights the section you're in ---- */
   var spyLinks = {};

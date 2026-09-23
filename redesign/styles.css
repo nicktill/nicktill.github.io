@@ -226,6 +226,7 @@ section[id] { scroll-margin-top: 84px; }
 
 /* ---------- panels ---------- */
 .panel {
+  position: relative;
   background: var(--panel);
   backdrop-filter: blur(20px);
   border-top: 1px solid var(--line);
@@ -299,10 +300,10 @@ section[id] { scroll-margin-top: 84px; }
   transition: transform 900ms var(--ease);
 }
 /* screenshots wipe up rather than fading in */
-.proj.reveal .proj__shot img { clip-path: inset(0 0 100% 0); transform: scale(1.04); }
+.proj.reveal .proj__shot img { clip-path: inset(0 0 42% 0); transform: scale(1.05); }
 .proj.reveal.is-in .proj__shot img {
   clip-path: inset(0 0 0 0); transform: scale(1);
-  transition: clip-path 1000ms var(--ease) 120ms, transform 1200ms var(--ease) 120ms;
+  transition: clip-path 1400ms var(--ease) 80ms, transform 1800ms var(--ease) 80ms;
 }
 .proj.reveal.is-in .proj__shot:hover img { transform: scale(1.035); transition: transform 900ms var(--ease); }
 .proj__shot:hover { transform: translateY(-5px); border-color: rgba(232,192,122,0.4); box-shadow: 0 40px 90px rgba(0,0,0,0.62); }
@@ -353,11 +354,11 @@ section[id] { scroll-margin-top: 84px; }
 }
 
 /* ---------- reveal ---------- */
-.reveal { opacity: 0; transform: translateY(16px); }
+.reveal { opacity: 0; transform: translateY(11px); }
 .reveal.is-in {
   opacity: 1; transform: none;
-  transition: opacity 620ms var(--ease), transform 620ms var(--ease);
-  transition-delay: calc(var(--d, 0) * 55ms);
+  transition: opacity 820ms var(--ease), transform 820ms var(--ease);
+  transition-delay: calc(var(--d, 0) * 48ms);
 }
 
 /* hero entrance */
@@ -407,6 +408,15 @@ section[id] { scroll-margin-top: 84px; }
   .dot, .hero__scroll span { animation: none; }
   .btn, .proj__shot, .proj__shot img, .strip__btn, .strip__btn img, .nav, .nav__brand img { transition: none; }
 }
+
+/* a short accent tick draws in along each panel's top edge */
+.panel::after {
+  content: ""; position: absolute; top: -1px; left: 0;
+  width: 92px; height: 1px; background: var(--accent);
+  transform: scaleX(0); transform-origin: left;
+  transition: transform 1100ms var(--ease) 140ms;
+}
+.panel.is-lit::after { transform: scaleX(1); }
 
 /* ---------- closing (outside work + contact, together) ---------- */
 .closing {

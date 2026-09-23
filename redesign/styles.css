@@ -1,22 +1,39 @@
-/* registering --accent lets it animate when the scenery changes */
+/* registering the accents lets them animate when the scenery changes */
 @property --accent {
   syntax: '<color>';
   inherits: true;
-  initial-value: #E8C07A;
+  initial-value: #83B8D8;
+}
+@property --accent-2 {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #BBB7DC;
+}
+
+/* the accents only animate once the first photo has been sampled, so the
+   page does not visibly slide from its defaults into the real colours */
+:root.accents-ready {
+  transition: --accent 900ms cubic-bezier(0.22, 1, 0.36, 1),
+              --accent-2 900ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 :root {
-  transition: --accent 900ms cubic-bezier(0.22, 1, 0.36, 1);
+  /* plain values first, for anything that cannot do color-mix */
   --ink: #F2EFE9;
   --ink-lead: rgba(242, 239, 233, 0.90);
   --ink-soft: rgba(242, 239, 233, 0.80);
   --ink-mute: rgba(242, 239, 233, 0.64);
-  --ink: color-mix(in oklch, var(--accent) 8%, #F2EFE9);
-  --ink-lead: color-mix(in oklch, var(--accent) 16%, rgba(242, 239, 233, 0.90));
-  --ink-soft: color-mix(in oklch, var(--accent) 22%, rgba(242, 239, 233, 0.80));
-  --ink-mute: color-mix(in oklch, var(--accent) 20%, rgba(242, 239, 233, 0.64));
+  /* then the same tones carrying the colour of whichever photo is up.
+     the quieter the text, the more of the scene it takes. */
+  --ink: color-mix(in oklch, var(--accent) 18%, #F2EFE9);
+  --ink-lead: color-mix(in oklch, var(--accent) 34%, rgba(242, 239, 233, 0.90));
+  --ink-soft: color-mix(in oklch, var(--accent-2) 48%, rgba(242, 239, 233, 0.80));
+  --ink-mute: color-mix(in oklch, var(--accent-2) 58%, rgba(242, 239, 233, 0.62));
   --ground: #0B0D0F;
-  --accent: #E8C07A;
+  --accent: #83B8D8;
+  /* app.js swings this off the primary for the photo themes; everywhere
+     else the two stay the same and the page reads as one hue */
+  --accent-2: var(--accent);
   --line: rgba(242, 239, 233, 0.14);
   --edge: rgba(242, 239, 233, 0.32);
   --panel: rgba(11, 13, 15, 0.66);
@@ -266,23 +283,24 @@ section[id] { scroll-margin-top: 84px; }
   margin: 0 0 18px;
   font-family: var(--serif); font-weight: 400;
   font-size: clamp(30px, 4vw, 44px); letter-spacing: -0.022em;
+  color: color-mix(in oklch, var(--accent) 14%, var(--ink));
 }
 .section-lead { margin: 0 0 46px; max-width: 680px; font-size: 17px; line-height: 1.65; color: var(--ink-soft); }
 .section-lead strong { color: var(--ink); font-weight: 600; }
-.todo { color: var(--ink-mute); font-style: italic; border-left: 2px solid rgba(232,192,122,0.45); padding-left: 18px; }
+.todo { color: var(--ink-mute); font-style: italic; border-left: 2px solid color-mix(in oklch, var(--accent) 55%, transparent); padding-left: 18px; }
 
 /* ---------- now ---------- */
 .now-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(258px, 1fr)); gap: 34px; }
 .now-grid article { padding-top: 20px; border-top: 1px solid var(--line); transition: border-color 400ms var(--ease); }
 .now-grid article:hover { border-top-color: var(--accent); }
-.now-grid h3 { color: color-mix(in oklch, var(--accent) 38%, var(--ink)); margin: 0 0 12px; font-family: var(--serif); font-weight: 500; font-size: 22px; letter-spacing: -0.01em; }
+.now-grid h3 { color: color-mix(in oklch, var(--accent-2) 46%, var(--ink)); margin: 0 0 12px; font-family: var(--serif); font-weight: 500; font-size: 22px; letter-spacing: -0.01em; }
 .now-grid p { margin: 0; font-size: 15.5px; line-height: 1.68; color: var(--ink-soft); }
 
 /* ---------- experience ---------- */
 .role { display: grid; grid-template-columns: 230px minmax(0, 1fr); gap: 40px; padding: 38px 0; border-top: 1px solid var(--line); }
 .role:first-of-type { border-top: 0; padding-top: 0; }
 .role__meta { display: flex; flex-direction: column; gap: 5px; }
-.role__co { font-family: var(--serif); font-size: 27px; letter-spacing: -0.015em; color: color-mix(in oklch, var(--accent) 30%, var(--ink)); }
+.role__co { font-family: var(--serif); font-size: 27px; letter-spacing: -0.015em; color: color-mix(in oklch, var(--accent-2) 40%, var(--ink)); }
 .role--current .role__co { color: var(--accent); }
 .role__where { font-size: 13.5px; color: var(--ink-mute); }
 
@@ -293,14 +311,14 @@ section[id] { scroll-margin-top: 84px; }
 .job__dates { font-size: 13.5px; color: var(--ink-mute); white-space: nowrap; }
 .job ul { margin: 0; padding-left: 19px; display: flex; flex-direction: column; gap: 10px; }
 .job li { font-size: 15.5px; line-height: 1.66; color: var(--ink-soft); }
-.job li::marker { color: rgba(232,192,122,0.6); }
+.job li::marker { color: color-mix(in oklch, var(--accent-2) 72%, transparent); }
 .job strong { color: var(--ink); font-weight: 600; }
 .role--edu .job__head { margin-bottom: 0; }
 
 /* ---------- toolkit ---------- */
 .kit { margin: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 0 44px; }
 .kit > div { padding: 15px 0; border-top: 1px solid var(--line); }
-.kit dt { font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 7px; }
+.kit dt { font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent-2); margin-bottom: 7px; }
 .kit dd { margin: 0; font-size: 15px; line-height: 1.6; color: var(--ink-soft); }
 
 /* ---------- projects ---------- */
@@ -331,7 +349,7 @@ section[id] { scroll-margin-top: 84px; }
 .proj__shot:hover { transform: translateY(-5px); border-color: rgba(232,192,122,0.4); box-shadow: 0 40px 90px rgba(0,0,0,0.62); }
 .proj__shot:hover img { transform: scale(1.035); }
 
-.proj__kicker { margin: 0 0 13px; font-size: 12.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); }
+.proj__kicker { margin: 0 0 13px; font-size: 12.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent-2); }
 .proj__body h3 { margin: 0 0 15px; font-family: var(--serif); font-weight: 500; font-size: clamp(28px, 3.4vw, 38px); letter-spacing: -0.02em; }
 .proj__body p { margin: 0 0 22px; font-size: 16px; line-height: 1.68; color: var(--ink-soft); }
 .proj__link { display: inline-flex; align-items: center; gap: 8px; font-size: 15px; font-weight: 600; color: var(--accent); }
@@ -464,7 +482,7 @@ section[id] { scroll-margin-top: 84px; }
 .closing__label {
   margin: 0 0 9px;
   font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase;
-  color: var(--accent);
+  color: var(--accent-2);
 }
 .closing__personal { margin: 0; font-size: 15.5px; line-height: 1.7; color: var(--ink-soft); }
 

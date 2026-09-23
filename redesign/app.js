@@ -19,6 +19,7 @@
       if (buttons[current]) applyAccent(buttons[current].dataset.src);
     } else {
       root.style.removeProperty('--accent');
+      root.style.removeProperty('--accent-2');
       document.body.classList.remove('is-bright');
     }
     if (remember) {
@@ -54,7 +55,8 @@
   function applyAccent(src) {
     if (reduced) return;
     if (accentCache[src]) {
-      document.documentElement.style.setProperty('--accent', accentCache[src]);
+      root.style.setProperty('--accent', accentCache[src][0]);
+      root.style.setProperty('--accent-2', accentCache[src][1]);
       return;
     }
     var img = new Image();
@@ -101,10 +103,18 @@
         // clamp into a band that stays legible on the dark ground and takes dark text
         var sat = Math.min(0.80, Math.max(0.52, (satSum / count) * 1.7));
         var accent = 'hsl(' + hue.toFixed(1) + ' ' + (sat * 100).toFixed(0) + '% 68%)';
-        accentCache[src] = accent;
+        // a companion a little way round the wheel, paler and softer, so the
+        // quieter text has a second colour to sit in and the page is not one note
+        var hue2 = (hue + 44) % 360;
+        var sat2 = Math.min(0.72, Math.max(0.46, sat * 0.85));
+        var accent2 = 'hsl(' + hue2.toFixed(1) + ' ' + (sat2 * 100).toFixed(0) + '% 76%)';
+        accentCache[src] = [accent, accent2];
         if (root.getAttribute('data-theme') !== 'amber') {
           root.style.setProperty('--accent', accent);
+          root.style.setProperty('--accent-2', accent2);
         }
+        // from here on, changing the scenery cross-fades the colours
+        requestAnimationFrame(function () { root.classList.add('accents-ready'); });
       } catch (e) { /* tainted canvas or no 2d context, so keep the default accent */ }
     };
     img.src = src;

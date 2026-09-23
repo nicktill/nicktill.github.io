@@ -1,16 +1,13 @@
 # tools
 
-`og-card.html` is the source for `redesign/og.png`, the social preview card.
-It is a standalone 1200x630 page with Fraunces, Karla and IBM Plex Mono
-embedded as base64, so it renders identically anywhere.
+`make-og.sh` rebuilds `redesign/og.jpg`, the image that shows up when the
+link is shared. It is a screenshot of the real hero at 1600x840, scaled to
+the 1200x630 that Open Graph wants, so rerun it after any design change.
 
-Regenerate after changing it:
+The site has to be running first:
 
-    "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" \
-      --headless --disable-gpu --hide-scrollbars \
-      --user-data-dir=/tmp/og-profile \
-      --screenshot=redesign/og.png --window-size=1200,630 \
-      file://$PWD/tools/og-card.html
+    ./serve-redesign.py &
+    tools/make-og.sh
 
-Chrome may not exit on its own; the PNG is written before it hangs, so
-Ctrl-C once the file appears.
+An earlier version used a typographic card instead of a screenshot; it is
+in git history at tools/og-card.html if it is ever wanted back.

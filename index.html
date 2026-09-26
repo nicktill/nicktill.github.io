@@ -1,1 +1,374 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"/><link rel="icon" href="/favicon.ico"/><meta name="viewport" content="width=device-width,initial-scale=1"/><meta name="theme-color" content="#000000"/><title>Nicholas Tillmann</title><meta name="twitter:title" content="Nicholas Tillmann"/><meta name="description" content="Portfolio Website"/><meta property="og:description" content="Portfolio Website"/><meta name="twitter:description" content="Portfolio Website"/><meta property="og:image" content="https://nicktill.github.io/thumbnail-new.png"/><meta name="twitter:image" content="https://nicktill.github.io/thumbnail-new.png"/><link rel="apple-touch-icon" href="/favicon.ico"/><link rel="shortcut icon" href="http://nicktill.github.io/favicon.ico"/><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous"/><link rel="manifest" href="/manifest.json"/><link rel="preload" href="/3.jpg" as="image" fetchpriority="high"/><style>:root{--banner-bg:url('/3.jpg')}body{background:#0a0a0a url('/3.jpg') center center/cover no-repeat;background-attachment:scroll;margin:0;padding:0;min-height:100vh}#root{min-height:100vh;background:0 0}</style><script defer="defer" src="/static/js/main.c153fefd.js"></script><link href="/static/css/main.5b010b81.css" rel="stylesheet"></head><body><noscript>You need to enable JavaScript to run this app.</noscript><div id="root"></div></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nick Tillmann · Software Engineer</title>
+<meta name="description" content="Nick Tillmann is a software engineer at IBM. Observability, distributed systems, and managed DNS.">
+<link rel="icon" href="favicon.ico">
+<link rel="canonical" href="https://nicktill.com/">
+<meta name="theme-color" content="#0B0D0F">
+
+<!-- how the link looks when someone shares it -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://nicktill.com/">
+<meta property="og:site_name" content="Nick Tillmann">
+<meta property="og:title" content="Nick Tillmann - Software Engineer">
+<meta property="og:description" content="Software engineer at IBM. Observability, distributed systems, and the Go services that keep DNS records in sync.">
+<meta property="og:image" content="https://nicktill.com/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="The nicktill.com homepage: a mountain ridge at dawn behind the words Hi, I am Nick.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Nick Tillmann - Software Engineer">
+<meta name="twitter:description" content="Software engineer at IBM. Observability, distributed systems, and the Go services that keep DNS records in sync.">
+<meta name="twitter:image" content="https://nicktill.com/og.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,300..600,0..100,0..1&family=Karla:wght@300..600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="styles.css?v=1790455780">
+<script>
+  // the scenery lives here rather than in app.js because one of them has to be
+  // chosen and preloaded before the first paint, or you see one photo load and
+  // then get replaced by another
+  window.SCENES = [
+    ['scene-3.jpg', 'Ridge line above the clouds'],
+    ['scene-ridge-cloud.jpg', 'Peaks breaking through cloud'],
+    ['scene-mist-forest.jpg', 'Mist wreathed around a hill'],
+    ['scene-alpenglow.jpg', 'First light on the summits'],
+    ['scene-19.jpg', 'Alpine valley at golden hour'],
+    ['scene-nz-valley.jpg', 'Valley in New Zealand'],
+    ['scene-8.jpg', 'Storm over the peaks'],
+    ['scene-dusk-field.jpg', 'Last light over open country'],
+    ['scene-wenatchee.jpg', 'Forest above Lake Wenatchee'],
+    ['scene-grey-ridge.jpg', 'Forested ridge under grey sky'],
+    ['scene-yosemite.jpg', 'Yosemite Valley'],
+    ['scene-coast-storm.jpg', 'Storm coming in off the coast'],
+    ['scene-7.jpg', 'Haze over a long valley'],
+    ['scene-glacier.jpg', 'Glacier above cold water'],
+    ['scene-lake-reflection.jpg', 'Still water under a warm sky'],
+    ['scene-kerid.jpg', 'Sunset over Kerid'],
+    ['scene-21.jpg', 'Cloud caught on a summit'],
+    ['scene-15.jpg', 'Dusk over the range'],
+    ['scene-frozen-lake.jpg', 'Half-frozen lake below the pines'],
+    ['scene-17.jpg', 'Snowfield in full sun']
+  ];
+  (function () {
+    try {
+      var q = new URLSearchParams(location.search);
+
+
+      // a different view every time you arrive. ?scene=N pins one, which is how
+      // the social card gets a screenshot that does not change under it.
+      var pinned = parseInt(q.get('scene'), 10);
+      var i = (pinned >= 0 && pinned < window.SCENES.length)
+        ? pinned
+        : Math.floor(Math.random() * window.SCENES.length);
+      window.SCENE_FIRST = i;
+
+      var src = 'img/' + window.SCENES[i][0];
+      var pre = document.createElement('link');
+      pre.rel = 'preload'; pre.as = 'image'; pre.fetchPriority = 'high'; pre.href = src;
+      document.head.appendChild(pre);
+      var st = document.createElement('style');
+      st.textContent = '.bg__layer--a{background-image:url("' + src + '")}';
+      document.head.appendChild(st);
+    } catch (e) {}
+  })();
+</script>
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+<div class="progress" aria-hidden="true"><span id="progressBar"></span></div>
+
+<!-- the landscape, two layers so it can cross-fade -->
+<div class="bg" aria-hidden="true">
+  <div class="bg__layer bg__layer--a is-active"></div>
+  <div class="bg__layer bg__layer--b"></div>
+  <div class="bg__tint"></div>
+  <div class="bg__grain"></div>
+</div>
+
+<header class="nav" id="nav">
+  <a class="nav__brand" href="#top">
+    <img src="img/headshot.jpg" alt="" width="34" height="34">
+    <span>nick tillmann</span>
+  </a>
+  <nav class="nav__links" aria-label="Main">
+    <a href="#now" data-spy="now">now</a>
+    <a href="#experience" data-spy="experience">experience</a>
+    <a href="#work" data-spy="work">work</a>
+    <a href="resume.pdf" target="_blank" rel="noopener">résumé</a>
+    <a class="nav__cta" href="mailto:ntillmann1439@gmail.com">say hi</a>
+  </nav>
+</header>
+
+<main id="main">
+
+  <section class="hero" id="top">
+    <div class="hero__inner">
+      <p class="eyebrow r" style="--i:0"><span class="dot"></span> Staff Software Engineer · IBM · Raleigh, NC</p>
+      <h1 class="r" style="--i:1">Hi, I'm Nick.</h1>
+      <p class="hero__lead r" style="--i:2">
+        I'm a software engineer at IBM, working on NS1 Connect. Most of what I do is
+        observability work: OpenTelemetry pipelines, dashboards, and the Go services that
+        keep DNS records in sync.
+      </p>
+      <div class="hero__actions r" style="--i:3">
+        <a class="btn btn--solid" href="#now">What I work on
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+        </a>
+        <a class="btn btn--quiet" href="resume.pdf" target="_blank" rel="noopener">résumé (pdf)</a>
+      </div>
+    </div>
+    <div class="hero__scroll r" style="--i:5" aria-hidden="true"><span></span>scroll</div>
+    <div class="scenes r" style="--i:4">
+      <span class="scenes__label">the view</span>
+      <div class="scenes__dots" role="group" aria-label="Change the background photo">
+      </div>
+      <span class="scenes__count"><span class="js-photo-num">01</span> / <span class="js-photo-total">20</span></span>
+    </div>
+  </section>
+
+  <!-- NOW -->
+  <section class="panel" id="now">
+    <div class="wrap">
+      <p class="sec-num">01</p>
+      <h2 class="section-title">What I'm doing now</h2>
+      <p class="section-lead">
+        NS1 Connect is IBM's managed DNS platform. My work there is mostly instrumentation, so
+        that when something breaks there's enough signal to figure out what happened.
+      </p>
+      <div class="now-grid">
+        <article>
+          <h3>Instrumentation</h3>
+          <p>OpenTelemetry pipelines that follow an event from a messaging queue, through daemon
+             processes and AWS Lambdas, into Route53 synchronization workflows.</p>
+        </article>
+        <article>
+          <h3>Dashboards and alerts</h3>
+          <p>Honeycomb dashboards, alerting workflows and SLO monitors, used by engineering teams
+             to cut down how long it takes to notice something is wrong.</p>
+        </article>
+        <article>
+          <h3>Services</h3>
+          <p>Backend work and gRPC services for distributed DNS synchronization, processing
+             lambda-driven events across queues between AWS Route53 and NS1.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section class="panel" id="experience">
+    <div class="wrap">
+      <p class="sec-num">02</p>
+      <h2 class="section-title">Where I've been</h2>
+
+      <div class="role role--current">
+        <div class="role__meta">
+          <span class="role__co">IBM</span>
+          <span class="role__where">Raleigh, NC</span>
+        </div>
+        <div class="role__body">
+          <div class="job">
+            <div class="job__head">
+              <h3>Staff Software Engineer <span>· NS1 Connect</span></h3>
+              <span class="job__dates">Nov 2025 to now</span>
+            </div>
+            <ul>
+              <li>Own observability for NS1 Connect: the OpenTelemetry pipelines, the Honeycomb dashboards,
+                 and the SLO monitors other teams now run on.</li> <li>Go and Python services for distributed DNS
+                 sync, including the gRPC path between Route53 and NS1.</li>
+            </ul>
+          </div>
+
+          <div class="job">
+            <div class="job__head">
+              <h3>Associate Software Engineer <span>· Hybrid Cloud Mesh</span></h3>
+              <span class="job__dates">Aug 2023 to Oct 2025</span>
+            </div>
+            <ul>
+              <li>Observability microservices on Prometheus and Thanos, handling metric ingestion, enrichment
+                 and long-term storage across cloud and on-premise.</li>
+              <li>Owned the remote-write pipelines end to end, feeding a topology-aware view of mesh resources
+                 through Skupper.</li>
+              <li>Built <strong>PromMocker</strong>, which fakes realistic remote-write traffic so
+                 instrumentation can be tested without standing up a full gateway.</li>
+              <li>Built a RAG-powered chatbot that answers from Mesh documentation, using vector search over the docs for context.</li>
+            </ul>
+          </div>
+
+          <div class="job">
+            <div class="job__head">
+              <h3>Software Engineer Intern <span>· Cloud Expert Labs</span></h3>
+              <span class="job__dates">May 2022 to Sep 2022</span>
+            </div>
+            <ul>
+              <li>Built authentication UIs in TypeScript, Next.js and Node.js against IBM Cloud Identity,
+                  plus Express REST APIs handling MFA, password resets and email account recovery.</li>
+              <li>Automated retailer onboarding in Python, cutting manual processing by roughly 75%, and
+                  added Cypress end-to-end tests to CI/CD.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="role">
+        <div class="role__meta">
+          <span class="role__co">Leidos</span>
+          <span class="role__where">Reston, VA</span>
+        </div>
+        <div class="role__body">
+          <div class="job">
+            <div class="job__head">
+              <h3>Software Engineer Intern <span>· Annex Intelligence Division</span></h3>
+              <span class="job__dates">Jun 2021 to Dec 2021</span>
+            </div>
+            <ul>
+              <li>Worked on secure web and mobile applications for the National Counterterrorism Center.</li>
+              <li>Refactored Elasticsearch indexing and query execution to speed up backend lookups, and
+                  tidied up Docker/GitLab/SonarQube pipelines for roughly 40% faster builds.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="role role--edu">
+        <div class="role__meta">
+          <span class="role__co">University of Pittsburgh</span>
+          <span class="role__where">Pittsburgh, PA</span>
+        </div>
+        <div class="role__body">
+          <div class="job">
+            <div class="job__head">
+              <h3>B.S. Computer Science <span>· Honors</span></h3>
+              <span class="job__dates">May 2023</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TOOLKIT -->
+  <section class="panel panel--tight">
+    <div class="wrap">
+      <p class="sec-num">03</p>
+      <h2 class="section-title">What I work with</h2>
+      <dl class="kit">
+        <div><dt>Observability</dt><dd>OpenTelemetry · Honeycomb · Prometheus · Thanos · Grafana · PromQL</dd></div>
+        <div><dt>Distributed systems</dt><dd>Kafka · RabbitMQ · gRPC · event-driven architecture · DNS</dd></div>
+        <div><dt>Cloud &amp; infra</dt><dd>AWS (Lambda, Route53, SQS, EventBridge, EC2, S3) · GCP · Kubernetes · OpenShift · ArgoCD · Helm</dd></div>
+        <div><dt>Languages</dt><dd>Go · Python · TypeScript · JavaScript · Java · SQL</dd></div>
+        <div><dt>Data</dt><dd>PostgreSQL · Redis · Elasticsearch · MongoDB · Neo4j</dd></div>
+        <div><dt>AI tooling</dt><dd>Claude Code · Cursor · Codex · Wispr Flow · MCP · RAG · vector search · agent workflows</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- WORK -->
+  <section class="panel" id="work">
+    <div class="wrap">
+      <p class="sec-num">04</p>
+      <h2 class="section-title">Things I've built on my own time</h2>
+      <p class="section-lead">A few things I built on my own time.</p>
+
+      <article class="proj">
+        <a class="proj__shot" href="https://ytrecap.org" target="_blank" rel="noopener">
+          <img src="img/proj-ytlight.jpg" alt="YTRecap interface" loading="lazy">
+        </a>
+        <div class="proj__body">
+          <p class="proj__kicker">01 · live · python flask</p>
+          <h3>YTRecap</h3>
+          <p>Summarizes a YouTube video by parsing its closed captions and passing them to an LLM.
+             Built in 2023, in Python and Flask.</p>
+          <a class="proj__link" href="https://ytrecap.org" target="_blank" rel="noopener">ytrecap.org
+            <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12L12 4M12 4H6M12 4v6"/></svg>
+          </a>
+        </div>
+      </article>
+
+      <article class="proj proj--flip">
+        <a class="proj__shot" href="https://github.com/nicktill/tinyobs" target="_blank" rel="noopener">
+          <img src="img/proj-tinyobs.jpg" alt="TinyOBS interface" loading="lazy">
+        </a>
+        <div class="proj__body">
+          <p class="proj__kicker">02 · Go · open source</p>
+          <h3>TinyOBS</h3>
+          <p>Monitoring, metrics collection and distributed tracing for microservices, written in Go.
+             A much smaller version of what I work on during the day.</p>
+          <a class="proj__link" href="https://github.com/nicktill/tinyobs" target="_blank" rel="noopener">read the source
+            <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12L12 4M12 4H6M12 4v6"/></svg>
+          </a>
+        </div>
+      </article>
+
+      <article class="proj">
+        <a class="proj__shot" href="https://peerfolio.org" target="_blank" rel="noopener">
+          <img src="img/proj-peerfolio.jpg" alt="Peerfolio interface" loading="lazy">
+        </a>
+        <div class="proj__body">
+          <p class="proj__kicker">03 · live · plaid</p>
+          <h3>Peerfolio</h3>
+          <p>Links brokerage accounts through Plaid, aggregates holdings into one portfolio, and lets
+             you compare performance with friends. Most of the work is in reconciling account data,
+             since every brokerage models it differently.</p>
+          <a class="proj__link" href="https://peerfolio.org" target="_blank" rel="noopener">peerfolio.org
+            <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12L12 4M12 4H6M12 4v6"/></svg>
+          </a>
+        </div>
+      </article>
+
+      <p class="also">
+        Also on GitHub:
+        <a href="https://github.com/nicktill/stock-pulse" target="_blank" rel="noopener">StockPulse</a>,
+        <a href="https://github.com/nicktill/crypto-tracker" target="_blank" rel="noopener">CryptoTracker</a>,
+        <a href="https://github.com/nicktill/cs1530-finance-group" target="_blank" rel="noopener">GradeMyAid</a>.
+      </p>
+    </div>
+  </section>
+
+  <!-- CLOSING -->
+  <section class="panel panel--end" id="contact">
+    <div class="wrap closing">
+
+      <aside class="closing__me">
+        <img src="img/headshot.jpg" alt="Nick Tillmann" width="132" height="132">
+        <p class="closing__label">Outside work</p>
+        <p class="closing__personal">
+          Piano, mostly Chopin and Liszt. Cooking. Skiing, tennis, pickleball, golf, and a lot of coffee.
+        </p>
+      </aside>
+
+      <div class="closing__main">
+        <p class="sec-num">05</p>
+        <h2 class="contact__title">Come say hi.</h2>
+        <p class="closing__lead">
+          Happy to talk about observability, distributed systems, piano, or where to go skiing.
+        </p>
+        <a class="closing__email" href="mailto:ntillmann1439@gmail.com">ntillmann1439@gmail.com</a>
+        <div class="closing__links">
+          <a href="https://github.com/nicktill" target="_blank" rel="noopener">github</a>
+          <a href="https://linkedin.com/in/nicholastillmann" target="_blank" rel="noopener">linkedin</a>
+          <a href="resume.pdf" target="_blank" rel="noopener">résumé</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap foot__row">
+    <span>© 2026 Nick Tillmann</span>
+    <span class="foot__photo">photo <span class="js-photo-num">01</span> / <span class="js-photo-total">20</span></span>
+  </div>
+</footer>
+
+
+<script src="app.js?v=1790455780"></script>
+</body>
+</html>

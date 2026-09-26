@@ -26,8 +26,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,300..600,0..100,0..1&family=Karla:wght@300..600&family=IBM+Plex+Mono:wght@400;500&display=swap">
-<link rel="stylesheet" href="styles.css?v=1790168217">
-<link rel="stylesheet" href="themes.css?v=1790168217">
+<link rel="stylesheet" href="styles.css?v=1790435182">
+<link rel="stylesheet" href="themes.css?v=1790435182">
 <script>
   // the scenery lives here rather than in app.js because one of them has to be
   // chosen and preloaded before the first paint, or you see one photo load and
@@ -180,13 +180,9 @@
               <span class="job__dates">Nov 2025 to now</span>
             </div>
             <ul>
-              <li>Built and instrumented metrics, tracing and OpenTelemetry pipelines across core
-                  NS1 Connect services, tracking events from messaging queues through daemon processes
-                  and AWS Lambdas to monitor Route53 synchronization workflows.</li>
-              <li>Set up Honeycomb dashboards, alerting workflows and SLO monitors now used by other
-                  engineering teams.</li>
-              <li>Worked on high-throughput backend services and gRPC for distributed DNS
-                  synchronization, in Go and Python.</li>
+              <li>Own observability for NS1 Connect: the OpenTelemetry pipelines, the Honeycomb dashboards,
+                 and the SLO monitors other teams now run on.</li> <li>Go and Python services for distributed DNS
+                 sync, including the gRPC path between Route53 and NS1.</li>
             </ul>
           </div>
 
@@ -196,15 +192,13 @@
               <span class="job__dates">Aug 2023 to Oct 2025</span>
             </div>
             <ul>
-              <li>Built observability microservices around Prometheus and Thanos for metric ingestion,
-                  enrichment and long-term storage across multi-cloud and on-premise environments.</li>
-              <li>Owned the Prometheus remote-write pipelines (scraping, middleware enrichment and
-                  Thanos ingestion), feeding a topology-aware view of mesh resources via Skupper.</li>
-              <li>Built <strong>PromMocker</strong>, a telemetry simulation framework that generated
-                  realistic remote-write traffic, so we could validate instrumentation without standing
-                  up full gateway environments.</li>
-              <li>Built a WatsonX-powered RAG assistant with vector search over internal Mesh
-                  documentation.</li>
+              <li>Observability microservices on Prometheus and Thanos, handling metric ingestion, enrichment
+                 and long-term storage across cloud and on-premise.</li>
+              <li>Owned the remote-write pipelines end to end, feeding a topology-aware view of mesh resources
+                 through Skupper.</li>
+              <li>Built <strong>PromMocker</strong>, which fakes realistic remote-write traffic so
+                 instrumentation can be tested without standing up a full gateway.</li>
+              <li>A WatsonX-powered RAG assistant with vector search over internal Mesh docs.</li>
             </ul>
           </div>
 
@@ -281,7 +275,7 @@
     <div class="wrap">
       <p class="sec-num">04</p>
       <h2 class="section-title">Things I've built on my own time</h2>
-      <p class="section-lead">A few side projects. The rest are on GitHub.</p>
+      <p class="section-lead">A few things I built on my own time.</p>
 
       <article class="proj">
         <a class="proj__shot" href="https://ytrecap.org" target="_blank" rel="noopener">
@@ -346,9 +340,7 @@
         <img src="img/headshot.jpg" alt="Nick Tillmann" width="132" height="132">
         <p class="closing__label">Outside work</p>
         <p class="closing__personal">
-          Piano, mostly Chopin and Liszt and the usual classics. Cooking. Skiing in
-          winter, then tennis, pickleball and golf the rest of the year. Coffee
-          throughout.
+          Piano, mostly Chopin and Liszt. Cooking. Skiing, tennis, pickleball, golf, and a lot of coffee.
         </p>
       </aside>
 
@@ -387,6 +379,6 @@
 </footer>
 
 
-<script src="app.js?v=1790168217"></script>
+<script src="app.js?v=1790435182"></script>
 </body>
 </html>

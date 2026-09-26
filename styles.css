@@ -70,8 +70,9 @@ a { color: inherit; text-decoration: none; }
 .skip:focus { left: 12px; top: 12px; }
 :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 3px; }
 
-/* sections clear the sticky nav when jumped to */
-section[id] { scroll-margin-top: 84px; }
+/* sections clear the sticky nav when jumped to. 59px puts a section's top
+   border exactly under the scrolled nav's hairline, so the two read as one */
+section[id] { scroll-margin-top: 59px; }
 
 /* ---------- scroll progress ---------- */
 .progress { position: fixed; top: 0; left: 0; right: 0; height: 2px; z-index: 40; pointer-events: none; }
@@ -98,7 +99,7 @@ section[id] { scroll-margin-top: 84px; }
 }
 .bg__layer.is-active { opacity: 1; }
 /* if the head script never ran there is still a photo behind the hero */
-.bg__layer--a { background-image: url("img/scene-3.jpg"); }
+.bg__layer--a { background-image: url("img/scene-3.webp"); }
 
 @keyframes kenburns {
   from { transform: scale(1) translate3d(0, 0, 0); }
@@ -209,13 +210,14 @@ section[id] { scroll-margin-top: 84px; }
 .hero__inner { max-width: 1100px; will-change: transform, opacity; }
 
 .eyebrow {
-  display: flex; align-items: center; gap: 11px;
+  display: flex; align-items: center;
   margin: 0 0 24px;
   font-size: 13.5px; letter-spacing: 0.1em; text-transform: uppercase;
   color: var(--ink-soft);
 }
 .dot {
   width: 7px; height: 7px; border-radius: 50%; background: var(--accent); flex-shrink: 0;
+  margin-right: 11px;
   box-shadow: 0 0 0 0 color-mix(in oklch, var(--accent) 60%, transparent);
   animation: pulse 3s ease-out infinite;
 }
@@ -224,6 +226,9 @@ section[id] { scroll-margin-top: 84px; }
   70% { box-shadow: 0 0 0 11px color-mix(in oklch, var(--accent) 0%, transparent); }
   100% { box-shadow: 0 0 0 0 color-mix(in oklch, var(--accent) 0%, transparent); }
 }
+
+/* on a phone the line wraps and strands "NC", so the location goes */
+@media (max-width: 560px) { .eyebrow__loc { display: none; } }
 
 .hero h1 {
   margin: 0;
@@ -352,6 +357,8 @@ section[id] { scroll-margin-top: 84px; }
 .kit dd { margin: 0; font-size: 15px; line-height: 1.6; color: var(--ink-soft); }
 
 /* ---------- projects ---------- */
+/* a big screenshot needs more air under the heading than a line of text does */
+.section-title + .proj { margin-top: 44px; }
 .proj { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: 48px; align-items: center; margin-bottom: 72px; }
 /* flipped rows mirror the column widths too, so every screenshot is the same size */
 .proj--flip { grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); }
@@ -484,7 +491,8 @@ section[id] { scroll-margin-top: 84px; }
   .proj.reveal .proj__shot img { clip-path: none; transform: none; }
   .bg__layer { transition: none; animation: none; }
   .bg__grain { animation: none; }
-  .dot, .is-scrolled .hero__scroll { opacity: 0; }
+  .dot { animation: none; }
+  .is-scrolled .hero__scroll { opacity: 0; }
   .hero__scroll span { animation: none; }
   .btn, .proj__shot, .proj__shot img, .nav, .nav__brand img { transition: none; }
 }

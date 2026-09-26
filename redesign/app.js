@@ -74,15 +74,27 @@
 
   /* ---- pull an accent colour out of the photo, so the whole page
          re-tints when you change the scenery ---- */
-  var accentCache = {};
+  var lookCache = {};
+
+  /* everything a photo decides about the page, applied in one place. it used
+     to cache only the two accents and return early on a hit, which skipped
+     the brightness and the bar tint: once you had seen the one bright photo,
+     is-bright stayed on and every scene you went back to kept its heavy
+     scrim. */
+  function applyLook(look) {
+    document.body.classList.toggle('is-bright', look.bright);
+    root.style.setProperty('--nav-tint', look.navTint);
+    if (look.accent) {
+      root.style.setProperty('--accent', look.accent);
+      root.style.setProperty('--accent-2', look.accent2);
+    }
+    // from here on, changing the scenery cross-fades the colours
+    requestAnimationFrame(function () { root.classList.add('accents-ready'); });
+  }
 
   function applyAccent(src) {
     if (reduced) return;
-    if (accentCache[src]) {
-      root.style.setProperty('--accent', accentCache[src][0]);
-      root.style.setProperty('--accent-2', accentCache[src][1]);
-      return;
-    }
+    if (lookCache[src]) { applyLook(lookCache[src]); return; }
     var img = new Image();
     img.onload = function () {
       try {
@@ -127,17 +139,18 @@
           satSum += s;
           count++;
         }
-        // a bright photo needs a heavier scrim or the hero copy stops being readable
-        document.body.classList.toggle('is-bright', (lumaSum / lumaCount) > 0.46);
-
-        // and the bar tints itself to whatever the sky behind it is doing.
-        // .bg__tint has already taken two thirds out of the top of the photo
-        // by this point, so the bar only has to cover the rest.
+        // a bright photo needs a heavier scrim or the hero copy stops being
+        // readable. the bar tints itself off the top rows only, because it
+        // sits on the sky rather than on the whole picture.
         var topLuma = topCount ? topSum / topCount : 0.3;
-        root.style.setProperty('--nav-tint',
-          Math.min(0.52, Math.max(0.26, 0.22 + topLuma * 0.34)).toFixed(3));
+        var look = {
+          bright: (lumaSum / lumaCount) > 0.46,
+          navTint: Math.min(0.52, Math.max(0.26, 0.22 + topLuma * 0.34)).toFixed(3),
+          accent: null,
+          accent2: null
+        };
 
-        if (!count) return;
+        if (!count) { lookCache[src] = look; applyLook(look); return; }
 
         var hue = Math.atan2(y, x) * 180 / Math.PI;
         if (hue < 0) hue += 360;
@@ -151,11 +164,10 @@
         var hue2 = (hue + 44) % 360;
         var sat2 = Math.min(0.72, Math.max(0.46, sat * 0.85));
         var accent2 = 'hsl(' + hue2.toFixed(1) + ' ' + (sat2 * 100).toFixed(0) + '% 76%)';
-        accentCache[src] = [accent, accent2];
-        root.style.setProperty('--accent', accent);
-        root.style.setProperty('--accent-2', accent2);
-        // from here on, changing the scenery cross-fades the colours
-        requestAnimationFrame(function () { root.classList.add('accents-ready'); });
+        look.accent = accent;
+        look.accent2 = accent2;
+        lookCache[src] = look;
+        applyLook(look);
       } catch (e) { /* tainted canvas or no 2d context, so keep the default accent */ }
     };
     img.src = src;

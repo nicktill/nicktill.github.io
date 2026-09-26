@@ -1,13 +1,13 @@
 # Background photos
 
-The hero cycles through 17 photographs. `window.SCENES` at the top of
+The hero cycles through 20 photographs. `window.SCENES` at the top of
 `redesign/index.html` is the list; adding a file there is all it takes, and the
 picker, the counter and the random first pick all follow from it.
 
 On each visit one is chosen at random. `?scene=N` pins a specific one, which is
 how `tools/make-og.sh` gets a screenshot that does not change under it.
 
-## Public domain (10)
+## Public domain (13)
 
 From Unsplash by way of Wikimedia Commons, released as **CC0**: no attribution
 required, commercial use fine. Sources kept here as a record.
@@ -24,6 +24,9 @@ required, commercial use fine. Sources kept here as a record.
 | `img/scene-yosemite.jpg` | [Scenic view of Yosemite Valley](https://commons.wikimedia.org/wiki/File%3AScenic_view_of_Yosemite_Valley_%28Unsplash%29.jpg) |
 | `img/scene-coast-storm.jpg` | [Coastal storm brewing](https://commons.wikimedia.org/wiki/File%3ACoastal_storm_brewing_%28Unsplash%29.jpg) |
 | `img/scene-kerid.jpg` | [Kerið sunset.](https://commons.wikimedia.org/wiki/File%3AKeri%C3%B0_sunset._%28Unsplash%29.jpg) |
+| `img/scene-dusk-field.jpg` | [30 Hours](https://commons.wikimedia.org/wiki/File%3A30_Hours_%28Unsplash%29.jpg) |
+| `img/scene-lake-reflection.jpg` | [Lake Wenatchee](https://commons.wikimedia.org/wiki/File%3ALake_Wenatchee_%28Unsplash%29.jpg) |
+| `img/scene-frozen-lake.jpg` | [Half-frozen mountain lake](https://commons.wikimedia.org/wiki/File%3AHalf-frozen_mountain_lake_%28Unsplash%29.jpg) |
 
 ## Provenance unknown (7)
 
@@ -33,7 +36,7 @@ Nick's own photographs and no licence is recorded for them.
 
 Before the site goes public these should be traced to a licence that permits the
 use, or replaced. Replacing them is not much work: the same Wikimedia Commons
-query that found the other ten has hundreds more results. It was a search for
+query that found the other thirteen has hundreds more results. It was a search for
 `intitle:Unsplash` plus landscape terms, filtered to CC0 files at least 2600px
 wide, then scored for a dark frame, restrained saturation and a bottom half
 darker than the top.

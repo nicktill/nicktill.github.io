@@ -26,8 +26,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,300..600,0..100,0..1&family=Karla:wght@300..600&family=IBM+Plex+Mono:wght@400;500&display=swap">
-<link rel="stylesheet" href="styles.css?v=1790436099">
-<link rel="stylesheet" href="themes.css?v=1790436099">
+<link rel="stylesheet" href="styles.css?v=1790436336">
 <script>
   // the scenery lives here rather than in app.js because one of them has to be
   // chosen and preloaded before the first paint, or you see one photo load and
@@ -58,9 +57,6 @@
     try {
       var q = new URLSearchParams(location.search);
 
-      // theme first, so there is no flash of the wrong one
-      var t = q.get('theme') || localStorage.getItem('theme');
-      if (t) document.documentElement.setAttribute('data-theme', t);
 
       // a different view every time you arrive. ?scene=N pins one, which is how
       // the social card gets a screenshot that does not change under it.
@@ -131,7 +127,7 @@
       <span class="scenes__label">the view</span>
       <div class="scenes__dots" role="group" aria-label="Change the background photo">
       </div>
-      <span class="scenes__count"><span id="photoNum">01</span> / <span id="photoTotal">20</span></span>
+      <span class="scenes__count"><span class="js-photo-num">01</span> / <span class="js-photo-total">20</span></span>
     </div>
   </section>
 
@@ -368,19 +364,11 @@
 <footer class="foot">
   <div class="wrap foot__row">
     <span>© 2026 Nick Tillmann</span>
-    <div class="themes" role="group" aria-label="Page theme">
-      <button type="button" data-theme-set="dark" aria-pressed="true">dark</button>
-      <button type="button" data-theme-set="light" aria-pressed="false">paper</button>
-      <button type="button" data-theme-set="flat" aria-pressed="false">flat</button>
-      <button type="button" data-theme-set="amber" aria-pressed="false">amber</button>
-      <button type="button" data-theme-set="terminal" aria-pressed="false">terminal</button>
-      <button type="button" data-theme-set="swiss" aria-pressed="false">swiss</button>
-    </div>
-    <span class="foot__photo">photo <span id="photoNum">01</span> / 07</span>
+    <span class="foot__photo">photo <span class="js-photo-num">01</span> / <span class="js-photo-total">20</span></span>
   </div>
 </footer>
 
 
-<script src="app.js?v=1790436099"></script>
+<script src="app.js?v=1790436336"></script>
 </body>
 </html>

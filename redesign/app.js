@@ -3,38 +3,26 @@
 
   var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  /* ---- theme: dark (photography), light (paper), flat (structural) ---- */
   var root = document.documentElement;
-  var themeBtns = Array.prototype.slice.call(document.querySelectorAll('[data-theme-set]'));
 
-  function usesPhoto(name) { return name === 'dark' || name === 'amber'; }
-
-  function setTheme(name, remember) {
-    root.setAttribute('data-theme', name);
-    themeBtns.forEach(function (b) {
-      b.setAttribute('aria-pressed', b.dataset.themeSet === name ? 'true' : 'false');
-    });
-    // dark and amber both sit on the photographs; the others do not
-    if (usesPhoto(name)) {
-      if (buttons[current]) applyAccent(buttons[current].dataset.src);
+  /* ---- hero entrance ----
+     held until the webfonts are in, so the headline fades up already set in
+     Fraunces instead of rendering in Georgia and swapping mid-fade. capped at
+     700ms, so a slow font server delays the entrance rather than blocking it. */
+  (function () {
+    var started = false;
+    function start() {
+      if (started) return;
+      started = true;
+      requestAnimationFrame(function () { document.body.classList.add('loaded'); });
+    }
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(start);
+      setTimeout(start, 700);
     } else {
-      root.style.removeProperty('--accent');
-      root.style.removeProperty('--accent-2');
-      document.body.classList.remove('is-bright');
+      start();
     }
-    if (remember) {
-      try { localStorage.setItem('theme', name); } catch (e) {}
-    }
-  }
-
-  themeBtns.forEach(function (b) {
-    b.addEventListener('click', function () { setTheme(b.dataset.themeSet, true); });
-  });
-
-  /* ---- hero entrance ---- */
-  requestAnimationFrame(function () {
-    document.body.classList.add('loaded');
-  });
+  })();
 
   /* ---- background changer: cross-fade between two layers ---- */
   var layers = [
@@ -45,7 +33,8 @@
 
   function pad(n) { return (n < 10 ? '0' : '') + n; }
 
-  var photoNum = document.getElementById('photoNum');
+  // the hero picker and the footer both show it, and the hero one scrolls away
+  var photoNums = document.querySelectorAll('.js-photo-num');
 
   /* ---- build the picker from the list the head script declared, so there is
          one place to add a photo and the random pick already agrees with it ---- */
@@ -69,8 +58,9 @@
   });
 
   var buttons = Array.prototype.slice.call(dotsEl.children);
-  var total = document.getElementById('photoTotal');
-  if (total) total.textContent = pad(SCENES.length);
+  document.querySelectorAll('.js-photo-total').forEach(function (el) {
+    el.textContent = pad(SCENES.length);
+  });
 
 
   /* ---- pull an accent colour out of the photo, so the whole page
@@ -153,10 +143,8 @@
         var sat2 = Math.min(0.72, Math.max(0.46, sat * 0.85));
         var accent2 = 'hsl(' + hue2.toFixed(1) + ' ' + (sat2 * 100).toFixed(0) + '% 76%)';
         accentCache[src] = [accent, accent2];
-        if (root.getAttribute('data-theme') !== 'amber') {
-          root.style.setProperty('--accent', accent);
-          root.style.setProperty('--accent-2', accent2);
-        }
+        root.style.setProperty('--accent', accent);
+        root.style.setProperty('--accent-2', accent2);
         // from here on, changing the scenery cross-fades the colours
         requestAnimationFrame(function () { root.classList.add('accents-ready'); });
       } catch (e) { /* tainted canvas or no 2d context, so keep the default accent */ }
@@ -186,7 +174,7 @@
     });
 
     current = index;
-    if (photoNum) photoNum.textContent = pad(index + 1);
+    photoNums.forEach(function (el) { el.textContent = pad(index + 1); });
     applyAccent(src);
   }
 
@@ -201,16 +189,11 @@
       }
     });
   }
-  if (photoNum) photoNum.textContent = pad(current + 1);
+  photoNums.forEach(function (el) { el.textContent = pad(current + 1); });
   warm(current);
 
-  // restore the saved theme now that applyAccent and the dots exist
-  var saved = 'dark';
-  try {
-    var q = new URLSearchParams(location.search).get('theme');
-    saved = q || localStorage.getItem('theme') || 'dark';
-  } catch (e) {}
-  setTheme(saved, false);
+  // the dots exist now, so the first photo can be sampled for its colours
+  applyAccent(buttons[current].dataset.src);
 
   buttons.forEach(function (btn, i) {
     btn.addEventListener('mouseenter', function () {

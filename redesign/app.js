@@ -11,10 +11,16 @@
      700ms, so a slow font server delays the entrance rather than blocking it. */
   (function () {
     var started = false;
+    function reveal() { document.body.classList.add('loaded'); }
     function start() {
       if (started) return;
       started = true;
-      requestAnimationFrame(function () { document.body.classList.add('loaded'); });
+      // a frame first, so the opacity:0 state is painted and the transition
+      // actually runs rather than being batched away
+      requestAnimationFrame(reveal);
+      // rAF is paused in a background tab, so someone who opens the link in
+      // one would be looking at an empty hero until they switched to it
+      setTimeout(reveal, 1200);
     }
     if (document.fonts && document.fonts.ready) {
       document.fonts.ready.then(start);

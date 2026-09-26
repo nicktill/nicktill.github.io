@@ -113,31 +113,6 @@ section[id] { scroll-margin-top: 59px; }
     linear-gradient(100deg, rgba(11,13,15,0.72) 0%, rgba(11,13,15,0.10) 58%, rgba(11,13,15,0) 100%);
   transition: background 900ms var(--ease);
 }
-/* a soft light that follows the pointer over the hero: it thins the scrim in
-   a circle rather than painting anything on top, so it only ever shows more of
-   the photo. app.js adds .has-light and drives --lx, --ly and --lc (the scrim
-   left at the centre, 1 = untouched) */
-.has-light { --lr: clamp(220px, 21vw, 330px); }
-.has-light .bg__tint {
-  -webkit-mask-image: radial-gradient(circle var(--lr) at var(--lx) var(--ly),
-    rgba(0,0,0,var(--lc)) 0%, rgba(0,0,0,calc((1 + var(--lc)) / 2)) 45%, #000 100%);
-          mask-image: radial-gradient(circle var(--lr) at var(--lx) var(--ly),
-    rgba(0,0,0,var(--lc)) 0%, rgba(0,0,0,calc((1 + var(--lc)) / 2)) 45%, #000 100%);
-}
-
-/* and a faint warm glow where it falls. soft-light only lifts the midtones
-   of what is already there, so the highlights and the sky don't blow out */
-.bg__glow {
-  position: absolute; inset: 0; pointer-events: none;
-  opacity: 0;
-  mix-blend-mode: soft-light;
-}
-.has-light .bg__glow {
-  opacity: var(--ls);
-  background: radial-gradient(circle calc(var(--lr) * 1.3) at var(--lx) var(--ly),
-    rgba(255, 238, 214, 0.55) 0%, rgba(255, 238, 214, 0.18) 45%, rgba(255, 238, 214, 0) 100%);
-}
-
 /* bright photos get a heavier scrim so the hero copy keeps its contrast */
 .is-bright .bg__tint {
   background:

@@ -315,54 +315,6 @@
     });
   }
 
-  /* ---- a light that follows the pointer across the hero ----
-     it eases toward the pointer instead of sitting under it, so it reads as
-     light moving over the landscape rather than as a second cursor */
-  if (!reduced && heroEl && window.matchMedia('(pointer: fine)').matches) {
-    var bgEl = document.querySelector('.bg');
-    var LIFT = 0.75;                 // how much of the scrim the centre removes
-    var tx = 0, ty = 0, cx = 0, cy = 0;
-    var inHero = false, ts = 0, cs = 0;
-    var running = false, placed = false;
-
-    function target() {
-      var p = Math.min(1, window.scrollY / driftSpan);
-      ts = inHero ? 1 - p : 0;
-      if (!running) { running = true; requestAnimationFrame(step); }
-    }
-
-    function step() {
-      cx += (tx - cx) * 0.12;
-      cy += (ty - cy) * 0.12;
-      cs += (ts - cs) * 0.08;
-      bgEl.style.setProperty('--lx', cx.toFixed(1) + 'px');
-      bgEl.style.setProperty('--ly', cy.toFixed(1) + 'px');
-      bgEl.style.setProperty('--lc', (1 - LIFT * cs).toFixed(3));
-      bgEl.style.setProperty('--ls', cs.toFixed(3));
-      var settled = Math.abs(tx - cx) < 0.3 && Math.abs(ty - cy) < 0.3 && Math.abs(ts - cs) < 0.002;
-      if (settled) {
-        running = false;
-        // fully faded out: drop the mask so the scrim is a plain layer again
-        if (ts === 0) { cs = 0; bgEl.classList.remove('has-light'); }
-        return;
-      }
-      requestAnimationFrame(step);
-    }
-
-    // on the document rather than the hero, so passing over the nav (which
-    // sits on the same photo) doesn't count as leaving
-    document.addEventListener('mousemove', function (e) {
-      tx = e.clientX; ty = e.clientY;
-      // first sighting: start the light where the pointer is, not sliding in from a corner
-      if (!placed) { cx = tx; cy = ty; placed = true; }
-      inHero = ty < heroEl.getBoundingClientRect().bottom;
-      if (inHero) bgEl.classList.add('has-light');
-      target();
-    });
-    document.documentElement.addEventListener('mouseleave', function () { inHero = false; target(); });
-    window.addEventListener('scroll', function () { if (inHero || cs > 0) target(); }, { passive: true });
-  }
-
   if (reduced || !('IntersectionObserver' in window)) return;
 
   /* ---- split section leads into words so they can come in one at a time ---- */

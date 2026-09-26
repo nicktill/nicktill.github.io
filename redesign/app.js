@@ -7,8 +7,8 @@
 
   /* ---- hero entrance ----
      held until the webfonts are in, so the headline fades up already set in
-     Fraunces instead of rendering in Georgia and swapping mid-fade. capped at
-     700ms, so a slow font server delays the entrance rather than blocking it. */
+     Fraunces instead of rendering in Georgia and swapping mid-fade. capped
+     short, because a blank hero reads worse than a late typeface. */
   (function () {
     var started = false;
     function reveal() { document.body.classList.add('loaded'); }
@@ -24,7 +24,7 @@
     }
     if (document.fonts && document.fonts.ready) {
       document.fonts.ready.then(start);
-      setTimeout(start, 700);
+      setTimeout(start, 300);
     } else {
       start();
     }
@@ -56,9 +56,12 @@
     b.dataset.src = src;
     b.setAttribute('aria-pressed', i === current ? 'true' : 'false');
     b.setAttribute('aria-label', scene[1]);
+    // the preview is 104x68, so it gets a thumbnail. pointing it at the full
+    // photo meant every one of them downloaded on load, megabytes of it, for
+    // hover art the size of a postage stamp.
     var peek = document.createElement('span');
     peek.className = 'scenes__peek';
-    peek.style.backgroundImage = 'url(' + src + ')';
+    peek.style.backgroundImage = 'url(img/thumb/' + scene[0] + ')';
     b.appendChild(peek);
     dotsEl.appendChild(b);
   });
@@ -232,24 +235,20 @@
      properties the compositor can handle on its own. */
   var nav = document.getElementById('nav');
   var bar = document.getElementById('progressBar');
-  var bgEl = document.querySelector('.bg');
   var heroEl = document.querySelector('.hero');
   var heroInner = document.querySelector('.hero__inner');
 
   // measuring the document mid-scroll forces a synchronous layout, so both
   // of these are taken once and again only when the page can have resized
   var scrollMax = 1;
-  var heroHeight = 1;
   var driftSpan = 1;
   function measure() {
     scrollMax = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
-    heroHeight = heroEl ? heroEl.offsetHeight : window.innerHeight;
-    driftSpan = heroHeight * 0.55;
+    driftSpan = (heroEl ? heroEl.offsetHeight : window.innerHeight) * 0.55;
   }
 
   var ticking = false;
   var wasScrolled = null;
-  var wasStill = null;
   var lastDrift = -1;
 
   function paint() {
@@ -265,12 +264,6 @@
       wasScrolled = scrolled;
       nav.classList.toggle('is-scrolled', scrolled);
       root.classList.toggle('is-scrolled', scrolled);
-    }
-
-    var still = y > heroHeight;
-    if (still !== wasStill) {
-      wasStill = still;
-      bgEl.classList.toggle('bg--still', still);
     }
 
     // the hero lifts away and is gone by halfway down its own height. going

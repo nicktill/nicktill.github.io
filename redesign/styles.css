@@ -46,7 +46,13 @@
 }
 
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+  /* no rubber-band at the ends: the photo is fixed but the nav and footer
+     scroll, so a bounce drags the footer hairline up over a still background */
+  overscroll-behavior-y: none;
+  background: var(--ground);
+}
 
 body {
   margin: 0;

@@ -357,14 +357,13 @@ section[id] { scroll-margin-top: 84px; }
   box-shadow: 0 30px 70px rgba(0,0,0,0.55);
   transition: transform 600ms var(--ease), box-shadow 600ms var(--ease), border-color 600ms var(--ease);
 }
-/* the three screenshots are 1.52, 1.88 and 2.01 wide, so they all get cropped to
-   fit one frame. anchor top centre so the crop is symmetrical instead of lopping
-   the right-hand side off whichever image is widest. */
+/* Fill the preview frame without letterboxing. */
 .proj__shot img {
   width: 100%; aspect-ratio: 16 / 10; object-fit: cover; object-position: top center;
   transition: transform 900ms var(--ease);
 }
 /* screenshots wipe up rather than fading in */
+.proj__shot img.proj__image--full { aspect-ratio: auto; height: auto; }
 .proj.reveal .proj__shot img { clip-path: inset(0 0 42% 0); transform: scale(1.05); }
 .proj.reveal.is-in .proj__shot img {
   clip-path: inset(0 0 0 0); transform: scale(1);

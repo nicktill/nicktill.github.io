@@ -349,6 +349,12 @@ section[id] { scroll-margin-top: 59px; }
 .job li::marker { color: color-mix(in oklch, var(--accent-2) 72%, transparent); }
 .job strong { color: var(--ink); font-weight: 600; }
 .role--edu .job__head { margin-bottom: 0; }
+details.job > summary { list-style: none; cursor: pointer; position: relative; padding-right: 28px; }
+details.job > summary::-webkit-details-marker { display: none; }
+details.job > summary::after { content: ""; position: absolute; right: 4px; top: 0.55em; width: 8px; height: 8px; border-right: 1.5px solid var(--ink-mute); border-bottom: 1.5px solid var(--ink-mute); transform: rotate(45deg); transition: transform 240ms var(--ease); }
+details.job[open] > summary::after { transform: rotate(-135deg); top: 0.75em; }
+details.job > summary:hover h3 { color: var(--accent); }
+details.job:not([open]) > summary { margin-bottom: 0; }
 
 /* ---------- toolkit ---------- */
 .kit { margin: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 0 44px; }
@@ -548,3 +554,10 @@ section[id] { scroll-margin-top: 59px; }
   .closing__me img { width: 92px; height: 92px; margin-bottom: 16px; }
   .foot__row { flex-wrap: wrap; gap: 12px; }
 }
+
+/* smooth scroll (Lenis) needs native smooth scrolling off */
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+/* project screenshots tilt toward the cursor */
+.proj__shot { transform: perspective(1000px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)); will-change: transform; }
+.proj__shot:hover { transform: perspective(1000px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)) translateY(-5px); }

@@ -315,6 +315,45 @@
     });
   }
 
+  /* ---- experience roles ease open and closed ---- */
+  document.querySelectorAll('details.job').forEach(function (d) {
+    var sum = d.querySelector('summary');
+    var anim = null;
+    sum.addEventListener('click', function (e) {
+      if (reduced) return;
+      e.preventDefault();
+      if (anim) anim.cancel();
+      var opening = !d.open;
+      var from = d.offsetHeight;
+      if (opening) d.open = true;
+      var to = opening ? d.offsetHeight : sum.offsetHeight;
+      d.style.overflow = 'hidden';
+      anim = d.animate({ height: [from + 'px', to + 'px'] }, { duration: 380, easing: 'cubic-bezier(0.22, 1, 0.36, 1)' });
+      anim.onfinish = anim.oncancel = function () {
+        if (!opening) d.open = false;
+        d.style.overflow = '';
+        anim = null;
+      };
+    });
+  });
+
+  /* ---- project screenshots tilt a little toward the cursor ---- */
+  if (!reduced && window.matchMedia('(pointer: fine)').matches) {
+    document.querySelectorAll('.proj__shot').forEach(function (el) {
+      el.addEventListener('mousemove', function (e) {
+        var r = el.getBoundingClientRect();
+        var x = (e.clientX - r.left) / r.width - 0.5;
+        var y = (e.clientY - r.top) / r.height - 0.5;
+        el.style.setProperty('--ry', (x * 5).toFixed(2) + 'deg');
+        el.style.setProperty('--rx', (y * -4).toFixed(2) + 'deg');
+      });
+      el.addEventListener('mouseleave', function () {
+        el.style.setProperty('--rx', '0deg');
+        el.style.setProperty('--ry', '0deg');
+      });
+    });
+  }
+
   if (reduced || !('IntersectionObserver' in window)) return;
 
   /* ---- split section leads into words so they can come in one at a time ---- */

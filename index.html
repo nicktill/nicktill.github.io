@@ -137,24 +137,20 @@
       <p class="sec-num">01</p>
       <h2 class="section-title">What I'm doing now</h2>
       <p class="section-lead">
-        NS1 Connect is IBM's managed DNS platform. My work there is mostly instrumentation, so
-        that when something breaks there's enough signal to figure out what happened.
+        NS1 Connect is IBM's managed DNS platform. My work is mostly instrumentation, so that when something breaks there's enough signal to see why.
       </p>
       <div class="now-grid">
         <article>
           <h3>Instrumentation</h3>
-          <p>OpenTelemetry pipelines that follow an event from a messaging queue, through daemon
-             processes and AWS Lambdas, into Route53 synchronization workflows.</p>
+          <p>OpenTelemetry instrumentation that traces an event from queue to Route53 sync.</p>
         </article>
         <article>
           <h3>Dashboards and alerts</h3>
-          <p>Honeycomb dashboards, alerting workflows and SLO monitors, used by engineering teams
-             to cut down how long it takes to notice something is wrong.</p>
+          <p>Honeycomb dashboards and SLO monitors that shorten time-to-notice.</p>
         </article>
         <article>
           <h3>Services</h3>
-          <p>Backend work and gRPC services for distributed DNS synchronization, processing
-             lambda-driven events across queues between AWS Route53 and NS1.</p>
+          <p>Go and gRPC services for distributed DNS sync.</p>
         </article>
       </div>
     </div>
@@ -172,46 +168,39 @@
           <span class="role__where">Raleigh, NC</span>
         </div>
         <div class="role__body">
-          <div class="job">
-            <div class="job__head">
+          <details class="job" open>
+            <summary class="job__head">
               <h3>Staff Software Engineer <span>· NS1 Connect</span></h3>
               <span class="job__dates">Nov 2025 to now</span>
-            </div>
+            </summary>
             <ul>
-              <li>Own observability for NS1 Connect: the OpenTelemetry pipelines, the Honeycomb dashboards,
-                 and the SLO monitors other teams now run on.</li> <li>Go and Python services for distributed DNS
-                 sync, including the gRPC path between Route53 and NS1.</li>
+              <li>Built OpenTelemetry instrumentation that follows an event from a messaging queue through daemon processes and AWS Lambdas into Route53 synchronization workflows.</li>
+              <li>Created Honeycomb dashboards, alerting workflows and SLO monitors that engineering teams use to spot problems faster.</li>
+              <li>Backend work in Go and Python, including gRPC services for distributed DNS synchronization between AWS Route53 and NS1.</li>
             </ul>
-          </div>
+          </details>
 
-          <div class="job">
-            <div class="job__head">
+          <details class="job">
+            <summary class="job__head">
               <h3>Associate Software Engineer <span>· Hybrid Cloud Mesh</span></h3>
               <span class="job__dates">Aug 2023 to Oct 2025</span>
-            </div>
+            </summary>
             <ul>
-              <li>Observability microservices on Prometheus and Thanos, handling metric ingestion, enrichment
-                 and long-term storage across cloud and on-premise.</li>
-              <li>Owned the remote-write pipelines end to end, feeding a topology-aware view of mesh resources
-                 through Skupper.</li>
-              <li>Built <strong>PromMocker</strong>, which fakes realistic remote-write traffic so
-                 instrumentation can be tested without standing up a full gateway.</li>
-              <li>Built a RAG-powered chatbot that answers from Mesh documentation, using vector search over the docs for context.</li>
+              <li>Built the observability layer for Hybrid Cloud Mesh, IBM's multi-cloud networking product, using Prometheus and Thanos to collect and store metrics across clouds.</li>
+              <li>Reworked core data models into a cache for 30% faster data retrieval, and tuned Thanos for high-cardinality metrics, cutting its memory use by over 50%.</li>
             </ul>
-          </div>
+          </details>
 
-          <div class="job">
-            <div class="job__head">
+          <details class="job">
+            <summary class="job__head">
               <h3>Software Engineer Intern <span>· Cloud Expert Labs</span></h3>
               <span class="job__dates">May 2022 to Sep 2022</span>
-            </div>
+            </summary>
             <ul>
-              <li>Built authentication UIs in TypeScript, Next.js and Node.js against IBM Cloud Identity,
-                  plus Express REST APIs handling MFA, password resets and email account recovery.</li>
-              <li>Automated retailer onboarding in Python, cutting manual processing by roughly 75%, and
-                  added Cypress end-to-end tests to CI/CD.</li>
+              <li>Built authentication UIs in TypeScript, Next.js and Node.js against IBM Cloud Identity, plus Express REST APIs for MFA, password resets and email account recovery.</li>
+              <li>Automated retailer onboarding in Python, cutting manual work ~75%, and added Cypress E2E tests to CI/CD.</li>
             </ul>
-          </div>
+          </details>
         </div>
       </div>
 
@@ -221,17 +210,17 @@
           <span class="role__where">Reston, VA</span>
         </div>
         <div class="role__body">
-          <div class="job">
-            <div class="job__head">
+          <details class="job">
+            <summary class="job__head">
               <h3>Software Engineer Intern <span>· Annex Intelligence Division</span></h3>
               <span class="job__dates">Jun 2021 to Dec 2021</span>
-            </div>
+            </summary>
             <ul>
               <li>Worked on secure web and mobile applications for the National Counterterrorism Center.</li>
-              <li>Refactored Elasticsearch indexing and query execution to speed up backend lookups, and
-                  tidied up Docker/GitLab/SonarQube pipelines for roughly 40% faster builds.</li>
+              <li>Refactored Elasticsearch indexing and query execution to speed up backend lookups.</li>
+              <li>Cleaned up Docker, GitLab and SonarQube pipelines for roughly 40% faster builds.</li>
             </ul>
-          </div>
+          </details>
         </div>
       </div>
 
@@ -275,41 +264,11 @@
       <h2 class="section-title">Things I've built on my own time</h2>
 
       <article class="proj">
-        <a class="proj__shot" href="https://ytrecap.org" target="_blank" rel="noopener">
-          <img src="img/proj-ytlight.jpg" alt="YTRecap landing page: Watch less. Understand more." loading="lazy">
-        </a>
-        <div class="proj__body">
-          <p class="proj__kicker">01 · live · python flask</p>
-          <h3>YTRecap</h3>
-          <p>Summarizes a YouTube video by parsing its closed captions and passing them to an LLM.
-             Built in 2023, in Python and Flask.</p>
-          <a class="proj__link" href="https://ytrecap.org" target="_blank" rel="noopener">ytrecap.org
-            <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12L12 4M12 4H6M12 4v6"/></svg>
-          </a>
-        </div>
-      </article>
-
-      <article class="proj proj--flip">
-        <a class="proj__shot" href="https://nicktill.com/tinyobs" target="_blank" rel="noopener">
-          <img src="img/proj-tinyobs.jpg" alt="TinyOBS landing page with a metrics query and request-rate chart" loading="lazy">
-        </a>
-        <div class="proj__body">
-          <p class="proj__kicker">02 · Go · open source</p>
-          <h3>TinyOBS</h3>
-          <p>A Prometheus-compatible metrics server written in Go, with PromQL, a Grafana-ready API,
-             and a storage engine with cardinality and retention limits. One binary, small enough to read end to end.</p>
-          <a class="proj__link" href="https://nicktill.com/tinyobs" target="_blank" rel="noopener">nicktill.com/tinyobs
-            <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12L12 4M12 4H6M12 4v6"/></svg>
-          </a>
-        </div>
-      </article>
-
-      <article class="proj">
         <a class="proj__shot" href="https://peerfolio.org" target="_blank" rel="noopener">
-          <img class="proj__image--full" src="img/proj-peerfolio.jpg" alt="Peerfolio dark landing page with a friends' portfolio chart and league standings" loading="lazy">
+          <img class="proj__image--full" src="img/proj-peerfolio.webp" alt="Peerfolio dark landing page with a friends' portfolio chart and league standings" loading="lazy">
         </a>
         <div class="proj__body">
-          <p class="proj__kicker">03 · live · social investing</p>
+          <p class="proj__kicker">01 · live · social investing</p>
           <h3>Peerfolio</h3>
           <p>Private investing leagues for your group chat, ranked by returns without sharing balances.
              Add your holdings by hand or compete with a fantasy portfolio, then see how your picks stack up.</p>
@@ -319,12 +278,36 @@
         </div>
       </article>
 
-      <p class="also">
-        Also on GitHub:
-        <a href="https://github.com/nicktill/stock-pulse" target="_blank" rel="noopener">StockPulse</a>,
-        <a href="https://github.com/nicktill/crypto-tracker" target="_blank" rel="noopener">CryptoTracker</a>,
-        <a href="https://github.com/nicktill/cs1530-finance-group" target="_blank" rel="noopener">GradeMyAid</a>.
-      </p>
+      <article class="proj proj--flip">
+        <a class="proj__shot" href="https://ytrecap.org" target="_blank" rel="noopener">
+          <img src="img/proj-ytlight.jpg" alt="YTRecap landing page: Watch less. Understand more." loading="lazy">
+        </a>
+        <div class="proj__body">
+          <p class="proj__kicker">02 · live · python flask</p>
+          <h3>YTRecap</h3>
+          <p>Summarizes a YouTube video by parsing its closed captions and passing them to an LLM.
+             Built in 2023, in Python and Flask.</p>
+          <a class="proj__link" href="https://ytrecap.org" target="_blank" rel="noopener">ytrecap.org
+            <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12L12 4M12 4H6M12 4v6"/></svg>
+          </a>
+        </div>
+      </article>
+
+      <article class="proj">
+        <a class="proj__shot" href="https://nicktill.com/tinyobs" target="_blank" rel="noopener">
+          <img src="img/proj-tinyobs.jpg" alt="TinyOBS landing page with a metrics query and request-rate chart" loading="lazy">
+        </a>
+        <div class="proj__body">
+          <p class="proj__kicker">03 · Go · open source</p>
+          <h3>TinyOBS</h3>
+          <p>A Prometheus-compatible metrics server written in Go, with PromQL, a Grafana-ready API,
+             and a storage engine with cardinality and retention limits. One binary, small enough to read end to end.</p>
+          <a class="proj__link" href="https://nicktill.com/tinyobs" target="_blank" rel="noopener">nicktill.com/tinyobs
+            <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12L12 4M12 4H6M12 4v6"/></svg>
+          </a>
+        </div>
+      </article>
+
     </div>
   </section>
 
@@ -367,6 +350,17 @@
 </footer>
 
 
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script>
+  // slow, eased scrolling on desktop; native scroll for touch and reduced motion
+  (function () {
+    if (!window.Lenis) return;
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches || !matchMedia('(pointer: fine)').matches) return;
+    var lenis = new Lenis({ lerp: 0.085, wheelMultiplier: 0.9, anchors: true });
+    function raf(t) { lenis.raf(t); requestAnimationFrame(raf); }
+    requestAnimationFrame(raf);
+  })();
+</script>
 <script src="app.js?v=1790458529"></script>
 </body>
 </html>

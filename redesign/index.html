@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Nick Tillmann</title>
-<meta name="description" content="Nick Tillmann is a software engineer at IBM. Observability, distributed systems, and managed DNS.">
+<meta name="description" content="Nick Tillmann is a software engineer at IBM. Distributed backend services, Go, gRPC, AWS, and managed DNS.">
 <link rel="icon" href="favicon.ico">
 <link rel="canonical" href="https://nicktill.com/">
 <meta name="theme-color" content="#0B0D0F">
@@ -14,14 +14,14 @@
 <meta property="og:url" content="https://nicktill.com/">
 <meta property="og:site_name" content="Nick Tillmann">
 <meta property="og:title" content="Nick Tillmann">
-<meta property="og:description" content="Software engineer at IBM. Observability, distributed systems, and the Go services that keep DNS records in sync.">
+<meta property="og:description" content="Software engineer at IBM. Distributed backend services in Go, gRPC, and AWS that keep DNS in sync between NS1 and Route 53.">
 <meta property="og:image" content="https://nicktill.com/og.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="The nicktill.com homepage: a mountain ridge at dawn behind the words Hi, I am Nick.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Nick Tillmann">
-<meta name="twitter:description" content="Software engineer at IBM. Observability, distributed systems, and the Go services that keep DNS records in sync.">
+<meta name="twitter:description" content="Software engineer at IBM. Distributed backend services in Go, gRPC, and AWS that keep DNS in sync between NS1 and Route 53.">
 <meta name="twitter:image" content="https://nicktill.com/og.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -112,8 +112,8 @@
       <h1 class="r" style="--i:1">Hi, I'm Nick.</h1>
       <p class="hero__lead r" style="--i:2">
         I'm a software engineer at IBM, working on NS1 Connect. Most of what I do is
-        observability work: OpenTelemetry pipelines, dashboards, and the Go services that
-        keep DNS records in sync.
+        distributed backend work: Go and gRPC services, Lambdas, and message queues that
+        keep DNS in sync between NS1 and AWS Route 53.
       </p>
       <div class="hero__actions r" style="--i:3">
         <a class="btn btn--solid" href="#now">What I work on
@@ -137,20 +137,20 @@
       <p class="sec-num">01</p>
       <h2 class="section-title">What I'm doing now</h2>
       <p class="section-lead">
-        NS1 Connect is IBM's managed DNS platform. My work is mostly instrumentation, so that when something breaks there's enough signal to see why.
+        NS1 Connect is IBM's managed DNS platform. I build the services that sync customer DNS between NS1 and Route 53, and they have to stay correct even when messages arrive late, twice, or not at all.
       </p>
       <div class="now-grid">
         <article>
-          <h3>Instrumentation</h3>
-          <p>OpenTelemetry instrumentation that traces an event from queue to Route53 sync.</p>
+          <h3>Sync pipelines</h3>
+          <p>Go and Python services across gRPC streams, Lambda and SQS. I hunt down race conditions and delivery failures so DNS updates don't get lost.</p>
         </article>
         <article>
-          <h3>Dashboards and alerts</h3>
-          <p>Honeycomb dashboards and SLO monitors that shorten time-to-notice.</p>
+          <h3>Delegation sets &amp; APIs</h3>
+          <p>Led design of Route 53 reusable delegation sets, and built the gRPC APIs that translate DNS config between NS1 and Route 53.</p>
         </article>
         <article>
-          <h3>Services</h3>
-          <p>Go and gRPC services for distributed DNS sync.</p>
+          <h3>Observability</h3>
+          <p>End-to-end OpenTelemetry tracing and Honeycomb alerts. Sync failures used to go unnoticed until a customer reported them; now on-call hears about it first.</p>
         </article>
       </div>
     </div>
@@ -174,9 +174,10 @@
               <span class="job__dates">Nov 2025 to now</span>
             </summary>
             <ul>
-              <li>Built OpenTelemetry instrumentation that follows an event from a messaging queue through daemon processes and AWS Lambdas into Route53 synchronization workflows.</li>
-              <li>Created Honeycomb dashboards, alerting workflows and SLO monitors that engineering teams use to spot problems faster.</li>
-              <li>Backend work in Go and Python, including gRPC services for distributed DNS synchronization between AWS Route53 and NS1.</li>
+              <li>Led design and implementation of Route 53 reusable delegation sets, coordinating four engineers plus UI, QA and PM.</li>
+              <li>Hardened Go and Python DNS sync pipelines across gRPC, Lambda and SQS, fixing race conditions and delivery failures that caused lost updates.</li>
+              <li>Built cross-service gRPC APIs and the translation layer between NS1 and Route 53 DNS config, with automated recovery and ownership checks.</li>
+              <li>Added end-to-end OpenTelemetry tracing with Honeycomb alerts routed to on-call; failures that used to go unnoticed until customers reported them now surface within minutes.</li>
             </ul>
           </details>
 
@@ -187,7 +188,8 @@
             </summary>
             <ul>
               <li>Built the observability layer for Hybrid Cloud Mesh, IBM's multi-cloud networking product, using Prometheus and Thanos to collect and store metrics across clouds.</li>
-              <li>Reworked core data models into a cache for 30% faster data retrieval, and tuned Thanos for high-cardinality metrics, cutting its memory use by over 50%.</li>
+              <li>Built PromMocker to provision test resources and generate realistic Prometheus traffic, so we could test without deploying full gateway environments.</li>
+              <li>Built a RAG chatbot over Hybrid Cloud Mesh documentation with embedding-based retrieval and source-cited answers; the IBM Docs team later adopted the implementation for its documentation assistant.</li>
             </ul>
           </details>
 
@@ -247,10 +249,10 @@
       <p class="sec-num">03</p>
       <h2 class="section-title">What I work with</h2>
       <dl class="kit">
-        <div><dt>Observability</dt><dd>OpenTelemetry · Honeycomb · Prometheus · Thanos · Grafana · PromQL</dd></div>
         <div><dt>Distributed systems</dt><dd>Kafka · RabbitMQ · gRPC · event-driven architecture · DNS</dd></div>
-        <div><dt>Cloud &amp; infra</dt><dd>AWS (Lambda, Route53, SQS, EventBridge, EC2, S3) · GCP · Kubernetes · OpenShift · ArgoCD · Helm</dd></div>
         <div><dt>Languages</dt><dd>Go · Python · TypeScript · JavaScript · Java · SQL</dd></div>
+        <div><dt>Cloud &amp; infra</dt><dd>AWS (Lambda, Route 53, SQS, DynamoDB, EC2, S3) · GCP · Kubernetes · OpenShift · ArgoCD · Helm</dd></div>
+        <div><dt>Observability</dt><dd>OpenTelemetry · Honeycomb · Prometheus · Thanos · Grafana · PromQL</dd></div>
         <div><dt>Data</dt><dd>PostgreSQL · Redis · Elasticsearch · MongoDB · Neo4j</dd></div>
         <div><dt>AI tooling</dt><dd>Claude Code · Cursor · Codex · Wispr Flow · MCP · RAG · vector search · agent workflows</dd></div>
       </dl>
@@ -327,7 +329,7 @@
         <p class="sec-num">05</p>
         <h2 class="contact__title">Come say hi.</h2>
         <p class="closing__lead">
-          Happy to talk about observability, distributed systems, piano, or where to go skiing.
+          Happy to talk about distributed systems, DNS, piano, or where to go skiing.
         </p>
         <a class="closing__email" href="mailto:ntillmann1439@gmail.com">ntillmann1439@gmail.com</a>
         <div class="closing__links">

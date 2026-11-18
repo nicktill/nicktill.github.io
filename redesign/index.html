@@ -145,7 +145,7 @@
           <p>Go and Python services across gRPC streams, Lambda and SQS. I hunt down race conditions and delivery failures so DNS updates don't get lost.</p>
         </article>
         <article>
-          <h3>Features</h3>
+          <h3>Delegation sets &amp; APIs</h3>
           <p>Led design of Route 53 reusable delegation sets, and built the gRPC APIs that translate DNS config between NS1 and Route 53.</p>
         </article>
         <article>
@@ -177,7 +177,7 @@
               <li>Led design and implementation of Route 53 reusable delegation sets, coordinating four engineers plus UI, QA and PM.</li>
               <li>Hardened Go and Python DNS sync pipelines across gRPC, Lambda and SQS, fixing race conditions and delivery failures that caused lost updates.</li>
               <li>Built cross-service gRPC APIs and the translation layer between NS1 and Route 53 DNS config, with automated recovery and ownership checks.</li>
-              <li>Added end-to-end OpenTelemetry tracing with Honeycomb alerts to on-call; failures that used to go unnoticed until customers reported them now surface within minutes.</li>
+              <li>Added end-to-end OpenTelemetry tracing with Honeycomb alerts routed to on-call; failures that used to go unnoticed until customers reported them now surface within minutes.</li>
             </ul>
           </details>
 
@@ -188,7 +188,8 @@
             </summary>
             <ul>
               <li>Built the observability layer for Hybrid Cloud Mesh, IBM's multi-cloud networking product, using Prometheus and Thanos to collect and store metrics across clouds.</li>
-              <li>Reworked core data models into a cache for 30% faster data retrieval, and tuned Thanos for high-cardinality metrics, cutting its memory use by over 50%.</li>
+              <li>Built PromMocker to provision test resources and generate realistic Prometheus traffic, so we could test without deploying full gateway environments.</li>
+              <li>Built a RAG chatbot over Hybrid Cloud Mesh documentation with embedding-based retrieval and source-cited answers; the IBM Docs team later adopted the implementation for its documentation assistant.</li>
             </ul>
           </details>
 

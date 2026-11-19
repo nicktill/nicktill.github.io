@@ -137,20 +137,20 @@
       <p class="sec-num">01</p>
       <h2 class="section-title">What I'm doing now</h2>
       <p class="section-lead">
-        NS1 Connect is IBM's managed DNS platform. I build the services that sync customer DNS between NS1 and Route 53, and they have to stay correct even when messages arrive late, twice, or not at all.
+        NS1 Connect is IBM's managed DNS platform. I work on the services that keep customer DNS in sync between NS1 and AWS Route 53.
       </p>
       <div class="now-grid">
         <article>
           <h3>Sync pipelines</h3>
-          <p>Go and Python services across gRPC streams, Lambda and SQS. I hunt down race conditions and delivery failures so DNS updates don't get lost.</p>
+          <p>Go and Python services built on gRPC, Lambda and SQS. A lot of the work is tracking down race conditions and delivery issues so updates aren't dropped.</p>
         </article>
         <article>
-          <h3>Delegation sets and APIs</h3>
-          <p>Led design of Route 53 reusable delegation sets, and built the gRPC APIs that translate DNS config between NS1 and Route 53.</p>
+          <h3>Route 53 features</h3>
+          <p>Reusable delegation sets for Route 53, and the gRPC APIs that translate DNS config between NS1 and Route 53.</p>
         </article>
         <article>
           <h3>Observability</h3>
-          <p>End-to-end OpenTelemetry tracing and Honeycomb alerts. Sync failures used to go unnoticed until a customer reported them; now on-call hears about it first.</p>
+          <p>OpenTelemetry tracing across the sync path, with Honeycomb alerts so the team hears about sync failures early.</p>
         </article>
       </div>
     </div>
